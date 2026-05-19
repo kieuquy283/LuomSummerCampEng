@@ -30,15 +30,8 @@ const Benefits = () => {
     <section className="bg-white py-20" id="loi-ich">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-secondary">
+          <p className="mb-3 text-xl font-semibold uppercase tracking-[0.2em] text-brand-secondary">
             Tại sao nên tham gia
-          </p>
-          <h2 className="mb-4 text-3xl font-extrabold text-slate-900 md:text-4xl">
-            Đây không chỉ là một vị trí tình nguyện
-          </h2>
-          <p className="text-lg leading-8 text-slate-600">
-            Mỗi buổi lên lớp là một lần bạn trực tiếp tạo tác động tích cực cho học sinh, đồng thời
-            tích lũy thêm trải nghiệm thật cho chính mình.
           </p>
         </div>
 

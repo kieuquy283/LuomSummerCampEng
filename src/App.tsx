@@ -1,12 +1,10 @@
 import Benefits from './components/Benefits';
 import CTA from './components/CTA';
-import Curriculum from './components/Curriculum';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import InstructorRecruitment from './components/InstructorRecruitment';
-import Process from './components/Process';
 
 function App() {
   return (
@@ -16,8 +14,6 @@ function App() {
         <Hero />
         <Benefits />
         <InstructorRecruitment />
-        <Curriculum />
-        <Process />
         <FAQ />
         <CTA />
       </main>

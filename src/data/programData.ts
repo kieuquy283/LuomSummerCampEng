@@ -68,7 +68,7 @@ export const programInfo = [
 
 export const positions = [
   {
-    title: 'Tình nguyện viên Đứng lớp & Hỗ trợ chuyên môn',
+    title: 'TNV Đứng lớp & Hỗ trợ chuyên môn',
     badge: '10 người',
     tasks: [
       'Chủ trì điều phối các buổi học và trực tiếp hướng dẫn học sinh tiếp cận kiến thức, kỹ năng giao tiếp tiếng Anh cơ bản.',
@@ -82,7 +82,7 @@ export const positions = [
     ],
   },
   {
-    title: 'Tình nguyện viên Trợ giảng & Điều phối lớp học',
+    title: 'TNV Trợ giảng & Điều phối lớp học',
     badge: '10 người',
     tasks: [
       'Hỗ trợ giáo viên chính quản lý lớp học, hướng dẫn học sinh thực hành bài tập, tương tác và tham gia trò chơi ngôn ngữ.',

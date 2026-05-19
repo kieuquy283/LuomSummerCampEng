@@ -10,15 +10,8 @@ const InstructorRecruitment = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-secondary">
-            Vị trí tuyển dụng
-          </p>
-          <h2 className="mb-4 text-3xl font-extrabold text-slate-900 md:text-4xl">
-            Chọn vai trò phù hợp để đồng hành cùng học sinh
-          </h2>
-          <p className="text-lg leading-8 text-slate-600">
-            Dù bạn muốn trực tiếp đứng lớp hay hỗ trợ điều phối phía sau, mỗi vị trí đều góp phần
-            tạo nên một trải nghiệm học tập tích cực cho các em.
+          <p className="mb-3 text-xl font-semibold uppercase tracking-[0.2em] text-brand-secondary">
+            Tìm kiếm Tình nguyện viên ở các vị trí
           </p>
         </div>
 

@@ -10,13 +10,9 @@ const FAQ = () => {
     <section className="bg-white py-20" id="faq">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-secondary">
+          <p className="mb-3 text-4xl font-semibold uppercase tracking-[0.2em] text-brand-secondary">
             FAQ
           </p>
-          <h2 className="mb-4 text-3xl font-extrabold text-slate-900 md:text-4xl">
-            Các câu hỏi thường gặp
-          </h2>
-          <p className="text-lg leading-8 text-slate-600">{program.shortTeamName}</p>
         </div>
 
         <div className="space-y-4">
