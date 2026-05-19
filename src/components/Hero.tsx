@@ -44,10 +44,11 @@ const Hero = () => {
             </h1>
 
             <p className="mb-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl lg:mx-0">
-              Bạn có mong muốn mang kiến thức ngoại ngữ và tư duy hội nhập đến gần hơn với các em
-              học sinh? Bạn muốn trực tiếp đóng góp sức trẻ vào hoạt động tình nguyện hè ý nghĩa
-              ngay tại địa phương? Hãy đồng hành cùng Đội Áo Xanh Anh ngữ phường Vĩnh Phúc trong
-              chiến dịch tình nguyện hè năm nay.
+              Với mong muốn lan tỏa kiến thức ngoại ngữ và khơi dậy tư duy hội nhập cho các em học
+              sinh, Đội Áo Xanh Anh ngữ phường Vĩnh Phúc được thành lập như một hoạt động tình
+              nguyện hè ý nghĩa tại địa phương. Đây là cơ hội để các bạn trẻ cùng đóng góp sức trẻ,
+              sự nhiệt huyết và tinh thần trách nhiệm của mình vào việc hỗ trợ học sinh tiếp cận
+              tiếng Anh một cách gần gũi, tự tin và hiệu quả hơn.
             </p>
 
             <div className="mb-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
