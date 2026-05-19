@@ -1,6 +1,6 @@
 import { Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
 
-import { fanpageLink, program, registrationLink, zaloLink } from '../data/programData';
+import { fanpageLink, program, zaloLink } from '../data/programData';
 
 const CTA = () => {
   return (

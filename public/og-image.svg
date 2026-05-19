@@ -1,0 +1,131 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="100" y1="40" x2="1100" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF6FF" />
+      <stop offset="0.48" stop-color="#ECFDF5" />
+      <stop offset="1" stop-color="#FFF7ED" />
+    </linearGradient>
+    <linearGradient id="panel" x1="170" y1="130" x2="990" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.96" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.88" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="190" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16A34A" />
+      <stop offset="1" stop-color="#0EA5E9" />
+    </linearGradient>
+    <filter id="blurLarge" x="-100" y="-100" width="1400" height="830" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+    <filter id="shadow" x="130" y="90" width="940" height="470" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="#0F172A" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <g filter="url(#blurLarge)" opacity="0.9">
+    <circle cx="185" cy="142" r="110" fill="#FACC15" fill-opacity="0.28" />
+    <circle cx="1010" cy="138" r="130" fill="#0EA5E9" fill-opacity="0.18" />
+    <circle cx="950" cy="510" r="170" fill="#86EFAC" fill-opacity="0.25" />
+    <circle cx="300" cy="540" r="120" fill="#38BDF8" fill-opacity="0.18" />
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="160" y="110" width="880" height="410" rx="36" fill="url(#panel)" />
+    <rect x="160.5" y="110.5" width="879" height="409" rx="35.5" stroke="#DBEAFE" />
+  </g>
+
+  <rect x="220" y="154" width="194" height="54" rx="27" fill="url(#badge)" />
+  <text
+    x="317"
+    y="188"
+    text-anchor="middle"
+    fill="#FFFFFF"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="22"
+    font-weight="700"
+  >
+    Mùa hè 2026
+  </text>
+
+  <circle cx="915" cy="205" r="78" fill="#FFFFFF" fill-opacity="0.92" stroke="#BAE6FD" stroke-width="4" />
+  <circle cx="915" cy="205" r="56" fill="#FEF3C7" />
+  <circle cx="915" cy="185" r="16" fill="#FACC15" />
+  <path d="M885 222C892 208 906 201 915 201C924 201 938 208 945 222" stroke="#0EA5E9" stroke-width="10" stroke-linecap="round" />
+  <path d="M901 235H929L922 252H908L901 235Z" fill="#16A34A" />
+
+  <text
+    x="220"
+    y="286"
+    fill="#0F172A"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="64"
+    font-weight="800"
+  >
+    <tspan x="220" dy="0">Đội Áo Xanh Anh Ngữ</tspan>
+    <tspan x="220" dy="74">phường Vĩnh Phúc</tspan>
+  </text>
+
+  <text
+    x="220"
+    y="405"
+    fill="#0369A1"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="30"
+    font-weight="700"
+  >
+    Tuyển tình nguyện viên mùa hè 2026
+  </text>
+
+  <rect x="220" y="440" width="224" height="42" rx="21" fill="#E0F2FE" />
+  <text
+    x="332"
+    y="467"
+    text-anchor="middle"
+    fill="#075985"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="21"
+    font-weight="700"
+  >
+    Học sinh lớp 3 - lớp 5
+  </text>
+
+  <rect x="462" y="440" width="208" height="42" rx="21" fill="#DCFCE7" />
+  <text
+    x="566"
+    y="467"
+    text-anchor="middle"
+    fill="#166534"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="21"
+    font-weight="700"
+  >
+    2 buổi/tuần • 4 tuần
+  </text>
+
+  <rect x="688" y="440" width="258" height="42" rx="21" fill="#FFEDD5" />
+  <text
+    x="817"
+    y="467"
+    text-anchor="middle"
+    fill="#9A3412"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="21"
+    font-weight="700"
+  >
+    Trường Tiểu học Định Trung
+  </text>
+
+  <rect x="220" y="500" width="224" height="54" rx="27" fill="#16A34A" />
+  <text
+    x="332"
+    y="534"
+    text-anchor="middle"
+    fill="#FFFFFF"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="24"
+    font-weight="800"
+  >
+    Đăng ký tham gia
+  </text>
+</svg>

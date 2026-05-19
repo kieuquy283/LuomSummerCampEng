@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-import { faqs, program } from '../data/programData';
+import { faqs } from '../data/programData';
 
 const FAQ = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
