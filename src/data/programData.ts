@@ -1,4 +1,4 @@
-export const registrationLink = 'https://forms.gle/U1ryjVPUWGEJPEq27';
+export const registrationLink = 'https://forms.gle/btBhHccfBoroKkDeA';
 export const fanpageLink = 'https://www.facebook.com/luom.lvcd';
 export const zaloLink = 'https://zalo.me/0968397725';
 
