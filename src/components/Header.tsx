@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-import { navLinks as defaultNavLinks, registrationLink, site } from '../data/programData';
+import { navLinks as defaultNavLinks, registrationLink } from '../data/programData';
 
 type HeaderLink = {
   label: string;
@@ -27,8 +27,10 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
               className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
             />
             <div className="min-w-0">
-              <p className="truncate text-lg font-extrabold text-white">{site.eventName}</p>
-              <p className="truncate text-sm font-semibold text-brand-cyan">Lượm Summer Camp</p>
+              <p className="truncate text-lg font-extrabold text-white">ĐỘI DẠY HỌC TÌNH TUYỆN</p>
+              <p className="truncate text-sm font-semibold text-brand-cyan">
+                Clb Trí tuệ trẻ nhân tạo
+              </p>
             </div>
           </a>
 

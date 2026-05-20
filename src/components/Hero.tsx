@@ -1,6 +1,6 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-import { registrationLink, site } from '../data/programData';
+import { registrationLink } from '../data/programData';
 
 const Hero = () => {
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="max-w-4xl">
           <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-2 text-sm font-semibold text-brand-cyan backdrop-blur">
             <Sparkles className="mr-2 h-4 w-4" />
-            {site.eventName} • Tuyển tình nguyện viên
+            Tuyển tình nguyện viên
           </div>
 
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
@@ -26,8 +26,9 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
-            Cùng Lượm mang những giờ học công nghệ số và tiếng Anh đầy cảm hứng đến với học sinh
-            địa phương trong mùa hè này.
+            Đội Dạy học tình nguyện phường Vĩnh Phúc tìm kiếm tình nguyện viên đồng hành chiến
+            dịch mùa hè. Mang kiến thức Công nghệ và Ngoại ngữ đến gần hơn với học sinh Tiểu học
+            &amp; THCS!
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">

@@ -12,7 +12,7 @@ export const site = {
 export const navLinks = [
   { label: 'Giới thiệu', href: '#gioi-thieu' },
   { label: 'Bình dân học vụ số', href: './binh-dan-hoc-vu-so.html' },
-  { label: 'Áo Xanh Anh ngữ', href: './ao-xanh-anh-ngu.html' },
+  { label: 'Áo xanh Anh ngữ', href: './ao-xanh-anh-ngu.html' },
   { label: 'Quyền lợi', href: '#quyen-loi' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -31,7 +31,7 @@ export const teamCards = [
     scale: '20–25 học sinh/lớp',
     roles: [
       'TNV Đứng lớp & Hỗ trợ chuyên môn: 02 người',
-      'TNV Trợ giảng & Điều phối lớp học: 03 người',
+      'TNV Trợ giảng & Điều phối lớp học: 06 người',
     ],
     buttonLabel: 'Tìm hiểu đội Năng lực số',
     buttonHref: '#doi-binh-dan-hoc-vu-so',
@@ -99,7 +99,7 @@ export const recruitmentGroups = [
       },
       {
         title: 'TNV Trợ giảng & Điều phối lớp học',
-        quantity: '03 người',
+        quantity: '06 người',
         tasks: [
           'Hỗ trợ giáo viên chính quản lý lớp',
           'Hướng dẫn học sinh thực hành kỹ năng số',
