@@ -17,8 +17,8 @@ const CTA = () => {
                 Bạn muốn dành một mùa hè rực rỡ và ý nghĩa?
               </h2>
               <p className="mt-6 text-lg leading-8 text-slate-300">
-                Hãy gửi tin nhắn trực tiếp cho Fanpage Lượm - Giáo dục vì Cộng đồng hoặc liên hệ
-                Hotline/Zalo để nhận link đăng ký và thông tin chi tiết.
+                Hãy đồng hành cùng Đội dạy học tình nguyện phường Vĩnh Phúc trong chiến dịch hè năm
+                nay!
               </p>
 
               <div className="mt-8 grid gap-4">

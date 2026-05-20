@@ -21,16 +21,21 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-4">
           <a href={homeHref} className="flex min-w-0 items-center gap-3">
-            <img
-              src="/images/logo_round.png"
-              alt="Logo Lượm - Giáo dục vì Cộng đồng"
-              className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
-            />
+            <div className="flex items-center gap-2">
+              <img
+                src="/images/logo_doan.jpg"
+                alt="Logo Đoàn"
+                className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
+              />
+              <img
+                src="/images/logo_round.png"
+                alt="Logo Lượm - Giáo dục vì cộng đồng"
+                className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
+              />
+            </div>
             <div className="min-w-0">
               <p className="truncate text-lg font-extrabold text-white">ĐỘI DẠY HỌC TÌNH TUYỆN</p>
-              <p className="truncate text-sm font-semibold text-brand-cyan">
-                Clb Trí tuệ trẻ nhân tạo
-              </p>
+              <p className="truncate text-sm font-semibold text-brand-cyan">Clb Trí tuệ trẻ nhân tạo</p>
             </div>
           </a>
 

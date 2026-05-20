@@ -9,21 +9,22 @@ const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <div className="flex items-center gap-3">
-              <img
-                src="/images/logo_round.png"
-                alt="Logo Lượm - Giáo dục vì Cộng đồng"
-                className="h-12 w-12 rounded-full object-cover"
-              />
-              <div>
-                <p className="text-xl font-extrabold text-white">{site.organization}</p>
-                <p className="text-sm font-semibold text-brand-cyan">{site.eventName}</p>
+              <div className="flex items-center gap-2">
+                <img
+                  src="/images/logo_doan.jpg"
+                  alt="Logo Đoàn"
+                  className="h-12 w-12 rounded-full object-cover ring-2 ring-brand-cyan/20"
+                />
+                <img
+                  src="/images/logo_round.png"
+                  alt="Logo Lượm - Giáo dục vì cộng đồng"
+                  className="h-12 w-12 rounded-full object-cover ring-2 ring-brand-cyan/20"
+                />
               </div>
-            </div>
-
-            <div className="mt-6 space-y-2 text-sm leading-7 text-slate-400">
-              <p>{site.eventName}</p>
-              <p>Đội Bình Dân Học Vụ Số</p>
-              <p>Đội Áo Xanh Anh Ngữ</p>
+              <div>
+                <p className="text-xl font-extrabold uppercase text-white">ĐỘI DẠY HỌC TÌNH TUYỆN</p>
+                <p className="text-sm font-semibold text-brand-cyan">Clb Trí tuệ trẻ nhân tạo</p>
+              </div>
             </div>
           </div>
 
@@ -36,7 +37,7 @@ const Footer = () => {
             >
               <Globe2 className="mb-3 h-5 w-5 text-brand-cyan" />
               <p className="text-sm font-semibold text-slate-400">Fanpage</p>
-              <p className="mt-1 text-base font-bold text-white">Lượm - Giáo dục vì Cộng đồng</p>
+              <p className="mt-1 text-base font-bold text-white">Lượm - Giáo dục vì cộng đồng</p>
             </a>
 
             <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">

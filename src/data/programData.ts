@@ -213,7 +213,7 @@ export const faqs = [
   },
   {
     q: 'Nếu bị trùng lịch bận 1–2 buổi thì có thể xin nghỉ không?',
-    a: 'Được, nhưng cần hạn chế tối đa. Nếu có việc đột xuất hoặc lịch thi trùng buổi dạy, TNV cần báo trước với Trưởng đội ít nhất 48 tiếng để BTC sắp xếp nhân sự thay thế.',
+    a: 'Được, nhưng cần hạn chế.',
   },
   {
     q: 'Mình nên chọn đội nào?',
