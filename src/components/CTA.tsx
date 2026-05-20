@@ -1,68 +1,97 @@
-import { Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
+import { ArrowRight, Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
 
-import { fanpageLink, program, zaloLink } from '../data/programData';
+import { fanpageLink, registrationLink, site, zaloLink } from '../data/programData';
 
 const CTA = () => {
   return (
-    <section className="bg-[linear-gradient(180deg,_#ecfdf5_0%,_#ffffff_48%,_#eff6ff_100%)] py-24">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-1">
-          <div className="rounded-[32px] border border-brand-border bg-white p-8 shadow-card md:p-10">
-            <div className="mb-6 flex justify-center">
-              <div className="relative">
-                <HeartHandshake className="absolute -inset-2 h-24 w-24 text-brand-accent/40 blur-md" />
-                <HeartHandshake className="relative h-20 w-20 text-brand-accent" />
+    <section className="relative overflow-hidden bg-brand-navy py-24">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute left-1/2 top-1/2 h-64 w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-brand-electric opacity-30 blur-[120px]"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+      </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 backdrop-blur-md md:p-12">
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
+                Cách thức ứng tuyển
+              </p>
+              <h2 className="text-3xl font-extrabold leading-tight text-white md:text-4xl">
+                Bạn muốn dành một mùa hè rực rỡ và ý nghĩa?
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-slate-300">
+                Hãy gửi tin nhắn trực tiếp cho Fanpage Lượm - Giáo dục vì Cộng đồng hoặc liên hệ
+                Hotline/Zalo để nhận link đăng ký và thông tin chi tiết.
+              </p>
+
+              <div className="mt-8 grid gap-4">
+                <a
+                  href={fanpageLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-electric/20 text-brand-electric">
+                    <Globe2 className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-400">Fanpage</p>
+                    <p className="text-lg font-bold text-white">{site.organization}</p>
+                  </div>
+                </a>
+
+                <a
+                  href={zaloLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-cyan/20 text-brand-cyan">
+                    <PhoneCall className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-400">Hotline/Zalo</p>
+                    <p className="text-lg font-bold text-white">{site.hotline}</p>
+                  </div>
+                </a>
               </div>
             </div>
-            <p className="mb-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-brand-secondary">
-              Thông tin liên hệ
-            </p>
-            <h3 className="mb-6 text-center text-2xl font-extrabold text-slate-900">
-              Liên hệ BTC khi cần hỗ trợ thêm
-            </h3>
 
-            <div className="grid gap-4">
-              <a
-                href={fanpageLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 rounded-[24px] border border-brand-soft bg-brand-surface p-5 transition-colors hover:bg-brand-sky/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-sky text-brand-secondary">
-                  <Globe2 className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-500">Fanpage</p>
-                  <p className="text-lg font-bold text-slate-900">{program.organization}</p>
-                </div>
-              </a>
+            <div className="rounded-[32px] bg-brand-deep/40 p-8 text-white shadow-2xl backdrop-blur-md md:p-10">
+              <div className="relative flex justify-start">
+                <HeartHandshake className="absolute -inset-2 h-20 w-20 text-brand-yellow opacity-20 blur-md" />
+                <HeartHandshake className="relative h-16 w-16 text-brand-yellow" />
+              </div>
 
-              <a
-                href={zaloLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 rounded-[24px] border border-brand-soft bg-brand-surface p-5 transition-colors hover:bg-brand-mint/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mint text-brand-primary">
-                  <PhoneCall className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-500">Hotline/Zalo</p>
-                  <p className="text-lg font-bold text-slate-900">{program.hotline}</p>
-                </div>
-              </a>
+              <h3 className="mt-8 text-3xl font-extrabold leading-tight md:text-4xl">
+                Cùng Lượm tạo nên một mùa hè giáo dục thật ý nghĩa
+              </h3>
+              <p className="mt-5 text-lg leading-8 text-slate-200">
+                Dù bạn yêu thích công nghệ hay tiếng Anh, luôn có một vị trí phù hợp để bạn đóng
+                góp và trưởng thành.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={registrationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-8 py-4 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
+                >
+                  Đăng ký làm TNV
+                </a>
+                <a
+                  href={fanpageLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-brand-cyan bg-transparent px-8 py-4 text-base font-bold text-brand-cyan transition-all hover:-translate-y-0.5 hover:bg-brand-cyan/10"
+                >
+                  Liên hệ Fanpage
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="rounded-[32px] border border-brand-soft bg-white p-8 text-center shadow-card md:p-12">
-          <h2 className="mb-5 text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl">
-            Sẵn sàng khoác lên mình màu áo xanh và lan tỏa tình yêu tiếng Anh?
-          </h2>
-          <p className="mx-auto mb-10 max-w-3xl text-lg leading-8 text-slate-600">
-            Đồng hành cùng {program.shortTeamName} để tạo nên một mùa hè tích cực, chỉn chu và ý nghĩa
-            cho các em học sinh tiểu học.
-          </p>
         </div>
       </div>
     </section>

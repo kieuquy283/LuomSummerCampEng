@@ -1,102 +1,134 @@
 import {
   ArrowRight,
-  CalendarDays,
-  MapPin,
-  Megaphone,
+  BookOpen,
+  GraduationCap,
+  Heart,
+  Laptop,
+  MessageCircleMore,
   Sparkles,
   Users,
 } from 'lucide-react';
 
-import { heroCards, program, registrationLink } from '../data/programData';
+import { heroCards, registrationLink, site } from '../data/programData';
+
+const icons = [Users, Laptop, BookOpen, GraduationCap];
 
 const Hero = () => {
-  const icons = [MapPin, Users, CalendarDays, Megaphone, Sparkles];
-
   return (
     <section
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.12),_transparent_34%),linear-gradient(135deg,_#eff6ff_0%,_#ecfdf5_46%,_#ffffff_100%)] pb-24 pt-16"
       id="gioi-thieu"
+      className="relative overflow-hidden bg-brand-navy pb-24 pt-16 text-white"
     >
-      <div className="absolute inset-0 z-0">
-        <div className="absolute left-[-6%] top-[-8%] h-72 w-72 rounded-full bg-brand-accent/20 blur-3xl" />
-        <div className="absolute bottom-[-10%] right-[-4%] h-80 w-80 rounded-full bg-brand-mint blur-3xl" />
-        <div className="absolute left-1/3 top-1/2 h-44 w-44 rounded-full bg-brand-sky blur-3xl" />
+      <div className="absolute inset-0 opacity-70">
+        <div className="absolute left-[-10%] top-[-10%] h-[40%] w-[40%] rounded-full bg-brand-deep blur-[120px] opacity-60" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[40%] rounded-full bg-brand-cyan blur-[150px] opacity-20" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12">
-          <div className="text-center lg:text-left">
-            <div className="mb-6 inline-flex items-center rounded-full border border-brand-strong bg-white/80 px-4 py-2 text-sm font-semibold text-brand-primary shadow-sm">
-              <span className="mr-2 inline-flex h-2.5 w-2.5 rounded-full bg-brand-primary" />
-              Dự án {program.projectName}
+        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-2 text-sm font-semibold text-brand-cyan backdrop-blur">
+              <Sparkles className="mr-2 h-4 w-4" />
+              {site.eventName} • Tuyển tình nguyện viên
             </div>
 
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-brand-secondary">
-              Dự án nâng cao năng lực ngoại ngữ
-            </p>
-            <h1 className="mb-6 text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
-              Đội Áo Xanh Anh ngữ phường Vĩnh Phúc
+            <h1 className="max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
+              Trở thành tình nguyện viên Lượm Summer Camp 2026
             </h1>
 
-            <ul className="mb-8 max-w-2xl space-y-3 text-left text-lg leading-8 text-slate-600 md:text-xl lg:mx-0">
-              <li className="flex gap-3">
-                <span className="mt-3 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-brand-primary" />
-                <span>
-                  Bạn có mong muốn mang kiến thức ngoại ngữ và tư duy hội nhập đến gần hơn với các
-                  em học sinh?
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-3 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-brand-primary" />
-                <span>
-                  Bạn muốn trực tiếp đóng góp sức trẻ vào hoạt động tình nguyện hè ý nghĩa ngay tại
-                  địa phương?
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-3 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-brand-primary" />
-                <span>
-                  Hãy đồng hành cùng Đội Áo xanh Anh ngữ phường Vĩnh Phúc trong chiến dịch tình
-                  nguyện hè năm nay!
-                </span>
-              </li>
-            </ul>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
+              Cùng Lượm mang những giờ học công nghệ số và tiếng Anh đầy cảm hứng đến với học
+              sinh địa phương trong mùa hè này.
+            </p>
 
-            <div className="mb-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href={registrationLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-primary px-8 py-4 text-base font-bold text-white shadow-cta transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-primaryDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-4 sm:w-auto"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-8 py-4 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
               >
-                Đăng ký tham gia
+                Đăng ký làm TNV
               </a>
               <a
-                href="#vi-tri-tnv"
-                className="group inline-flex min-h-11 w-full items-center justify-center rounded-full border border-brand-soft bg-white/80 px-8 py-4 text-base font-bold text-brand-secondary shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-secondary hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-4 sm:w-auto"
+                href="#vi-tri-phu-hop"
+                className="group inline-flex min-h-11 items-center justify-center rounded-full border border-slate-500 bg-transparent px-8 py-4 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:border-white hover:bg-white/5"
               >
                 Xem vị trí phù hợp
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {heroCards.map((card, index) => {
                 const Icon = icons[index];
 
                 return (
                   <div
                     key={card.label}
-                    className="rounded-[24px] border border-brand-soft bg-white/85 p-5 text-left shadow-card backdrop-blur"
+                    className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:bg-white/10"
                   >
-                    <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-sky text-brand-secondary">
+                    <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-brand-cyan">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <p className="text-sm font-semibold text-slate-500">{card.label}</p>
-                    <p className="mt-1 text-base font-bold leading-6 text-slate-900">{card.value}</p>
+                    <p className="text-sm font-semibold text-slate-200">{card.label}</p>
+                    <p className="mt-1 text-base font-bold leading-6 text-white">{card.value}</p>
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          <div className="relative hidden min-h-[520px] lg:block">
+            <div className="absolute left-12 top-12 flex h-28 w-28 items-center justify-center rounded-[28px] bg-brand-electric/15 text-brand-cyan ring-1 ring-brand-electric/20 backdrop-blur">
+              <Laptop className="h-12 w-12" />
+            </div>
+            <div className="absolute right-6 top-24 flex h-24 w-24 items-center justify-center rounded-full bg-brand-yellow/15 text-brand-yellow ring-1 ring-brand-yellow/20 backdrop-blur">
+              <Heart className="h-10 w-10" />
+            </div>
+            <div className="absolute left-20 top-44 rounded-[32px] border border-brand-electric/30 bg-brand-deep/40 p-7 shadow-2xl backdrop-blur-md">
+              <div className="mb-6 flex items-center gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-brand-cyan/20 text-brand-cyan">
+                  <Laptop className="h-8 w-8" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-cyan">
+                    Đội 1
+                  </p>
+                  <p className="text-2xl font-bold">Năng lực số</p>
+                </div>
+              </div>
+              <p className="max-w-xs text-sm leading-7 text-slate-200">
+                Internet an toàn, kỹ năng số cơ bản, công cụ học tập số và AI cho học sinh THCS.
+              </p>
+            </div>
+
+            <div className="absolute bottom-16 right-0 rounded-[32px] border border-brand-cyan/30 bg-brand-deep/40 p-7 shadow-2xl backdrop-blur-md">
+              <div className="mb-6 flex items-center gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-brand-yellow/20 text-brand-yellow">
+                  <MessageCircleMore className="h-8 w-8" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-yellow">
+                    Đội 2
+                  </p>
+                  <p className="text-2xl font-bold">Tiếng Anh</p>
+                </div>
+              </div>
+              <p className="max-w-xs text-sm leading-7 text-slate-200">
+                Giao tiếp tiếng Anh qua trò chơi, bài hát, flashcard và hoạt động nhóm dành cho
+                học sinh tiểu học.
+              </p>
+            </div>
+
+            <div className="absolute bottom-48 left-0 rounded-full border border-brand-cyan/30 bg-brand-navy/80 px-5 py-3 text-sm font-semibold text-slate-100 backdrop-blur">
+              <Users className="mr-2 inline h-4 w-4" />
+              2 đội tuyển • 1 chiến dịch chung
+            </div>
+            <div className="absolute right-12 top-12 rounded-full border border-brand-electric/30 bg-brand-navy/80 px-5 py-3 text-sm font-semibold text-slate-100 backdrop-blur">
+              <BookOpen className="mr-2 inline h-4 w-4" />
+              Giáo dục cộng đồng
             </div>
           </div>
         </div>
