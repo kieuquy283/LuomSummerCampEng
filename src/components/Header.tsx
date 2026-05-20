@@ -25,7 +25,7 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
               <img
                 src="/images/logo_doan.jpg"
                 alt="Logo Đoàn"
-                className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
+                className="h-12 w-12 rounded-full bg-white p-0.5 object-contain ring-2 ring-brand-cyan/20"
               />
               <img
                 src="/images/logo_round.png"
