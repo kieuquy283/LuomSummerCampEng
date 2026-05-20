@@ -1,32 +1,46 @@
 import { GraduationCap, LaptopMinimal, MessageCircle } from 'lucide-react';
 
-import { learningTracks } from '../data/programData';
+import { learningTracks as defaultLearningTracks } from '../data/programData';
 
-const Curriculum = () => {
+type LearningTrack = {
+  title: string;
+  theme: string;
+  topics: string[];
+};
+
+type CurriculumProps = {
+  tracks?: LearningTrack[];
+  eyebrow?: string;
+  title?: string;
+};
+
+const Curriculum = ({
+  tracks = defaultLearningTracks,
+  eyebrow = 'Học sinh sẽ được học gì?',
+  title = 'Nội dung được thiết kế khác nhau cho từng độ tuổi và mục tiêu học tập',
+}: CurriculumProps) => {
   return (
     <section className="bg-slate-950 py-24 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-            Học sinh sẽ được học gì?
+            {eyebrow}
           </p>
-          <h2 className="text-3xl font-extrabold md:text-4xl">
-            Nội dung được thiết kế khác nhau cho từng độ tuổi và mục tiêu học tập
-          </h2>
+          <h2 className="text-3xl font-extrabold md:text-4xl">{title}</h2>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
-          {learningTracks.map((track, index) => {
+        <div className={`grid gap-8 ${tracks.length > 1 ? 'lg:grid-cols-2' : ''}`}>
+          {tracks.map((track, index) => {
             const isDigital = track.theme === 'digital';
             const Icon = index === 0 ? LaptopMinimal : MessageCircle;
 
             return (
               <article
                 key={track.title}
-                className={`rounded-[32px] border p-8 lg:p-10 ${
+                className={`rounded-[32px] border p-8 backdrop-blur-md lg:p-10 ${
                   isDigital
-                    ? 'border-brand-electric/30 bg-brand-deep/40 backdrop-blur-md'
-                    : 'border-brand-cyan/30 bg-brand-deep/40 backdrop-blur-md'
+                    ? 'border-brand-electric/30 bg-brand-deep/40'
+                    : 'border-brand-cyan/30 bg-brand-deep/40'
                 }`}
               >
                 <div className="mb-8 flex items-center gap-4">

@@ -1,4 +1,4 @@
-export const registrationLink = 'https://www.facebook.com/luom.lvcd';
+export const registrationLink = 'https://forms.gle/SCjJAAr5x61PR1Zo9';
 export const fanpageLink = 'https://www.facebook.com/luom.lvcd';
 export const zaloLink = 'https://zalo.me/0968397725';
 
@@ -11,17 +11,10 @@ export const site = {
 
 export const navLinks = [
   { label: 'Giới thiệu', href: '#gioi-thieu' },
-  { label: 'Hai đội tuyển', href: '#hai-doi-tuyen' },
+  { label: 'Bình dân học vụ số', href: './binh-dan-hoc-vu-so.html' },
+  { label: 'Áo Xanh Anh ngữ', href: './ao-xanh-anh-ngu.html' },
   { label: 'Quyền lợi', href: '#quyen-loi' },
-  { label: 'Quy trình', href: '#quy-trinh' },
   { label: 'FAQ', href: '#faq' },
-];
-
-export const heroCards = [
-  { label: '2 đội tuyển', value: 'Công nghệ số và tiếng Anh' },
-  { label: 'Chuyên môn', value: 'AI/Năng lực số & Tiếng Anh' },
-  { label: 'Thời lượng', value: '2 buổi/tuần • 4 tuần' },
-  { label: 'Hỗ trợ', value: 'Có tập huấn & chứng nhận' },
 ];
 
 export const teamCards = [
@@ -33,8 +26,8 @@ export const teamCards = [
       'Đồng hành cùng học sinh THCS tiếp cận kỹ năng số, sử dụng Internet an toàn và ứng dụng công nghệ/AI vào học tập.',
     location: 'Trường THCS Tô Hiệu',
     students: 'Lớp 6 – lớp 8',
-    schedule: '2 buổi/tuần trong 4 tuần',
-    kickoff: 'Dự kiến giữa tháng 6/2026',
+    schedule: '3 buổi/tuần • 3 tuần',
+    kickoff: 'Tháng 7/2026',
     scale: '20–25 học sinh/lớp',
     roles: [
       'TNV Đứng lớp & Hỗ trợ chuyên môn: 02 người',
@@ -51,8 +44,8 @@ export const teamCards = [
       'Cùng học sinh tiểu học luyện giao tiếp tiếng Anh qua trò chơi, flashcard, hoạt động nhóm và những giờ học vui vẻ.',
     location: 'Trường Tiểu học Định Trung',
     students: 'Lớp 3 – lớp 5',
-    schedule: '2 buổi/tuần trong 4 tuần',
-    kickoff: 'Dự kiến giữa tháng 6/2026',
+    schedule: '2 buổi/tuần • 4 tuần',
+    kickoff: 'Tháng 6/2026',
     scale: '20–25 học sinh/lớp',
     roles: [
       'TNV Đứng lớp & Hỗ trợ chuyên môn: 10 người',
@@ -87,7 +80,7 @@ export const recruitmentGroups = [
   {
     id: 'doi-binh-dan-hoc-vu-so',
     title: 'Đội Bình Dân Học Vụ Số',
-    subtitle: 'Lớp AI / năng lực số dành cho học sinh THCS',
+    subtitle: 'Lớp AI & An toàn thông tin trong AI',
     theme: 'digital',
     positions: [
       {
@@ -99,7 +92,7 @@ export const recruitmentGroups = [
           'Thiết kế, chuẩn bị tài liệu và bài giảng theo định hướng của BTC',
         ],
         requirements: [
-          'Đúng giờ, có trách nhiệm, kiên nhẫn, thân thiện với học sinh cấp 2',
+          'Đúng giờ, có trách nhiệm, kiên nhẫn, thân thiện với học sinh',
           'Giao tiếp tốt, truyền đạt rõ ràng',
           'Ưu tiên ngành Sư phạm, CNTT hoặc có kinh nghiệm đứng lớp',
         ],

@@ -1,16 +1,26 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-import { navLinks, registrationLink, site } from '../data/programData';
+import { navLinks as defaultNavLinks, registrationLink, site } from '../data/programData';
 
-const Header = () => {
+type HeaderLink = {
+  label: string;
+  href: string;
+};
+
+type HeaderProps = {
+  homeHref?: string;
+  navLinks?: HeaderLink[];
+};
+
+const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/85 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-4">
-          <a href="#gioi-thieu" className="flex min-w-0 items-center gap-3">
+          <a href={homeHref} className="flex min-w-0 items-center gap-3">
             <img
               src="/images/logo_round.png"
               alt="Logo Lượm - Giáo dục vì Cộng đồng"

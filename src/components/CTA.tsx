@@ -6,16 +6,13 @@ const CTA = () => {
   return (
     <section className="relative overflow-hidden bg-brand-navy py-24">
       <div className="absolute inset-0 z-0">
-        <div className="absolute left-1/2 top-1/2 h-64 w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-brand-electric opacity-30 blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        <div className="absolute left-1/2 top-1/2 h-64 w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-brand-electric opacity-30 blur-[120px]" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay" />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 backdrop-blur-md md:p-12">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-                Cách thức ứng tuyển
-              </p>
               <h2 className="text-3xl font-extrabold leading-tight text-white md:text-4xl">
                 Bạn muốn dành một mùa hè rực rỡ và ý nghĩa?
               </h2>
@@ -29,14 +26,16 @@ const CTA = () => {
                   href={fanpageLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
+                  className="flex w-full items-start gap-4 rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-electric/20 text-brand-electric">
                     <Globe2 className="h-6 w-6" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold text-slate-400">Fanpage</p>
-                    <p className="text-lg font-bold text-white">{site.organization}</p>
+                    <p className="text-base font-bold text-white sm:whitespace-nowrap">
+                      {site.organization}
+                    </p>
                   </div>
                 </a>
 
@@ -44,12 +43,12 @@ const CTA = () => {
                   href={zaloLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
+                  className="flex w-full items-start gap-4 rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-cyan/20 text-brand-cyan">
                     <PhoneCall className="h-6 w-6" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold text-slate-400">Hotline/Zalo</p>
                     <p className="text-lg font-bold text-white">{site.hotline}</p>
                   </div>
@@ -78,7 +77,7 @@ const CTA = () => {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-8 py-4 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
                 >
-                  Đăng ký làm TNV
+                  Đăng ký TNV
                 </a>
                 <a
                   href={fanpageLink}

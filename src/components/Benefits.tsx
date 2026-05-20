@@ -34,12 +34,9 @@ const Benefits = () => {
     <section id="quyen-loi" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
+          <p className="mb-3 text-3xl font-extrabold uppercase tracking-[0.12em] text-brand-cyan md:text-4xl">
             Vì sao bạn nên tham gia?
           </p>
-          <h2 className="text-3xl font-extrabold text-slate-900 md:text-4xl">
-            Một mùa hè vừa có ích, vừa đủ thử thách để bạn trưởng thành
-          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -49,7 +46,7 @@ const Benefits = () => {
             return (
               <article
                 key={benefit.title}
-              className={`rounded-2xl border-t-4 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${styles[index].borderClass}`}
+                className={`rounded-2xl border-t-4 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${styles[index].borderClass}`}
               >
                 <div
                   className={`mb-6 flex h-16 w-16 items-center justify-center rounded-3xl ${styles[index].boxClass}`}
