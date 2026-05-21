@@ -115,7 +115,12 @@ const InstructorRecruitment = ({
                   {group.positions.map((position, positionIndex) => (
                     <article
                       key={position.title}
-                      className="rounded-[24px] border border-white/10 bg-brand-deep/40 p-5 shadow-2xl backdrop-blur-md sm:rounded-[28px] sm:p-8"
+                      className={`rounded-[24px] border border-white/10 bg-brand-deep/40 p-5 shadow-2xl backdrop-blur-md sm:rounded-[28px] sm:p-8 ${
+                        group.positions.length === 1 ||
+                        position.title === 'TNV thiết kế ấn phẩm'
+                          ? 'lg:col-span-2'
+                          : ''
+                      }`}
                     >
                       <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
                         <div className="flex items-start gap-4">

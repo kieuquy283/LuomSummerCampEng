@@ -149,6 +149,82 @@ export const recruitmentGroups = [
       },
     ],
   },
+  {
+    id: 'ban-truyen-thong',
+    title: 'Ban Truyền thông',
+    subtitle: 'Phụ trách nội dung, thiết kế và ghi hình truyền thông cho chiến dịch',
+    theme: 'support',
+    positions: [
+      {
+        title: 'TNV viết bài',
+        quantity: '03 người',
+        tasks: [
+          'Phối hợp với phụ trách truyền thông để xây dựng kế hoạch truyền thông cho trại hè.',
+          'Phụ trách viết nội dung truyền thông như caption, bài recap, bài giới thiệu chương trình, kịch bản video trước, trong và sau các hoạt động của đội.',
+          'Phối hợp cùng đội thiết kế và chụp ảnh để đảm bảo nội dung đồng bộ.',
+        ],
+        requirements: [
+          'Có khả năng viết lách, nắm bắt được giọng điệu phù hợp với đối tượng học sinh và phụ huynh.',
+          'Biết cách xây dựng nội dung truyền thông hấp dẫn, dễ hiểu.',
+          'Đạo đức tốt, có tinh thần trách nhiệm, hòa đồng và hợp tác, yêu thích việc làm việc với trẻ nhỏ.',
+          'Ưu tiên ứng viên có kinh nghiệm viết bài fanpage, làm truyền thông cho các CLB hoặc dự án.',
+        ],
+      },
+      {
+        title: 'TNV quay chụp',
+        quantity: '02 người',
+        tasks: [
+          'Ghi lại hình ảnh hoạt động của học sinh và BTC trong quá trình tổ chức hoạt động.',
+          'Phối hợp với đội nội dung và thiết kế để cung cấp tư liệu truyền thông.',
+          'Chọn lọc, sắp xếp ảnh sau khi chụp để bàn giao đúng thời hạn.',
+        ],
+        requirements: [
+          'Biết sử dụng máy ảnh hoặc điện thoại tốt và có kỹ năng chụp sự kiện.',
+          'Biết chỉnh sửa ảnh, biết làm video là một lợi thế.',
+          'Đạo đức tốt, có tinh thần trách nhiệm, hòa đồng và hợp tác, yêu thích việc làm việc với trẻ nhỏ.',
+          'Ưu tiên ứng viên có thiết bị cá nhân và từng tham gia chụp ảnh cho CLB, sự kiện, dự án.',
+        ],
+      },
+      {
+        title: 'TNV thiết kế ấn phẩm',
+        quantity: '02 người',
+        tasks: [
+          'Thiết kế ấn phẩm truyền thông cho các hoạt động của đội như poster, banner, ảnh sự kiện.',
+          'Dựng video phục vụ truyền thông như video giới thiệu chương trình, recap hoạt động.',
+          'Phối hợp với đội chụp ảnh và viết nội dung để hoàn thiện sản phẩm.',
+        ],
+        requirements: [
+          'Sử dụng thành thạo ít nhất một phần mềm thiết kế như Canva, Photoshop, Illustrator hoặc tương đương.',
+          'Có thể sử dụng ít nhất một phần mềm dựng video cơ bản như CapCut, Premiere là một lợi thế.',
+          'Có gu thẩm mỹ tốt, nắm bắt nhanh yêu cầu thiết kế.',
+          'Đạo đức tốt, có tinh thần trách nhiệm, hòa đồng và hợp tác, yêu thích việc làm việc với trẻ nhỏ.',
+          'Ưu tiên ứng viên đã từng làm thiết kế hoặc dựng video cho CLB, sự kiện, dự án.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'ban-tai-chinh-hau-can',
+    title: 'Ban Tài chính - Hậu cần',
+    subtitle: 'Phụ trách vận hành, cơ sở vật chất và quản lý thu chi cho chiến dịch',
+    theme: 'support',
+    positions: [
+      {
+        title: 'TNV Tài chính - Hậu cần',
+        quantity: '04 người',
+        tasks: [
+          'Phối hợp với Ban tổ chức để chuẩn bị, kiểm tra cơ sở vật chất trước mỗi buổi học như mở cửa lớp, chuẩn bị máy chiếu, loa đài, nước uống.',
+          'Quản lý, chuẩn bị và cấp phát các học cụ phục vụ bài giảng như flashcard, phấn, giấy vẽ, phần thưởng cho học sinh.',
+          'Theo dõi thu, chi, lưu giữ hóa đơn và lập báo cáo tài chính minh bạch cho toàn bộ chiến dịch hè của đội.',
+        ],
+        requirements: [
+          'Cẩn thận, tỉ mỉ, trung thực và có trách nhiệm cao với tài sản chung; chu đáo và có đầu óc sắp xếp công việc khoa học.',
+          'Tính toán tốt, biết sử dụng Excel hoặc Google Sheets ở mức cơ bản để quản lý sổ sách thu chi.',
+          'Nhanh nhẹn, có khả năng xử lý nhanh các sự cố phát sinh về cơ sở vật chất như mất điện, thiếu nước, thiếu đồ dùng học tập.',
+        ],
+      },
+    ],
+  },
 ];
 
 export const learningTracks = [
