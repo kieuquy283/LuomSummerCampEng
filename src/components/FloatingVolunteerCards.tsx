@@ -5,7 +5,6 @@ import {
   Cpu,
   Megaphone,
   MessageSquare,
-  ShieldCheck,
 } from 'lucide-react';
 
 type CardProps = {
@@ -84,8 +83,8 @@ const FloatingVolunteerCards = () => {
 
         <Card
           icon={<Cpu className="h-7 w-7 sm:h-10 sm:w-10" />}
-          title="AI"
-          subtitle="Công nghệ số"
+          title="Bình dân học vụ số"
+          subtitle=""
           accentClass="bg-brand-electric/14"
           iconClass="text-cyan-200"
           duration="5s"
@@ -98,8 +97,8 @@ const FloatingVolunteerCards = () => {
 
         <Card
           icon={<BadgeDollarSign className="h-6 w-6 sm:h-8 sm:w-8" />}
-          title="Hậu cần, tài chính"
-          subtitle="Điều phối hỗ trợ"
+          title="Hậu cần - Tài chính"
+          subtitle=""
           accentClass="bg-brand-yellow/14"
           iconClass="text-brand-yellow"
           duration="5.4s"
@@ -114,8 +113,8 @@ const FloatingVolunteerCards = () => {
 
         <Card
           icon={<BookOpen className="h-6 w-6 sm:h-8 sm:w-8" />}
-          title="English"
-          subtitle="Giao tiếp tự tin"
+          title="Áo xanh Anh ngữ"
+          subtitle=""
           accentClass="bg-emerald-400/10"
           iconClass="text-emerald-200"
           duration="6.2s"
@@ -131,36 +130,20 @@ const FloatingVolunteerCards = () => {
         <Card
           icon={<Megaphone className="h-6 w-6 sm:h-8 sm:w-8" />}
           title="Truyền thông"
-          subtitle="Nội dung lan tỏa"
+          subtitle=""
           accentClass="bg-fuchsia-400/10"
           iconClass="text-fuchsia-200"
           duration="5.6s"
           delay="0.5s"
           compact
           style={{
-            bottom: '5%',
-            left: '42%',
-            transform: 'translate3d(0,0,22px) rotate(-2deg) rotateY(4deg) rotateX(2deg)',
+            right: '0%',
+            top: '64%',
+            transform: 'translate3d(0,0,30px) rotate(8deg) rotateY(-13deg) rotateX(6deg)',
           }}
         />
 
-        <Card
-          icon={<ShieldCheck className="h-7 w-7 sm:h-10 sm:w-10" />}
-          title="Không gian mạng"
-          subtitle="An toàn số"
-          accentClass="bg-cyan-400/12"
-          iconClass="text-sky-200"
-          duration="5.8s"
-          delay="0.4s"
-          compact
-          style={{
-            right: '-20%',
-            top: '44%',
-            transform: 'translate3d(0,0,34px) rotate(8deg) rotateY(-13deg) rotateX(6deg)',
-          }}
-        />
-
-        <div className="absolute left-1/2 top-[46%] z-10 [transform:translate3d(-50%,-50%,42px)] [transform-style:preserve-3d]">
+        <div className="absolute left-[54%] top-[50%] z-10 [transform:translate3d(-50%,-50%,42px)] [transform-style:preserve-3d]">
           <div
             className="float-bubble min-w-max whitespace-nowrap rounded-[18px] border border-brand-yellow/28 bg-slate-900/94 px-4 py-2.5 text-white shadow-[0_18px_45px_rgba(2,6,23,0.48),0_0_28px_rgba(251,191,36,0.1)] backdrop-blur-xl transition-all duration-300 ease-out will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_18px_55px_rgba(2,6,23,0.52),0_0_34px_rgba(251,191,36,0.16)] motion-reduce:transform-none sm:px-5 sm:py-3"
             style={{ animationDuration: '4.8s' }}
