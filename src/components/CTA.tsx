@@ -34,7 +34,7 @@ const CTA = () => {
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold text-slate-400">Fanpage</p>
                     <p className="text-base font-bold text-white">
-                      {site.organization}
+                      Lượm - Giáo dục vì Cộng đồng
                     </p>
                   </div>
                 </a>
