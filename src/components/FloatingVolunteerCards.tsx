@@ -3,6 +3,7 @@ import {
   BadgeDollarSign,
   BookOpen,
   Cpu,
+  Megaphone,
   MessageSquare,
   ShieldCheck,
 } from 'lucide-react';
@@ -121,9 +122,25 @@ const FloatingVolunteerCards = () => {
           delay="0.8s"
           compact
           style={{
-            bottom: '7%',
-            left: '10%',
+            bottom: '11%',
+            left: '6%',
             transform: 'translate3d(0,0,20px) rotate(-5deg) rotateY(8deg) rotateX(2deg)',
+          }}
+        />
+
+        <Card
+          icon={<Megaphone className="h-6 w-6 sm:h-8 sm:w-8" />}
+          title="Truyền thông"
+          subtitle="Nội dung lan tỏa"
+          accentClass="bg-fuchsia-400/10"
+          iconClass="text-fuchsia-200"
+          duration="5.6s"
+          delay="0.5s"
+          compact
+          style={{
+            bottom: '5%',
+            left: '42%',
+            transform: 'translate3d(0,0,22px) rotate(-2deg) rotateY(4deg) rotateX(2deg)',
           }}
         />
 
@@ -135,9 +152,10 @@ const FloatingVolunteerCards = () => {
           iconClass="text-sky-200"
           duration="5.8s"
           delay="0.4s"
+          compact
           style={{
-            right: '6%',
-            bottom: '7%',
+            right: '-20%',
+            top: '44%',
             transform: 'translate3d(0,0,34px) rotate(8deg) rotateY(-13deg) rotateX(6deg)',
           }}
         />
