@@ -2,13 +2,13 @@ import { processSteps } from '../data/programData';
 
 const Process = () => {
   return (
-    <section id="quy-trinh" className="bg-white py-24">
+    <section id="quy-trinh" className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
             Quy trình tham gia
           </p>
-          <h2 className="text-3xl font-extrabold text-slate-900 md:text-4xl">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl md:text-4xl">
             Bốn bước để bắt đầu một mùa hè tình nguyện cùng nhau
           </h2>
         </div>
@@ -17,7 +17,7 @@ const Process = () => {
           {processSteps.map((step, index) => (
             <article
               key={step.title}
-              className="relative rounded-[28px] border border-slate-200 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="relative rounded-[24px] border border-slate-200 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:rounded-[28px] sm:p-8"
             >
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-navy text-lg font-extrabold text-white">
                 {index + 1}

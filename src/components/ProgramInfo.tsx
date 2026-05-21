@@ -4,16 +4,13 @@ import { teamCards } from '../data/programData';
 
 const ProgramInfo = () => {
   return (
-    <section
-      id="hai-doi-tuyen"
-      className="bg-white py-20"
-    >
+    <section id="hai-doi-tuyen" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
             Hai đội tuyển tình nguyện viên
           </p>
-          <h2 className="text-3xl font-extrabold text-slate-900 md:text-4xl">
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl md:text-4xl">
             Một landing page chung cho hai hành trình giáo dục mùa hè
           </h2>
         </div>
@@ -38,7 +35,7 @@ const ProgramInfo = () => {
             return (
               <article
                 key={team.title}
-                className={`rounded-[32px] border-t-4 ${themeClasses.ring} bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl lg:p-10`}
+                className={`rounded-[24px] border-t-4 ${themeClasses.ring} bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:rounded-[32px] sm:p-8 lg:p-10`}
               >
                 <span
                   className={`inline-flex rounded-full px-4 py-2 text-sm font-bold ${themeClasses.badge}`}
@@ -46,8 +43,8 @@ const ProgramInfo = () => {
                   {team.subtitle}
                 </span>
 
-                <h3 className="mt-6 text-3xl font-extrabold text-slate-900">{team.title}</h3>
-                <p className="mt-4 text-base leading-8 text-slate-600">{team.description}</p>
+                <h3 className="mt-6 text-2xl font-extrabold text-slate-900 sm:text-3xl">{team.title}</h3>
+                <p className="mt-4 text-base leading-7 text-slate-600 sm:leading-8">{team.description}</p>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-[24px] bg-slate-50 p-5">
@@ -81,7 +78,7 @@ const ProgramInfo = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 rounded-[24px] bg-slate-50 p-6">
+                <div className="mt-8 rounded-[20px] bg-slate-50 p-5 sm:rounded-[24px] sm:p-6">
                   <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">
                     Vị trí tuyển
                   </p>
@@ -97,7 +94,7 @@ const ProgramInfo = () => {
 
                 <a
                   href={team.buttonHref}
-                  className={`mt-8 inline-flex min-h-11 items-center rounded-full px-7 py-3 text-sm font-bold transition-all hover:-translate-y-0.5 ${themeClasses.button}`}
+                  className={`mt-8 inline-flex min-h-11 w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition-all hover:-translate-y-0.5 sm:w-auto sm:px-7 ${themeClasses.button}`}
                 >
                   {team.buttonLabel}
                   <ArrowRight className="ml-2 h-4 w-4" />

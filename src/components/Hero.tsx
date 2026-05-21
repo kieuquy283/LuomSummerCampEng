@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section
       id="gioi-thieu"
-      className="relative flex min-h-screen items-start overflow-hidden bg-brand-navy pt-28 text-white"
+      className="relative flex min-h-screen items-start overflow-hidden bg-brand-navy pb-16 pt-24 text-white sm:pb-20 sm:pt-28"
     >
       <div className="absolute inset-0 opacity-70">
         <div className="absolute left-[-10%] top-[-10%] h-[40%] w-[40%] rounded-full bg-brand-deep blur-[120px] opacity-60" />
@@ -16,33 +16,33 @@ const Hero = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl">
-          <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-4 py-2 text-sm font-semibold text-brand-cyan backdrop-blur">
+          <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-2 text-xs font-semibold text-brand-cyan backdrop-blur sm:px-4 sm:text-sm">
             <Sparkles className="mr-2 h-4 w-4" />
             Tuyển tình nguyện viên
           </div>
 
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
             Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026
           </h1>
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8 md:text-xl">
             Đội Dạy học tình nguyện phường Vĩnh Phúc tìm kiếm tình nguyện viên đồng hành chiến
             dịch mùa hè. Mang kiến thức Công nghệ và Ngoại ngữ đến gần hơn với học sinh Tiểu học
             &amp; THCS!
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <a
               href={registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-8 py-4 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3.5 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover sm:w-auto sm:px-8 sm:py-4"
             >
               Đăng ký TNV
             </a>
             <a
               href="#vi-tri-phu-hop"
-              className="group inline-flex min-h-11 items-center justify-center rounded-full border border-slate-500 bg-transparent px-8 py-4 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:border-white hover:bg-white/5"
+              className="group inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-500 bg-transparent px-6 py-3.5 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:border-white hover:bg-white/5 sm:w-auto sm:px-8 sm:py-4"
             >
               Xem vị trí phù hợp
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

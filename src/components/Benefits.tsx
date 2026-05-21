@@ -31,10 +31,10 @@ const styles = [
 
 const Benefits = () => {
   return (
-    <section id="quyen-loi" className="bg-white py-20">
+    <section id="quyen-loi" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-3 text-3xl font-extrabold uppercase tracking-[0.12em] text-brand-cyan md:text-4xl">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+          <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.08em] text-brand-cyan sm:text-3xl md:text-4xl">
             Vì sao bạn nên tham gia?
           </p>
         </div>
@@ -46,14 +46,14 @@ const Benefits = () => {
             return (
               <article
                 key={benefit.title}
-                className={`rounded-2xl border-t-4 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${styles[index].borderClass}`}
+                className={`rounded-2xl border-t-4 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:p-8 ${styles[index].borderClass}`}
               >
                 <div
-                  className={`mb-6 flex h-16 w-16 items-center justify-center rounded-3xl ${styles[index].boxClass}`}
+                  className={`mb-5 flex h-14 w-14 items-center justify-center rounded-3xl sm:mb-6 sm:h-16 sm:w-16 ${styles[index].boxClass}`}
                 >
-                  <Icon className={`h-8 w-8 ${styles[index].iconClass}`} />
+                  <Icon className={`h-7 w-7 sm:h-8 sm:w-8 ${styles[index].iconClass}`} />
                 </div>
-                <h3 className="mb-3 text-xl font-bold text-slate-900">{benefit.title}</h3>
+                <h3 className="mb-3 text-lg font-bold text-slate-900 sm:text-xl">{benefit.title}</h3>
                 <p className="leading-7 text-slate-600">{benefit.description}</p>
               </article>
             );

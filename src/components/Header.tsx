@@ -20,8 +20,8 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
     <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/85 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-4">
-          <a href={homeHref} className="flex min-w-0 items-center gap-3">
-            <div className="flex items-center gap-2">
+          <a href={homeHref} className="flex min-w-0 items-start gap-3 sm:items-center">
+            <div className="flex flex-shrink-0 items-center gap-2">
               <img
                 src="/images/logo_doan.jpg"
                 alt="Logo Đoàn"
@@ -33,9 +33,9 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
                 className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
               />
             </div>
-            <div className="min-w-0">
-              <p className="truncate text-lg font-extrabold text-white">ĐỘI DẠY HỌC TÌNH NGUYỆN</p>
-              <p className="truncate text-sm font-semibold text-brand-cyan">CLB Trí tuệ trẻ Nhân tạo</p>
+            <div className="min-w-0 pt-0.5 sm:pt-0">
+              <p className="text-base font-extrabold leading-tight text-white sm:truncate sm:text-lg">ĐỘI DẠY HỌC TÌNH NGUYỆN</p>
+              <p className="mt-1 text-xs font-semibold leading-tight text-brand-cyan sm:truncate sm:text-sm">CLB Trí tuệ trẻ Nhân tạo</p>
             </div>
           </a>
 
