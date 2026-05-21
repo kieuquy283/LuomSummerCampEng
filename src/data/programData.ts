@@ -3,8 +3,8 @@ export const fanpageLink = 'https://www.facebook.com/luom.lvcd';
 export const zaloLink = 'https://zalo.me/0968397725';
 
 export const site = {
-  organization: 'Lượm - Giáo dục vì Cộng đồng',
-  eventName: 'Lượm Summer Camp 2026',
+  organization: 'Đoàn phường Vĩnh Phúc',
+  eventName: 'Chiến dịch tình nguyện hè 2026',
   pageTitle: 'Tuyển tình nguyện viên',
   hotline: '0968.397.725 (Ms.Trà My - 2005)',
 };
@@ -177,7 +177,7 @@ export const learningTracks = [
 export const processSteps = [
   {
     title: 'Đăng ký',
-    description: 'Gửi thông tin ứng tuyển qua form hoặc liên hệ Fanpage/Zalo.',
+    description: 'Gửi thông tin ứng tuyển qua form đăng ký của chương trình.',
   },
   {
     title: 'Xác nhận thông tin',

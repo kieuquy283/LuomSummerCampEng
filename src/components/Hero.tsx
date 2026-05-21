@@ -22,7 +22,7 @@ const Hero = () => {
           </div>
 
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
-            Trở thành tình nguyện viên Lượm Summer Camp 2026
+            Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl">

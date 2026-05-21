@@ -1,6 +1,4 @@
-import { Globe2, Phone } from 'lucide-react';
-
-import { fanpageLink, site } from '../data/programData';
+import { site } from '../data/programData';
 
 const Footer = () => {
   return (
@@ -22,28 +20,9 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <p className="text-xl font-extrabold uppercase text-white">ĐỘI DẠY HỌC TÌNH TUYỆN</p>
-                <p className="text-sm font-semibold text-brand-cyan">Clb Trí tuệ trẻ nhân tạo</p>
+                <p className="text-xl font-extrabold uppercase text-white">ĐỘI DẠY HỌC TÌNH NGUYỆN</p>
+                <p className="text-sm font-semibold text-brand-cyan">CLB Trí tuệ trẻ Nhân tạo</p>
               </div>
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <a
-              href={fanpageLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-[24px] border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10"
-            >
-              <Globe2 className="mb-3 h-5 w-5 text-brand-cyan" />
-              <p className="text-sm font-semibold text-slate-400">Fanpage</p>
-              <p className="mt-1 text-base font-bold text-white">Lượm - Giáo dục vì cộng đồng</p>
-            </a>
-
-            <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-              <Phone className="mb-3 h-5 w-5 text-brand-yellow" />
-              <p className="text-sm font-semibold text-slate-400">Hotline/Zalo</p>
-              <p className="mt-1 text-base font-bold text-white">{site.hotline}</p>
             </div>
           </div>
         </div>

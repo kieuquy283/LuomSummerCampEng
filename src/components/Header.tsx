@@ -34,8 +34,8 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
               />
             </div>
             <div className="min-w-0">
-              <p className="truncate text-lg font-extrabold text-white">ĐỘI DẠY HỌC TÌNH TUYỆN</p>
-              <p className="truncate text-sm font-semibold text-brand-cyan">Clb Trí tuệ trẻ nhân tạo</p>
+              <p className="truncate text-lg font-extrabold text-white">ĐỘI DẠY HỌC TÌNH NGUYỆN</p>
+              <p className="truncate text-sm font-semibold text-brand-cyan">CLB Trí tuệ trẻ Nhân tạo</p>
             </div>
           </a>
 

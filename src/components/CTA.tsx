@@ -1,4 +1,4 @@
-import { ArrowRight, Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
+import { Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
 
 import { fanpageLink, registrationLink, site, zaloLink } from '../data/programData';
 
@@ -63,7 +63,7 @@ const CTA = () => {
               </div>
 
               <h3 className="mt-8 text-3xl font-extrabold leading-tight md:text-4xl">
-                Cùng Lượm tạo nên một mùa hè giáo dục thật ý nghĩa
+                Cùng nhau tạo nên một mùa hè giáo dục thật ý nghĩa
               </h3>
               <p className="mt-5 text-lg leading-8 text-slate-200">
                 Dù bạn yêu thích công nghệ hay tiếng Anh, luôn có một vị trí phù hợp để bạn đóng
@@ -78,15 +78,6 @@ const CTA = () => {
                   className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-8 py-4 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
                 >
                   Đăng ký TNV
-                </a>
-                <a
-                  href={fanpageLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-brand-cyan bg-transparent px-8 py-4 text-base font-bold text-brand-cyan transition-all hover:-translate-y-0.5 hover:bg-brand-cyan/10"
-                >
-                  Liên hệ Fanpage
-                  <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </div>
             </div>

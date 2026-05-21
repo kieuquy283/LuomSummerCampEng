@@ -9,7 +9,7 @@ const Process = () => {
             Quy trình tham gia
           </p>
           <h2 className="text-3xl font-extrabold text-slate-900 md:text-4xl">
-            Bốn bước để bắt đầu một mùa hè tình nguyện cùng Lượm
+            Bốn bước để bắt đầu một mùa hè tình nguyện cùng nhau
           </h2>
         </div>
 
