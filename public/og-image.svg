@@ -1,118 +1,17 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="120" y1="40" x2="1080" y2="630" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F172A" />
-      <stop offset="0.45" stop-color="#0B3B63" />
-      <stop offset="1" stop-color="#0D9488" />
-    </linearGradient>
-    <linearGradient id="panel" x1="140" y1="110" x2="1060" y2="520" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF" stop-opacity="0.98" />
-      <stop offset="1" stop-color="#F8FAFC" stop-opacity="0.92" />
-    </linearGradient>
-    <linearGradient id="badge" x1="0" y1="0" x2="240" y2="64" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#22D3EE" />
-      <stop offset="1" stop-color="#FBBF24" />
-    </linearGradient>
-    <filter id="shadow" x="110" y="90" width="980" height="470" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#020617" flood-opacity="0.22" />
-    </filter>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)" />
-
-  <circle cx="148" cy="118" r="132" fill="#22D3EE" fill-opacity="0.14" />
-  <circle cx="1090" cy="122" r="144" fill="#FBBF24" fill-opacity="0.16" />
-  <circle cx="1016" cy="550" r="146" fill="#86EFAC" fill-opacity="0.14" />
-
-  <g filter="url(#shadow)">
-    <rect x="140" y="110" width="920" height="410" rx="36" fill="url(#panel)" />
-  </g>
-
-  <rect x="196" y="152" width="262" height="64" rx="32" fill="url(#badge)" />
-  <text
-    x="327"
-    y="193"
-    text-anchor="middle"
-    fill="#082F49"
-    font-family="'Be Vietnam Pro', system-ui, sans-serif"
-    font-size="24"
-    font-weight="800"
-  >
-    Chiến dịch tình nguyện hè 2026
-  </text>
-
-  <text
-    x="196"
-    y="290"
-    fill="#0F172A"
-    font-family="'Be Vietnam Pro', system-ui, sans-serif"
-    font-size="62"
-    font-weight="800"
-  >
-    <tspan x="196" dy="0">Tuyển tình nguyện viên</tspan>
-  </text>
-
-  <text
-    x="196"
-    y="362"
-    fill="#0369A1"
-    font-family="'Be Vietnam Pro', system-ui, sans-serif"
-    font-size="28"
-    font-weight="700"
-  >
-    Năng lực số • Tiếng Anh • Giáo dục cộng đồng
-  </text>
-
-  <text
-    x="196"
-    y="420"
-    fill="#334155"
-    font-family="'Be Vietnam Pro', system-ui, sans-serif"
-    font-size="26"
-    font-weight="600"
-  >
-    Đoàn phường Vĩnh Phúc
-  </text>
-
-  <rect x="196" y="456" width="232" height="42" rx="21" fill="#E0F2FE" />
-  <text
-    x="312"
-    y="483"
-    text-anchor="middle"
-    fill="#075985"
-    font-family="'Be Vietnam Pro', system-ui, sans-serif"
-    font-size="20"
-    font-weight="700"
-  >
-    Đội Bình Dân Học Vụ Số
-  </text>
-
-  <rect x="446" y="456" width="214" height="42" rx="21" fill="#DCFCE7" />
-  <text
-    x="553"
-    y="483"
-    text-anchor="middle"
-    fill="#166534"
-    font-family="'Be Vietnam Pro', system-ui, sans-serif"
-    font-size="20"
-    font-weight="700"
-  >
-    Đội Áo Xanh Anh Ngữ
-  </text>
-
-  <g>
-    <rect x="818" y="180" width="150" height="150" rx="30" fill="#0EA5E9" fill-opacity="0.12" />
-    <rect x="866" y="214" width="54" height="40" rx="10" stroke="#0369A1" stroke-width="8" />
-    <path d="M880 274H906" stroke="#0369A1" stroke-width="8" stroke-linecap="round" />
-    <path d="M893 254V294" stroke="#0369A1" stroke-width="8" stroke-linecap="round" />
-    <circle cx="942" cy="246" r="18" fill="#FBBF24" />
-  </g>
-
-  <g>
-    <rect x="800" y="340" width="186" height="120" rx="32" fill="#10B981" fill-opacity="0.12" />
-    <path d="M850 398C850 369 873 346 902 346C931 346 954 369 954 398V416H850V398Z" stroke="#047857" stroke-width="8" />
-    <path d="M884 384H921" stroke="#047857" stroke-width="8" stroke-linecap="round" />
-    <path d="M869 400H935" stroke="#047857" stroke-width="8" stroke-linecap="round" />
-    <path d="M884 364L899 352L918 364" stroke="#F59E0B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-  </g>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1200"
+  height="630"
+  viewBox="0 0 1200 630"
+  fill="none"
+>
+  <title>OG Image</title>
+  <image
+    href="./og-image.png"
+    x="0"
+    y="0"
+    width="1200"
+    height="630"
+    preserveAspectRatio="xMidYMid slice"
+  />
 </svg>
