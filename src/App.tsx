@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import InstructorRecruitment from './components/InstructorRecruitment';
+import PastSeasonsGallery from './components/PastSeasonsGallery';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <PastSeasonsGallery />
         <Benefits />
         <InstructorRecruitment />
         <CTA />

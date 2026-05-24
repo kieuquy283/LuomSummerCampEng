@@ -2,10 +2,10 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import './index.css';
-import SummerGreenPage from './pages/SummerGreenPage';
+import TechEngineeringPage from './pages/TechEngineeringPage';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <SummerGreenPage />
+    <TechEngineeringPage />
   </StrictMode>,
 );

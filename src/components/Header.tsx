@@ -17,10 +17,13 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/85 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between gap-4">
-          <a href={homeHref} className="flex min-w-0 items-start gap-3 sm:items-center">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-brand-navy/85 backdrop-blur-xl">
+      <div className="w-full px-0">
+        <div className="flex h-20 w-full items-center justify-between gap-4 pl-4 pr-4 sm:pl-5 sm:pr-5 lg:pl-6 lg:pr-6">
+          <a
+            href={homeHref}
+            className="ml-0 flex min-w-0 shrink-0 items-start gap-3 sm:items-center"
+          >
             <div className="flex flex-shrink-0 items-center gap-2">
               <img
                 src="/images/logo_doan.jpg"
@@ -39,7 +42,10 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
             </div>
           </a>
 
-          <nav className="hidden items-center gap-7 md:flex" aria-label="Điều hướng chính">
+          <nav
+            className="hidden flex-1 items-center justify-center gap-7 md:ml-10 md:flex"
+            aria-label="Điều hướng chính"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -55,7 +61,7 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
             href={registrationLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-h-11 items-center justify-center rounded-full bg-brand-yellow px-6 py-3 text-sm font-bold text-brand-navy shadow-cta transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover md:inline-flex"
+            className="ml-auto hidden min-h-11 items-center justify-center rounded-full bg-brand-yellow px-6 py-3 text-sm font-bold text-brand-navy shadow-cta transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover md:inline-flex"
           >
             Đăng ký TNV
           </a>

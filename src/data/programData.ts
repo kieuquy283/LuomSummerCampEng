@@ -10,9 +10,10 @@ export const site = {
 };
 
 export const navLinks = [
-  { label: 'Giới thiệu', href: '#gioi-thieu' },
+  { label: 'Giới thiệu', href: './index.html#gioi-thieu' },
   { label: 'Bình dân học vụ số', href: './binh-dan-hoc-vu-so.html' },
-  { label: 'Áo xanh Anh ngữ', href: './ao-xanh-anh-ngu.html' },
+  { label: 'Trại hè xanh', href: './trai-he-xanh.html' },
+  { label: 'Trại hè công nghệ - kỹ thuật', href: './trai-he-cong-nghe-ky-thuat.html' },
   { label: 'Quyền lợi', href: '#quyen-loi' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -37,22 +38,40 @@ export const teamCards = [
     buttonHref: '#doi-binh-dan-hoc-vu-so',
   },
   {
-    key: 'english',
-    title: 'Đội Áo Xanh Anh Ngữ',
-    subtitle: 'Dự án Giáo dục nâng cao năng lực ngoại ngữ',
+    key: 'green',
+    title: 'Trại hè xanh',
+    subtitle: 'Dự án trải nghiệm hè, kỹ năng sống và hoạt động tập thể',
     description:
-      'Cùng học sinh tiểu học luyện giao tiếp tiếng Anh qua trò chơi, flashcard, hoạt động nhóm và những giờ học vui vẻ.',
-    location: 'Trường Tiểu học Định Trung',
+      'Đồng hành cùng học sinh trong các hoạt động sinh hoạt hè, trò chơi tập thể, kỹ năng sống và trải nghiệm gần gũi thiên nhiên.',
+    location: 'Nhà văn hóa phường Vĩnh Phúc',
     students: 'Lớp 3 – lớp 5',
-    schedule: '2 buổi/tuần • 4 tuần',
+    schedule: '3 buổi/tuần • 4 tuần',
     kickoff: 'Tháng 6/2026',
     scale: '20–25 học sinh/lớp',
     roles: [
-      'TNV Đứng lớp & Hỗ trợ chuyên môn: 10 người',
-      'TNV Trợ giảng & Điều phối lớp học: 10 người',
+      'TNV Điều phối hoạt động & Hỗ trợ chuyên môn: 08 người',
+      'TNV Quản trò & Đồng hành học sinh: 10 người',
     ],
-    buttonLabel: 'Tìm hiểu đội Anh Ngữ',
-    buttonHref: '#doi-ao-xanh-anh-ngu',
+    buttonLabel: 'Tìm hiểu Trại hè xanh',
+    buttonHref: '#trai-he-xanh',
+  },
+  {
+    key: 'tech',
+    title: 'Trại hè công nghệ - kỹ thuật',
+    subtitle: 'Dự án công nghệ ứng dụng và thực hành kỹ thuật',
+    description:
+      'Mang đến cho học sinh các buổi học công nghệ, lắp ráp mô hình, tư duy kỹ thuật và trải nghiệm thực hành trực quan.',
+    location: 'Trường THCS Tô Hiệu',
+    students: 'Lớp 6 – lớp 9',
+    schedule: '3 buổi/tuần • 3 tuần',
+    kickoff: 'Tháng 7/2026',
+    scale: '20–25 học sinh/lớp',
+    roles: [
+      'TNV Đứng lớp & Hỗ trợ chuyên môn: 04 người',
+      'TNV Trợ giảng & Điều phối lớp học: 08 người',
+    ],
+    buttonLabel: 'Tìm hiểu Trại hè công nghệ - kỹ thuật',
+    buttonHref: '#trai-he-cong-nghe-ky-thuat',
   },
 ];
 
@@ -78,6 +97,7 @@ export const benefits = [
 
 export const recruitmentGroups = [
   {
+    teamKey: 'digital',
     id: 'doi-binh-dan-hoc-vu-so',
     title: 'Đội Bình Dân Học Vụ Số',
     subtitle: 'Lớp AI & An toàn thông tin trong AI',
@@ -114,37 +134,75 @@ export const recruitmentGroups = [
     ],
   },
   {
-    id: 'doi-ao-xanh-anh-ngu',
-    title: 'Đội Áo Xanh Anh Ngữ',
-    subtitle: 'Lớp Tiếng Anh giao tiếp dành cho học sinh tiểu học',
-    theme: 'english',
+    teamKey: 'green',
+    id: 'trai-he-xanh',
+    title: 'Trại hè xanh',
+    subtitle: 'Hoạt động trải nghiệm hè, kỹ năng sống và sinh hoạt tập thể',
+    theme: 'green',
+    positions: [
+      {
+        title: 'TNV Điều phối hoạt động & Hỗ trợ chuyên môn',
+        quantity: '08 người',
+        tasks: [
+          'Chủ trì điều phối các buổi sinh hoạt hè và hoạt động trải nghiệm',
+          'Thiết kế nội dung kỹ năng sống, trò chơi nhóm và hoạt động tương tác phù hợp theo độ tuổi',
+          'Chuẩn bị học liệu, dụng cụ và kịch bản hoạt động theo định hướng của BTC',
+        ],
+        requirements: [
+          'Đúng giờ, trách nhiệm, năng động, thân thiện với học sinh tiểu học',
+          'Có khả năng tổ chức trò chơi, dẫn dắt tập thể và truyền năng lượng tích cực',
+          'Ưu tiên ứng viên có kinh nghiệm sinh hoạt hè, công tác thiếu nhi hoặc tổ chức hoạt động cộng đồng',
+        ],
+      },
+      {
+        title: 'TNV Quản trò & Đồng hành học sinh',
+        quantity: '10 người',
+        tasks: [
+          'Hỗ trợ điều phối học sinh trong các trò chơi, hoạt động nhóm và workshop',
+          'Theo sát các em trong quá trình tham gia để đảm bảo an toàn và gắn kết',
+          'Hỗ trợ chuẩn bị đạo cụ, khu vực sinh hoạt và tư liệu hình ảnh cơ bản',
+        ],
+        requirements: [
+          'Chủ động, cởi mở, phối hợp tốt với nhóm tổ chức',
+          'Yêu thích làm việc với trẻ em, có khả năng hoạt náo là lợi thế',
+          'Có kỹ năng tổ chức, bao quát lớp học và xử lý tình huống cơ bản',
+        ],
+      },
+    ],
+  },
+  {
+    teamKey: 'tech',
+    id: 'trai-he-cong-nghe-ky-thuat',
+    title: 'Trại hè công nghệ - kỹ thuật',
+    subtitle: 'Lớp công nghệ ứng dụng và thực hành kỹ thuật dành cho học sinh',
+    theme: 'digital',
     positions: [
       {
         title: 'TNV Đứng lớp & Hỗ trợ chuyên môn',
-        quantity: '10 người',
+        quantity: '04 người',
         tasks: [
-          'Chủ trì điều phối các buổi học',
-          'Hướng dẫn học sinh tiếp cận kiến thức và kỹ năng giao tiếp tiếng Anh cơ bản',
-          'Thiết kế, chuẩn bị tài liệu và bài giảng theo định hướng của BTC',
+          'Chủ trì điều phối các buổi học công nghệ và thực hành kỹ thuật',
+          'Hướng dẫn học sinh tiếp cận kiến thức công nghệ, kỹ thuật cơ bản và tư duy thiết kế',
+          'Thiết kế, chuẩn bị học liệu, mô hình minh họa và bài giảng theo định hướng của BTC',
         ],
         requirements: [
-          'Đúng giờ, trách nhiệm, kiên nhẫn, thân thiện với học sinh tiểu học',
-          'Phát âm chuẩn, giao tiếp tiếng Anh tự tin',
-          'Ưu tiên Sư phạm Tiếng Anh, Ngôn ngữ Anh hoặc có kinh nghiệm đứng lớp',
+          'Đúng giờ, có trách nhiệm, kiên nhẫn, thân thiện với học sinh',
+          'Giao tiếp tốt, truyền đạt rõ ràng và có tư duy thực hành',
+          'Ưu tiên ngành Sư phạm, CNTT, kỹ thuật hoặc có kinh nghiệm giảng dạy thực hành',
         ],
       },
       {
         title: 'TNV Trợ giảng & Điều phối lớp học',
-        quantity: '10 người',
+        quantity: '08 người',
         tasks: [
-          'Hỗ trợ giáo viên chính quản lý lớp',
-          'Hướng dẫn học sinh thực hành bài tập và trò chơi ngôn ngữ',
-          'Hỗ trợ chuẩn bị flashcard, loa đài, lớp học và media',
+          'Hỗ trợ giáo viên chính quản lý lớp và tổ chức hoạt động nhóm',
+          'Hướng dẫn học sinh thực hành với dụng cụ, mô hình và bài tập công nghệ',
+          'Hỗ trợ chuẩn bị thiết bị, lớp học và media cho từng buổi học',
         ],
         requirements: [
-          'Chủ động, cởi mở tiếp nhận phản hồi',
-          'Tiếng Anh giao tiếp tốt',
-          'Có kỹ năng tổ chức, hoạt náo và bao quát lớp học',
+          'Chủ động, cởi mở, tôn trọng quy trình an toàn trong hoạt động thực hành',
+          'Biết sử dụng tốt các công cụ số cơ bản; có kinh nghiệm CLB công nghệ là lợi thế',
+          'Có kỹ năng tổ chức, bao quát lớp học và hỗ trợ học sinh theo nhóm nhỏ',
         ],
       },
     ],
@@ -239,13 +297,23 @@ export const learningTracks = [
     ],
   },
   {
-    title: 'Đội Áo Xanh Anh Ngữ',
-    theme: 'english',
+    title: 'Trại hè xanh',
+    theme: 'green',
     topics: [
-      'Giới thiệu bản thân, gia đình, trường lớp, sở thích',
-      'Luyện phản xạ giao tiếp tự nhiên',
-      'Học qua bài hát, trò chơi, flashcard',
-      'Tự tin nói tiếng Anh trong môi trường vui vẻ',
+      'Kỹ năng làm việc nhóm, giao tiếp và sinh hoạt tập thể',
+      'Trò chơi vận động, thử thách ngoài trời và hoạt động gắn kết',
+      'Kỹ năng tự phục vụ, bảo vệ môi trường và thói quen tích cực',
+      'Workshop sáng tạo, thủ công và trải nghiệm hè vui khỏe',
+    ],
+  },
+  {
+    title: 'Trại hè công nghệ - kỹ thuật',
+    theme: 'digital',
+    topics: [
+      'Khám phá tư duy công nghệ qua bài học thực hành',
+      'Lắp ráp mô hình, giải quyết vấn đề và thiết kế đơn giản',
+      'Làm quen công nghệ ứng dụng, công cụ số và nguyên lý kỹ thuật cơ bản',
+      'Phát triển tư duy sáng tạo, logic và làm việc nhóm qua dự án nhỏ',
     ],
   },
 ];
@@ -277,11 +345,11 @@ export const faqs = [
   },
   {
     q: 'Lịch học cụ thể vào thứ mấy và ca nào?',
-    a: 'BTC đang làm việc với nhà trường để chốt lịch phù hợp, thường rơi vào các ngày trong tuần, thời gian ban ngày. Sau khi ứng tuyển, TNV sẽ nhận form khảo sát lịch rảnh để BTC sắp xếp tối ưu.',
+    a: 'BTC đang làm việc với Nhà trường và các thành viên để chốt lịch phù hợp. Sau khi ứng tuyển, TNV sẽ nhận form khảo sát lịch rảnh để BTC sắp xếp tối ưu.',
   },
   {
     q: 'Tham gia có được hỗ trợ chi phí hay phụ cấp không?',
-    a: 'Đây là chiến dịch tình nguyện hè nhằm hỗ trợ cộng đồng và học sinh địa phương, nên chương trình không có phụ cấp bằng tiền mặt. Tuy nhiên, BTC sẽ hỗ trợ điều kiện cơ sở vật chất, nước uống và thiết bị phục vụ giảng dạy.',
+    a: '',
   },
   {
     q: 'Quyền lợi lớn nhất khi tham gia là gì?',
@@ -293,6 +361,6 @@ export const faqs = [
   },
   {
     q: 'Mình nên chọn đội nào?',
-    a: 'Nếu bạn yêu thích công nghệ, kỹ năng số, AI hoặc các công cụ học tập số, hãy chọn Đội Bình Dân Học Vụ Số. Nếu bạn tự tin tiếng Anh và yêu thích hoạt động giao tiếp, trò chơi ngôn ngữ, hãy chọn Đội Áo Xanh Anh Ngữ.',
+    a: 'Nếu bạn yêu thích công nghệ, kỹ năng số, AI hoặc các công cụ học tập số, hãy chọn Đội Bình Dân Học Vụ Số. Nếu bạn hợp với hoạt động sinh hoạt hè, kỹ năng sống và trò chơi tập thể, hãy chọn Trại hè xanh. Nếu bạn muốn đồng hành trong các buổi học công nghệ, thực hành và kỹ thuật, hãy chọn Trại hè công nghệ - kỹ thuật.',
   },
 ];

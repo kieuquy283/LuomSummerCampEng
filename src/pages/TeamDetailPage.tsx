@@ -2,6 +2,7 @@ import {
   ArrowRight,
   BookOpenText,
   CalendarDays,
+  Laptop,
   MapPin,
   MessageCircleMore,
   Users,
@@ -12,14 +13,18 @@ import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import InstructorRecruitment from '../components/InstructorRecruitment';
-import { navLinks, recruitmentGroups, registrationLink, teamCards } from '../data/programData';
+import { navLinks, registrationLink, recruitmentGroups, teamCards } from '../data/programData';
 
-const englishTeam = teamCards.find((team) => team.key === 'english');
-const englishRecruitment = recruitmentGroups.filter((group) => group.theme === 'english');
+type TeamDetailPageProps = {
+  teamKey: string;
+  introPoints: string[];
+  projectTitle: string;
+  variant: 'digital' | 'accent';
+};
 
 const sharedNavLinks = navLinks.map((link) => {
   if (link.label === 'Giới thiệu') {
-    return { ...link, href: '#gioi-thieu' };
+    return { ...link, href: './index.html#gioi-thieu' };
   }
 
   if (link.label === 'Quyền lợi' || link.label === 'FAQ') {
@@ -29,16 +34,21 @@ const sharedNavLinks = navLinks.map((link) => {
   return link;
 });
 
-const englishIntroPoints = [
-  'Bạn có mong muốn mang kiến thức ngoại ngữ và tư duy hội nhập đến gần hơn với các em học sinh?',
-  'Bạn muốn trực tiếp đóng góp sức trẻ vào hoạt động tình nguyện hè ý nghĩa ngay tại địa phương?',
-  'Hãy đồng hành cùng Đội Áo xanh Anh ngữ phường Vĩnh Phúc trong chiến dịch tình nguyện hè năm nay!',
-];
+const TeamDetailPage = ({ teamKey, introPoints, projectTitle, variant }: TeamDetailPageProps) => {
+  const team = teamCards.find((item) => item.key === teamKey);
+  const teamRecruitment = recruitmentGroups.filter((group) => group.teamKey === teamKey);
 
-const EnglishTeamPage = () => {
-  if (!englishTeam) {
+  if (!team) {
     return null;
   }
+
+  const isDigital = variant === 'digital';
+  const FeatureIcon = isDigital ? Laptop : MessageCircleMore;
+  const featureBorderClass = isDigital ? 'border-brand-electric/20' : 'border-brand-cyan/20';
+  const featureIconClass = isDigital
+    ? 'bg-brand-electric/20 text-brand-electric'
+    : 'bg-brand-cyan/20 text-brand-cyan';
+  const secondaryIconClass = isDigital ? 'text-brand-cyan' : 'text-brand-yellow';
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
@@ -58,13 +68,11 @@ const EnglishTeamPage = () => {
             <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="max-w-3xl">
                 <h1 className="text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                  Đội
-                  <br />
-                  Áo Xanh Anh ngữ
+                  {team.title}
                 </h1>
 
                 <ul className="mt-6 space-y-4 text-base leading-7 text-slate-200 sm:text-lg sm:leading-8 md:text-xl">
-                  {englishIntroPoints.map((point) => (
+                  {introPoints.map((point) => (
                     <li key={point} className="flex gap-3">
                       <span className="mt-3 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-brand-cyan" />
                       <span>{point}</span>
@@ -92,47 +100,47 @@ const EnglishTeamPage = () => {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <article className="rounded-[24px] border border-brand-cyan/20 bg-white/10 p-5 backdrop-blur-md sm:col-span-2 sm:rounded-[28px] sm:p-6">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-cyan/20 text-brand-cyan">
-                    <MessageCircleMore className="h-7 w-7" />
+                <article
+                  className={`rounded-[24px] border bg-white/10 p-5 backdrop-blur-md sm:col-span-2 sm:rounded-[28px] sm:p-6 ${featureBorderClass}`}
+                >
+                  <div
+                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl ${featureIconClass}`}
+                  >
+                    <FeatureIcon className="h-7 w-7" />
                   </div>
-                  <h2 className="text-xl font-bold sm:text-2xl">
-                    Dự án
-                    <br />
-                    Giáo dục nâng cao năng lực ngoại ngữ
-                  </h2>
+                  <h2 className="text-xl font-bold sm:text-2xl">{projectTitle}</h2>
                 </article>
 
                 <article className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[28px] sm:p-6">
                   <MapPin className="h-6 w-6 text-brand-cyan" />
                   <p className="mt-4 text-sm font-semibold text-slate-300">Địa điểm</p>
-                  <p className="mt-1 text-lg font-bold">{englishTeam.location}</p>
+                  <p className="mt-1 text-lg font-bold">{team.location}</p>
                 </article>
 
                 <article className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[28px] sm:p-6">
-                  <Users className="h-6 w-6 text-brand-yellow" />
+                  <Users className={`h-6 w-6 ${secondaryIconClass}`} />
                   <p className="mt-4 text-sm font-semibold text-slate-300">Đối tượng học sinh</p>
-                  <p className="mt-1 text-lg font-bold">{englishTeam.students}</p>
+                  <p className="mt-1 text-lg font-bold">{team.students}</p>
                 </article>
 
                 <article className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[28px] sm:p-6">
                   <CalendarDays className="h-6 w-6 text-brand-cyan" />
                   <p className="mt-4 text-sm font-semibold text-slate-300">Thời lượng</p>
-                  <p className="mt-1 text-lg font-bold">{englishTeam.schedule}</p>
-                  <p className="mt-1 text-sm text-slate-300">{englishTeam.kickoff}</p>
+                  <p className="mt-1 text-lg font-bold">{team.schedule}</p>
+                  <p className="mt-1 text-sm text-slate-300">{team.kickoff}</p>
                 </article>
 
                 <article className="rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[28px] sm:p-6">
-                  <BookOpenText className="h-6 w-6 text-brand-yellow" />
+                  <BookOpenText className={`h-6 w-6 ${secondaryIconClass}`} />
                   <p className="mt-4 text-sm font-semibold text-slate-300">Quy mô lớp</p>
-                  <p className="mt-1 text-lg font-bold">{englishTeam.scale}</p>
+                  <p className="mt-1 text-lg font-bold">{team.scale}</p>
                 </article>
               </div>
             </div>
           </div>
         </section>
 
-        <InstructorRecruitment groups={englishRecruitment} />
+        <InstructorRecruitment groups={teamRecruitment} />
         <Benefits />
         <CTA />
       </main>
@@ -141,4 +149,4 @@ const EnglishTeamPage = () => {
   );
 };
 
-export default EnglishTeamPage;
+export default TeamDetailPage;

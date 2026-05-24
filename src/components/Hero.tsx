@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       id="gioi-thieu"
-      className="relative flex min-h-screen items-start overflow-hidden bg-brand-navy pb-16 pt-24 text-white sm:pb-20 sm:pt-28"
+      className="relative flex min-h-[calc(100svh-5rem)] items-start overflow-hidden bg-brand-navy pb-10 pt-20 text-white sm:pb-14 sm:pt-24"
     >
       <div className="absolute inset-0 opacity-70">
         <div className="absolute left-[-10%] top-[-10%] h-[40%] w-[40%] rounded-full bg-brand-deep blur-[120px] opacity-60" />
@@ -16,7 +16,7 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_30rem] lg:gap-12">
+        <div className="grid items-start gap-8 md:-translate-y-4 lg:grid-cols-[minmax(0,1fr)_30rem] lg:gap-12 lg:-translate-y-6">
           <div className="max-w-4xl">
             <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-2 text-xs font-semibold text-brand-cyan backdrop-blur sm:px-4 sm:text-sm">
               <Sparkles className="mr-2 h-4 w-4" />
@@ -29,8 +29,8 @@ const Hero = () => {
 
             <p className="mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8 md:text-xl">
               Đội Dạy học tình nguyện phường Vĩnh Phúc tìm kiếm tình nguyện viên đồng hành chiến
-              dịch mùa hè. Mang kiến thức Công nghệ và Ngoại ngữ đến gần hơn với học sinh Tiểu học
-              &amp; THCS!
+              dịch mùa hè. Cùng tổ chức các lớp công nghệ, hoạt động kỹ thuật và trại hè trải nghiệm
+              dành cho học sinh Tiểu học &amp; THCS!
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
