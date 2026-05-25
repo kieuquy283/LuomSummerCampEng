@@ -643,7 +643,7 @@ const VolunteerRegistrationForm = () => {
                   value={form.dateOfBirth}
                   onChange={(event) => setField('dateOfBirth', event.target.value)}
                   className={inputClasses}
-                  placeholder="VD: 01/01/2005"
+                  placeholder="VD: 21/05/2005"
                 />
                 <ErrorText message={errors.dateOfBirth} />
               </div>
@@ -837,7 +837,14 @@ const VolunteerRegistrationForm = () => {
                   onChange={(event) => setField('pastVolunteerExperience', event.target.value)}
                   className={`${inputClasses} min-h-40`}
                 />
-                <DescriptionBlock text="Nếu có, kể tên các sự kiện từng tham gia, vị trí tình nguyện và mô tả ngắn gọn những việc bạn đã từng làm theo cú pháp:\n1. Tên sự kiện - Tên vị trí\n- Công việc 1: mô tả\n- Công việc 2: mô tả\n...\nNếu chưa, bạn vui lòng bỏ trống câu hỏi này." />
+                <DescriptionBlock
+                  text={`Nếu có, kể tên các sự kiện từng tham gia, vị trí tình nguyện và mô tả ngắn gọn những việc bạn đã từng làm theo cú pháp:
+1. Tên sự kiện - Tên vị trí
+- Công việc 1: mô tả
+- Công việc 2: mô tả
+...
+Nếu chưa, bạn vui lòng bỏ trống câu hỏi này.`}
+                />
               </div>
             </div>
           </fieldset>
