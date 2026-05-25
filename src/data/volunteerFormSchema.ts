@@ -31,11 +31,6 @@ export const volunteerFormSchema = {
     { value: 'truyen-thong', label: 'Bộ phận Truyền thông' },
     { value: 'ho-tro', label: 'Bộ phận Hỗ trợ' },
   ] satisfies FormOption[],
-  departmentLogicNotes: [
-    'Bộ phận Hỗ trợ chỉ phục vụ Trại hè Xanh.',
-    'Bộ phận Chuyên môn Tin học & Kỹ thuật chỉ phục vụ Trại hè Công nghệ + Lớp Bình dân học vụ số.',
-    'Bộ phận Truyền thông có thể tham gia ở cả hai nhóm hoạt động.',
-  ],
   generalStrengthOptions: [
     {
       value: 'ho-tro-ky-thuat',
@@ -81,17 +76,5 @@ export const volunteerFormSchema = {
     { value: 'co', label: 'Có' },
     { value: 'chua-chac', label: 'Chưa chắc' },
     { value: 'khong', label: 'Không' },
-  ] satisfies FormOption[],
-  priorityOptions: [
-    {
-      value: 'tin-hoc-ky-thuat-cong-nghe-bdhvs',
-      label: 'Tin học & Kỹ thuật — Trại hè Công nghệ + Bình dân học vụ số',
-    },
-    { value: 'truyen-thong-trai-he-xanh', label: 'Truyền thông — Trại hè Xanh' },
-    {
-      value: 'truyen-thong-cong-nghe-bdhvs',
-      label: 'Truyền thông — Trại hè Công nghệ + Bình dân học vụ số',
-    },
-    { value: 'ho-tro-trai-he-xanh', label: 'Hỗ trợ — Trại hè Xanh' },
   ] satisfies FormOption[],
 } as const;

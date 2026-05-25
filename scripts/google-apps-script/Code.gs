@@ -69,9 +69,6 @@ function flattenPayload_(payload) {
     mediaHasCamera: payload.mediaHasCamera || '',
     supportTasks: joinArray_(payload.supportTasks),
     availableForGreenCamp: payload.availableForGreenCamp || '',
-    priority1: payload.priority1 || '',
-    priority2: payload.priority2 || '',
-    priority3: payload.priority3 || '',
   };
 }
 

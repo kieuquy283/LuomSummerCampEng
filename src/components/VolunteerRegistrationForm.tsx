@@ -37,9 +37,6 @@ type VolunteerRegistrationState = {
   mediaHasCamera: string;
   supportTasks: string[];
   availableForGreenCamp: string;
-  priority1: string;
-  priority2: string;
-  priority3: string;
 };
 
 type ValidationErrors = Partial<Record<keyof VolunteerRegistrationState, string>>;
@@ -77,9 +74,6 @@ const initialState: VolunteerRegistrationState = {
   mediaHasCamera: '',
   supportTasks: [],
   availableForGreenCamp: '',
-  priority1: '',
-  priority2: '',
-  priority3: '',
 };
 
 const sectionClasses =
@@ -211,7 +205,6 @@ const VolunteerRegistrationForm = () => {
     if (hasTechDepartment) sections.push('6. Tin học & Kỹ thuật');
     if (hasMediaDepartment) sections.push('7. Truyền thông');
     if (hasSupportDepartment) sections.push('8. Hỗ trợ');
-    sections.push('9. Nguyện vọng ưu tiên');
 
     return sections;
   }, [hasMediaDepartment, hasSupportDepartment, hasTechDepartment]);
@@ -692,19 +685,6 @@ const VolunteerRegistrationForm = () => {
               }
               columns="sm:grid-cols-2 xl:grid-cols-3"
             />
-            <div className="mt-5 rounded-[22px] border border-white/10 bg-slate-950/60 p-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-cyan">
-                Ghi chú logic
-              </p>
-              <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-300">
-                {volunteerFormSchema.departmentLogicNotes.map((note) => (
-                  <li key={note} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-brand-yellow" />
-                    <span>{note}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
             {errors.selectedDepartments ? (
               <p className="mt-3 text-sm text-rose-300">{errors.selectedDepartments}</p>
             ) : null}
@@ -923,32 +903,6 @@ const VolunteerRegistrationForm = () => {
               </div>
             </fieldset>
           ) : null}
-
-          <fieldset className={sectionClasses}>
-            <legend className="mb-5 text-xl font-extrabold text-white">9. Nguyện vọng ưu tiên</legend>
-            <div className="grid gap-5 md:grid-cols-3">
-              {(['priority1', 'priority2', 'priority3'] as const).map((fieldKey, index) => (
-                <div key={fieldKey}>
-                  <label htmlFor={fieldKey} className={labelClasses}>
-                    Nguyện vọng {index + 1}
-                  </label>
-                  <select
-                    id={fieldKey}
-                    value={form[fieldKey]}
-                    onChange={(event) => setField(fieldKey, event.target.value)}
-                    className={inputClasses}
-                  >
-                    <option value="">Chọn nguyện vọng</option>
-                    {volunteerFormSchema.priorityOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
-            </div>
-          </fieldset>
 
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <button

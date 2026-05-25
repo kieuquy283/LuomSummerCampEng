@@ -28,9 +28,6 @@ select
   payload->>'mediaHasCamera' as media_has_camera,
   array_to_string(array(select jsonb_array_elements_text(payload->'supportTasks')), ' | ') as support_tasks_text,
   payload->>'availableForGreenCamp' as available_for_green_camp,
-  payload->>'priority1' as priority_1,
-  payload->>'priority2' as priority_2,
-  payload->>'priority3' as priority_3,
   payload
 from public.volunteer_registrations
 order by submitted_at desc;

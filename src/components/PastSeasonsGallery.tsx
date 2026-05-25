@@ -45,13 +45,11 @@ const PastSeasonsGallery = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-            Hình ảnh mùa trước
+            HÌNH ẢNH NHỮNG MÙA HOẠT ĐỘNG TRƯỚC
           </p>
-          <h2 className="text-2xl font-extrabold sm:text-3xl md:text-4xl">
-            Một vài khoảnh khắc từ những mùa hoạt động trước
-          </h2>
           <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-            Section này đã sẵn cấu trúc gallery để đưa ảnh hoạt động thật vào bất cứ lúc nào.
+            Một vài khung hình để nhìn lại không khí hoạt động, học tập và đồng hành cùng học sinh
+            trong các mùa trước.
           </p>
         </div>
 

@@ -91,7 +91,6 @@ export const navLinks: NavLink[] = [
   { label: 'Giới thiệu', href: '#gioi-thieu' },
   { label: 'Hoạt động', href: '#hoat-dong' },
   { label: 'Bộ phận tuyển', href: '#bo-phan-tuyen' },
-  { label: 'Lịch trình', href: '#lich-trinh' },
   { label: 'Quyền lợi', href: '#vi-sao-tham-gia' },
   { label: 'FAQ', href: '#faq' },
 ];
