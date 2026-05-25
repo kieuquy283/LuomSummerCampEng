@@ -4,6 +4,13 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/dashboard",
+      "destination": "/dashboard.html",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
