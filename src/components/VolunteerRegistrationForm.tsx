@@ -316,7 +316,7 @@ const VolunteerRegistrationForm = () => {
   const [submitMessage, setSubmitMessage] = useState('');
   const [isDraftHydrated, setIsDraftHydrated] = useState(false);
   const [draftUpdatedAt, setDraftUpdatedAt] = useState<string | null>(null);
-  const [draftWasRestored, setDraftWasRestored] = useState(false);
+  const [, setDraftWasRestored] = useState(false);
 
   const supabase = getSupabaseClient();
   const supabaseTable = getVolunteerRegistrationsTable();
@@ -687,9 +687,9 @@ const VolunteerRegistrationForm = () => {
         </div>
 
 
-        {draftUpdatedAt && !draftWasRestored ? (
+        {false ? (
           <div className="mb-4 rounded-[22px] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-300">
-            Bản nháp đang được tự động lưu trên trình duyệt này. Cập nhật gần nhất: {new Date(draftUpdatedAt).toLocaleString('vi-VN')}
+            Bản nháp đang được tự động lưu trên trình duyệt này. Cập nhật gần nhất: {new Date(draftUpdatedAt ?? '').toLocaleString('vi-VN')}
           </div>
         ) : null}
 
