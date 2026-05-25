@@ -2,134 +2,579 @@ export const registrationLink = 'https://forms.gle/SCjJAAr5x61PR1Zo9';
 export const fanpageLink = 'https://www.facebook.com/luom.lvcd';
 export const zaloLink = 'https://zalo.me/0968397725';
 
-export const site = {
-  organization: 'Đoàn phường Vĩnh Phúc',
-  eventName: 'Chiến dịch tình nguyện hè 2026',
-  pageTitle: 'Tuyển tình nguyện viên',
-  hotline: '0968.397.725 (Ms.Trà My - 2005)',
+export type NavLink = {
+  label: string;
+  href: string;
 };
 
-export const navLinks = [
-  { label: 'Giới thiệu', href: './index.html#gioi-thieu' },
-  { label: 'Bình dân học vụ số', href: './binh-dan-hoc-vu-so.html' },
-  { label: 'Trại hè xanh', href: './trai-he-xanh.html' },
-  { label: 'Trại hè công nghệ - kỹ thuật', href: './trai-he-cong-nghe-ky-thuat.html' },
-  { label: 'Quyền lợi', href: '#quyen-loi' },
+export type SiteConfig = {
+  organization: string;
+  pageTitle: string;
+  campaignName: string;
+  headline: string;
+  heroSubtitle: string;
+  registrationNotice: string;
+  hotline: string;
+};
+
+export type DepartmentId = 'tin-hoc-ky-thuat' | 'truyen-thong' | 'ho-tro';
+
+export type Activity = {
+  id: string;
+  title: string;
+  time: string;
+  orderNote?: string;
+  description: string;
+  relatedDepartments: DepartmentId[];
+  heroTag: string;
+  audience?: string;
+};
+
+export type Department = {
+  id: DepartmentId;
+  title: string;
+  scope: string;
+  description: string;
+  subRoles?: string[];
+  fields?: string[];
+  tasks?: string[];
+  requirements: string[];
+  relatedActivities: string[];
+  ctaLabel: string;
+};
+
+export type DepartmentActivityMapItem = {
+  departmentId: DepartmentId;
+  activityIds: string[];
+};
+
+export type TimelineMonth = {
+  month: string;
+  items: string[];
+  note?: string;
+};
+
+export type FitGuideItem = {
+  title: string;
+  description: string;
+  departmentId?: DepartmentId;
+};
+
+export type ProcessStep = {
+  title: string;
+  description: string;
+};
+
+export type FAQItem = {
+  q: string;
+  a: string;
+};
+
+export type BenefitItem = {
+  title: string;
+  description: string;
+};
+
+export const site: SiteConfig = {
+  organization: 'Đoàn phường Vĩnh Phúc / Lượm',
+  pageTitle: 'Tuyển TNV Chiến dịch hè 2026',
+  campaignName: 'Chiến dịch tình nguyện hè 2026',
+  headline: 'Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026',
+  heroSubtitle:
+    'Cùng Đoàn phường Vĩnh Phúc tổ chức các hoạt động trại hè, công nghệ, năng lực số và truyền thông dành cho học sinh trong mùa hè này.',
+  registrationNotice:
+    "Trong form, bạn có thể chọn 1 hoặc nhiều hoạt động, 1 hoặc nhiều bộ phận. Nếu chưa chắc vị trí phù hợp, bạn có thể chọn mục 'Cần BTC tư vấn'.",
+  hotline: '0968.397.725 (Ms. Trà My - 2005)',
+};
+
+export const navLinks: NavLink[] = [
+  { label: 'Giới thiệu', href: '#gioi-thieu' },
+  { label: 'Hoạt động', href: '#hoat-dong' },
+  { label: 'Bộ phận tuyển', href: '#bo-phan-tuyen' },
+  { label: 'Lịch trình', href: '#lich-trinh' },
+  { label: 'Quyền lợi', href: '#vi-sao-tham-gia' },
   { label: 'FAQ', href: '#faq' },
 ];
 
-export const teamCards = [
+export const activities: Activity[] = [
   {
-    key: 'digital',
-    title: 'Đội Bình Dân Học Vụ Số',
-    subtitle: 'Dự án Giáo dục nâng cao năng lực số',
+    id: 'trai-he-xanh',
+    title: 'Trại hè xanh',
+    time: 'Tháng 6',
     description:
-      'Đồng hành cùng học sinh THCS tiếp cận kỹ năng số, sử dụng Internet an toàn và ứng dụng công nghệ/AI vào học tập.',
-    location: 'Trường THCS Tô Hiệu',
-    students: 'Lớp 6 – lớp 8',
-    schedule: '3 buổi/tuần • 3 tuần',
-    kickoff: 'Tháng 7/2026',
-    scale: '20–25 học sinh/lớp',
-    roles: [
-      'TNV Đứng lớp & Hỗ trợ chuyên môn: 02 người',
-      'TNV Trợ giảng & Điều phối lớp học: 06 người',
-    ],
-    buttonLabel: 'Tìm hiểu đội Năng lực số',
-    buttonHref: '#doi-binh-dan-hoc-vu-so',
+      'Hoạt động trải nghiệm hè, sinh hoạt tập thể, kỹ năng sống và đồng hành cùng học sinh.',
+    relatedDepartments: ['ho-tro', 'truyen-thong'],
+    heroTag: 'Trại hè xanh • Tháng 6',
+    audience: 'Học sinh tham gia trải nghiệm hè và hoạt động tập thể.',
   },
+  {
+    id: 'trai-he-cong-nghe',
+    title: 'Trại hè công nghệ',
+    time: 'Tháng 7',
+    orderNote: 'Diễn ra trước',
+    description:
+      'Hoạt động công nghệ, AI, an toàn thông tin, sáng chế và kỹ thuật thủ công dành cho học sinh.',
+    relatedDepartments: ['tin-hoc-ky-thuat', 'truyen-thong'],
+    heroTag: 'Trại hè công nghệ • Tháng 7',
+    audience: 'Học sinh yêu thích công nghệ, thực hành và khám phá STEM.',
+  },
+  {
+    id: 'binh-dan-hoc-vu-so',
+    title: 'Lớp Bình dân học vụ số',
+    time: 'Tháng 7',
+    orderNote: 'Diễn ra sau Trại hè công nghệ',
+    description:
+      'Lớp học nâng cao năng lực số, sử dụng Internet an toàn và ứng dụng công nghệ/AI vào học tập.',
+    relatedDepartments: ['tin-hoc-ky-thuat', 'truyen-thong'],
+    heroTag: 'Bình dân học vụ số • Tháng 7',
+    audience: 'Học sinh cần củng cố kỹ năng số và ứng dụng công nghệ vào học tập.',
+  },
+];
+
+export const departments: Department[] = [
+  {
+    id: 'tin-hoc-ky-thuat',
+    title: 'Bộ phận Tin học + Kỹ thuật',
+    scope: 'Phục vụ Trại hè công nghệ và Lớp Bình dân học vụ số',
+    description:
+      'Dành cho các bạn yêu thích công nghệ, AI, an toàn thông tin, sáng chế và kỹ thuật thực hành.',
+    subRoles: ['Core nội dung/chuyên môn', 'TNV hỗ trợ lớp học/thực hành'],
+    fields: [
+      'An toàn thông tin',
+      'Ứng dụng công nghệ & AI',
+      'Sáng chế',
+      'Kỹ thuật thủ công',
+    ],
+    requirements: [
+      'Có kiến thức hoặc hứng thú với công nghệ, AI, an toàn thông tin, STEM hoặc kỹ thuật.',
+      'Có khả năng truyền đạt, hướng dẫn học sinh.',
+      'Có trách nhiệm, đúng giờ, kiên nhẫn.',
+      'Với vai trò Core: cần có khả năng chuẩn bị nội dung, giáo án hoặc hoạt động thực hành.',
+    ],
+    relatedActivities: ['trai-he-cong-nghe', 'binh-dan-hoc-vu-so'],
+    ctaLabel: 'Đăng ký Tin học + Kỹ thuật',
+  },
+  {
+    id: 'truyen-thong',
+    title: 'Bộ phận Truyền thông',
+    scope: 'Hoạt động xuyên suốt cả 3 hoạt động',
+    description:
+      'Phụ trách ghi lại, lan tỏa và truyền thông các hoạt động của chiến dịch.',
+    tasks: [
+      'Viết bài, caption, recap.',
+      'Chụp ảnh, quay video.',
+      'Thiết kế ấn phẩm.',
+      'Dựng video ngắn.',
+      'Quản lý tư liệu truyền thông.',
+    ],
+    requirements: [
+      'Biết Canva, CapCut, chụp ảnh, viết content hoặc thiết kế là lợi thế.',
+      'Chủ động, đúng deadline.',
+      'Có khả năng bắt khoảnh khắc và phối hợp với các bộ phận khác.',
+    ],
+    relatedActivities: ['trai-he-xanh', 'trai-he-cong-nghe', 'binh-dan-hoc-vu-so'],
+    ctaLabel: 'Đăng ký Truyền thông',
+  },
+  {
+    id: 'ho-tro',
+    title: 'Bộ phận Hỗ trợ',
+    scope: 'Chỉ phục vụ Trại hè xanh',
+    description:
+      'Phụ trách hỗ trợ vận hành, điều phối học sinh, chuẩn bị vật dụng và hỗ trợ BTC trong hoạt động Trại hè xanh.',
+    tasks: [
+      'Điều phối học sinh.',
+      'Điểm danh.',
+      'Chuẩn bị vật dụng.',
+      'Hỗ trợ trò chơi/hoạt động.',
+      'Hậu cần lớp học và khu vực sinh hoạt.',
+    ],
+    requirements: [
+      'Nhiệt tình, có trách nhiệm.',
+      'Linh hoạt, chủ động.',
+      'Có khả năng phối hợp nhóm.',
+      'Có thể tham gia hoạt động trong tháng 6.',
+    ],
+    relatedActivities: ['trai-he-xanh'],
+    ctaLabel: 'Đăng ký Hỗ trợ',
+  },
+];
+
+export const departmentActivityMap: DepartmentActivityMapItem[] = [
+  {
+    departmentId: 'tin-hoc-ky-thuat',
+    activityIds: ['trai-he-cong-nghe', 'binh-dan-hoc-vu-so'],
+  },
+  {
+    departmentId: 'truyen-thong',
+    activityIds: ['trai-he-xanh', 'trai-he-cong-nghe', 'binh-dan-hoc-vu-so'],
+  },
+  {
+    departmentId: 'ho-tro',
+    activityIds: ['trai-he-xanh'],
+  },
+];
+
+export const timeline: TimelineMonth[] = [
+  {
+    month: 'Tháng 6',
+    items: ['Trại hè xanh'],
+  },
+  {
+    month: 'Tháng 7',
+    items: ['Trại hè công nghệ', 'Lớp Bình dân học vụ số'],
+    note: 'Trại hè công nghệ sẽ diễn ra trước Lớp Bình dân học vụ số.',
+  },
+];
+
+export const fitGuide: FitGuideItem[] = [
+  {
+    title: 'Nếu bạn thích AI, công nghệ, an toàn thông tin, STEM',
+    description: 'Bạn phù hợp với Bộ phận Tin học + Kỹ thuật.',
+    departmentId: 'tin-hoc-ky-thuat',
+  },
+  {
+    title: 'Nếu bạn thích quay chụp, thiết kế, viết bài, fanpage',
+    description: 'Bạn phù hợp với Bộ phận Truyền thông.',
+    departmentId: 'truyen-thong',
+  },
+  {
+    title: 'Nếu bạn thích hỗ trợ tổ chức, điều phối, hậu cần',
+    description: 'Bạn phù hợp với Bộ phận Hỗ trợ.',
+    departmentId: 'ho-tro',
+  },
+  {
+    title: 'Nếu bạn muốn tham gia nhiều hoạt động',
+    description: 'Bạn có thể chọn nhiều hoạt động và nhiều bộ phận trong form.',
+  },
+];
+
+export const benefits: BenefitItem[] = [
+  {
+    title: 'Trực tiếp tạo giá trị cho mùa hè của học sinh',
+    description:
+      'Bạn đồng hành trong các hoạt động trại hè, lớp công nghệ, lớp kỹ năng số và các đầu việc truyền thông thực tế.',
+  },
+  {
+    title: 'Rèn kỹ năng chuyên môn và phối hợp',
+    description:
+      'Bạn có cơ hội luyện truyền đạt, tổ chức hoạt động, làm việc nhóm, sáng tạo nội dung và xử lý tình huống.',
+  },
+  {
+    title: 'Mở rộng kết nối với cộng đồng tích cực',
+    description:
+      'Bạn làm việc cùng các tình nguyện viên, phụ trách chuyên môn và BTC trong một chiến dịch chung có cấu trúc rõ ràng.',
+  },
+  {
+    title: 'Được tập huấn và ghi nhận đóng góp',
+    description:
+      'TNV được hướng dẫn trước khi tham gia và nhận ghi nhận cho những đóng góp tích cực trong chiến dịch hè 2026.',
+  },
+];
+
+export const processSteps: ProcessStep[] = [
+  {
+    title: 'Chọn hoạt động muốn tham gia',
+    description: 'Bạn có thể đăng ký một hoặc nhiều hoạt động tùy lịch rảnh và khả năng đồng hành.',
+  },
+  {
+    title: 'Chọn bộ phận phù hợp',
+    description: 'Chọn một hoặc nhiều bộ phận và lưu ý yêu cầu riêng của từng bộ phận đã chọn.',
+  },
+  {
+    title: 'Điền kinh nghiệm, lịch rảnh và nguyện vọng ưu tiên',
+    description:
+      'Hãy mô tả rõ kinh nghiệm, thế mạnh và khung thời gian có thể tham gia để BTC dễ sắp xếp.',
+  },
+  {
+    title: 'BTC liên hệ xác nhận và phân công',
+    description:
+      'BTC sẽ đối chiếu nhu cầu từng hoạt động, trao đổi thêm nếu cần và xác nhận vị trí phù hợp.',
+  },
+];
+
+export const faqs: FAQItem[] = [
+  {
+    q: 'Mình có thể đăng ký nhiều hoạt động không?',
+    a: 'Có. Bạn có thể đăng ký một hoặc nhiều hoạt động tùy theo lịch rảnh và năng lực phù hợp.',
+  },
+  {
+    q: 'Mình có thể đăng ký nhiều bộ phận không?',
+    a: 'Có. Bạn có thể chọn nhiều bộ phận, nhưng cần đáp ứng yêu cầu của từng bộ phận đã chọn.',
+  },
+  {
+    q: 'Bộ phận Hỗ trợ có tham gia Trại hè công nghệ hoặc Bình dân học vụ số không?',
+    a: 'Không. Bộ phận Hỗ trợ chỉ tuyển để phục vụ Trại hè xanh.',
+  },
+  {
+    q: 'Bộ phận Truyền thông tham gia hoạt động nào?',
+    a: 'Bộ phận Truyền thông hoạt động xuyên suốt cả 3 hoạt động: Trại hè xanh, Trại hè công nghệ và Lớp Bình dân học vụ số.',
+  },
+  {
+    q: 'Bộ phận Tin học + Kỹ thuật cần những mảng nào?',
+    a: 'Bộ phận này cần Core và TNV trong các mảng An toàn thông tin, Ứng dụng công nghệ & AI, Sáng chế và Kỹ thuật thủ công.',
+  },
+  {
+    q: 'Nếu mình chưa biết chọn vị trí nào thì sao?',
+    a: 'Bạn có thể chọn mục cần BTC tư vấn trong form. BTC sẽ dựa trên kinh nghiệm, lịch rảnh và nguyện vọng để gợi ý vị trí phù hợp.',
+  },
+];
+
+export const heroVisualCards = [
+  { title: 'Trại hè xanh', tone: 'emerald' },
+  { title: 'Trại hè công nghệ', tone: 'cyan' },
+  { title: 'Bình dân học vụ số', tone: 'blue' },
+  { title: 'Truyền thông', tone: 'pink' },
+  { title: 'Hỗ trợ / Tin học + Kỹ thuật', tone: 'amber' },
+] as const;
+
+export const formHighlights = [
+  'TNV có thể chọn nhiều hoạt động.',
+  'TNV có thể chọn nhiều bộ phận.',
+  'Bộ phận Hỗ trợ chỉ phục vụ Trại hè xanh.',
+  'Bộ phận Truyền thông hoạt động cả 3 hoạt động.',
+  'Tin học + Kỹ thuật phục vụ Trại hè công nghệ và Bình dân học vụ số.',
+];
+
+export type FormOption = {
+  value: string;
+  label: string;
+  description?: string;
+};
+
+export const registrationMethods = [
+  {
+    title: 'Đăng ký nhanh qua Google Form',
+    description: 'Phù hợp nếu bạn muốn điền form quen thuộc, đơn giản và nhanh chóng.',
+    buttonLabel: 'Điền Google Form',
+    href: registrationLink,
+    external: true,
+  },
+  {
+    title: 'Đăng ký trực tiếp tại website',
+    description: 'Chọn hoạt động, bộ phận, lịch rảnh và nguyện vọng ưu tiên ngay trên landing page.',
+    buttonLabel: 'Điền tại website',
+    href: '#dang-ky-truc-tiep',
+    external: false,
+  },
+] as const;
+
+export const applicantTypeOptions: FormOption[] = [
+  { value: 'hoc-sinh', label: 'Học sinh' },
+  { value: 'sinh-vien', label: 'Sinh viên' },
+  { value: 'nguoi-di-lam', label: 'Người đi làm' },
+  { value: 'khac', label: 'Khác' },
+];
+
+export const activityRegistrationOptions: FormOption[] = [
+  { value: 'trai-he-xanh', label: 'Trại hè xanh', description: 'Tháng 6' },
+  {
+    value: 'trai-he-cong-nghe',
+    label: 'Trại hè công nghệ',
+    description: 'Tháng 7, diễn ra trước',
+  },
+  {
+    value: 'binh-dan-hoc-vu-so',
+    label: 'Lớp Bình dân học vụ số',
+    description: 'Tháng 7, diễn ra sau',
+  },
+  {
+    value: 'need-consulting-activity',
+    label: 'Chưa chắc, cần BTC tư vấn',
+  },
+];
+
+export const departmentRegistrationOptions: FormOption[] = [
+  { value: 'tin-hoc-ky-thuat', label: 'Tin học + Kỹ thuật' },
+  { value: 'truyen-thong', label: 'Truyền thông' },
+  { value: 'ho-tro', label: 'Hỗ trợ' },
+  { value: 'need-consulting-department', label: 'Chưa chắc, cần BTC tư vấn' },
+];
+
+export const registrationLogicNotes = [
+  'Bộ phận Hỗ trợ chỉ phục vụ Trại hè xanh.',
+  'Bộ phận Truyền thông hoạt động trong cả 3 hoạt động.',
+  'Bộ phận Tin học + Kỹ thuật phục vụ Trại hè công nghệ và Lớp Bình dân học vụ số.',
+];
+
+export const techRoleOptions: FormOption[] = [
+  { value: 'core', label: 'Core nội dung/chuyên môn' },
+  { value: 'support', label: 'TNV hỗ trợ lớp học/thực hành' },
+  { value: 'both', label: 'Cả hai' },
+];
+
+export const techFieldOptions: FormOption[] = [
+  { value: 'an-toan-thong-tin', label: 'An toàn thông tin' },
+  { value: 'ung-dung-cong-nghe-ai', label: 'Ứng dụng công nghệ & AI' },
+  { value: 'sang-che', label: 'Sáng chế' },
+  { value: 'ky-thuat-thu-cong', label: 'Kỹ thuật thủ công' },
+];
+
+export const mediaSkillOptions: FormOption[] = [
+  { value: 'viet-content', label: 'Viết content' },
+  { value: 'thiet-ke-canva-poster', label: 'Thiết kế Canva/poster' },
+  { value: 'chup-anh', label: 'Chụp ảnh' },
+  { value: 'quay-video', label: 'Quay video' },
+  { value: 'dung-video-capcut', label: 'Dựng video/CapCut' },
+  { value: 'quan-ly-fanpage', label: 'Quản lý fanpage' },
+];
+
+export const mediaEquipmentOptions: FormOption[] = [
+  { value: 'dien-thoai-tot', label: 'Điện thoại chụp/quay tốt' },
+  { value: 'may-anh', label: 'Máy ảnh' },
+  { value: 'laptop', label: 'Laptop' },
+  {
+    value: 'khong-co-thiet-bi-rieng',
+    label: 'Không có thiết bị riêng nhưng vẫn có thể hỗ trợ',
+  },
+];
+
+export const supportTaskOptions: FormOption[] = [
+  { value: 'dieu-phoi-hoc-sinh', label: 'Điều phối học sinh' },
+  { value: 'diem-danh', label: 'Điểm danh' },
+  { value: 'chuan-bi-vat-dung', label: 'Chuẩn bị vật dụng' },
+  { value: 'ho-tro-tro-choi-hoat-dong', label: 'Hỗ trợ trò chơi/hoạt động' },
+  { value: 'hau-can-chung', label: 'Hậu cần chung' },
+];
+
+export const greenCampAvailabilityOptions: FormOption[] = [
+  { value: 'co', label: 'Có' },
+  { value: 'chua-chac', label: 'Chưa chắc' },
+  { value: 'khong', label: 'Không' },
+];
+
+export const availabilityPeriodOptions: FormOption[] = [
+  { value: 'thang-6', label: 'Tháng 6' },
+  { value: 'dau-thang-7', label: 'Đầu tháng 7' },
+  { value: 'giua-thang-7', label: 'Giữa tháng 7' },
+  { value: 'cuoi-thang-7', label: 'Cuối tháng 7' },
+  { value: 'linh-hoat-theo-btc', label: 'Linh hoạt theo lịch BTC' },
+];
+
+export const timeSlotOptions: FormOption[] = [
+  { value: 'sang', label: 'Sáng' },
+  { value: 'chieu', label: 'Chiều' },
+  { value: 'toi', label: 'Tối' },
+  { value: 'cuoi-tuan', label: 'Cuối tuần' },
+  { value: 'ngay-trong-tuan', label: 'Ngày trong tuần' },
+];
+
+export const priorityOptions: FormOption[] = [
+  { value: 'tin-hoc-ky-thuat-trai-he-cong-nghe', label: 'Tin học + Kỹ thuật — Trại hè công nghệ' },
+  { value: 'tin-hoc-ky-thuat-binh-dan-hoc-vu-so', label: 'Tin học + Kỹ thuật — Bình dân học vụ số' },
+  { value: 'truyen-thong-trai-he-xanh', label: 'Truyền thông — Trại hè xanh' },
+  { value: 'truyen-thong-trai-he-cong-nghe', label: 'Truyền thông — Trại hè công nghệ' },
+  { value: 'truyen-thong-binh-dan-hoc-vu-so', label: 'Truyền thông — Bình dân học vụ số' },
+  { value: 'ho-tro-trai-he-xanh', label: 'Hỗ trợ — Trại hè xanh' },
+  { value: 'need-consulting-priority', label: 'Cần BTC tư vấn' },
+];
+
+type LegacyTeamCard = {
+  key: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  location: string;
+  students: string;
+  schedule: string;
+  kickoff: string;
+  scale: string;
+  roles: string[];
+  buttonLabel: string;
+  buttonHref: string;
+};
+
+type LegacyRecruitmentGroup = {
+  teamKey?: string;
+  id: string;
+  title: string;
+  subtitle: string;
+  theme: 'digital' | 'green' | 'support';
+  positions: Array<{
+    title: string;
+    quantity: string;
+    tasks: string[];
+    requirements: string[];
+  }>;
+};
+
+type LegacyLearningTrack = {
+  title: string;
+  theme: 'digital' | 'green';
+  topics: string[];
+};
+
+export const teamCards: LegacyTeamCard[] = [
   {
     key: 'green',
     title: 'Trại hè xanh',
-    subtitle: 'Dự án trải nghiệm hè, kỹ năng sống và hoạt động tập thể',
-    description:
-      'Đồng hành cùng học sinh trong các hoạt động sinh hoạt hè, trò chơi tập thể, kỹ năng sống và trải nghiệm gần gũi thiên nhiên.',
-    location: 'Nhà văn hóa phường Vĩnh Phúc',
-    students: 'Lớp 3 – lớp 5',
-    schedule: '3 buổi/tuần • 4 tuần',
-    kickoff: 'Tháng 6/2026',
-    scale: '20–25 học sinh/lớp',
-    roles: [
-      'TNV Điều phối hoạt động & Hỗ trợ chuyên môn: 08 người',
-      'TNV Quản trò & Đồng hành học sinh: 10 người',
-    ],
-    buttonLabel: 'Tìm hiểu Trại hè xanh',
+    subtitle: 'Hoạt động trải nghiệm hè và sinh hoạt tập thể',
+    description: activities[0].description,
+    location: 'Phường Vĩnh Phúc',
+    students: 'Học sinh tiểu học và THCS',
+    schedule: 'Tháng 6/2026',
+    kickoff: 'Khởi động trong tháng 6',
+    scale: 'Theo phân công từng đợt hoạt động',
+    roles: ['Bộ phận Hỗ trợ', 'Bộ phận Truyền thông'],
+    buttonLabel: 'Xem Trại hè xanh',
     buttonHref: '#trai-he-xanh',
   },
   {
     key: 'tech',
-    title: 'Trại hè công nghệ - kỹ thuật',
-    subtitle: 'Dự án công nghệ ứng dụng và thực hành kỹ thuật',
-    description:
-      'Mang đến cho học sinh các buổi học công nghệ, lắp ráp mô hình, tư duy kỹ thuật và trải nghiệm thực hành trực quan.',
-    location: 'Trường THCS Tô Hiệu',
-    students: 'Lớp 6 – lớp 9',
-    schedule: '3 buổi/tuần • 3 tuần',
-    kickoff: 'Tháng 7/2026',
-    scale: '20–25 học sinh/lớp',
-    roles: [
-      'TNV Đứng lớp & Hỗ trợ chuyên môn: 04 người',
-      'TNV Trợ giảng & Điều phối lớp học: 08 người',
-    ],
-    buttonLabel: 'Tìm hiểu Trại hè công nghệ - kỹ thuật',
-    buttonHref: '#trai-he-cong-nghe-ky-thuat',
+    title: 'Trại hè công nghệ',
+    subtitle: 'Công nghệ, AI, an toàn thông tin và thực hành kỹ thuật',
+    description: activities[1].description,
+    location: 'Phường Vĩnh Phúc',
+    students: 'Học sinh yêu thích công nghệ và STEM',
+    schedule: 'Tháng 7/2026',
+    kickoff: 'Diễn ra trước Lớp Bình dân học vụ số',
+    scale: 'Theo lớp/chuyên đề',
+    roles: ['Bộ phận Tin học + Kỹ thuật', 'Bộ phận Truyền thông'],
+    buttonLabel: 'Xem Trại hè công nghệ',
+    buttonHref: '#trai-he-cong-nghe',
+  },
+  {
+    key: 'digital',
+    title: 'Lớp Bình dân học vụ số',
+    subtitle: 'Nâng cao năng lực số và ứng dụng công nghệ vào học tập',
+    description: activities[2].description,
+    location: 'Phường Vĩnh Phúc',
+    students: 'Học sinh cần củng cố năng lực số',
+    schedule: 'Tháng 7/2026',
+    kickoff: 'Diễn ra sau Trại hè công nghệ',
+    scale: 'Theo lớp/chuyên đề',
+    roles: ['Bộ phận Tin học + Kỹ thuật', 'Bộ phận Truyền thông'],
+    buttonLabel: 'Xem Bình dân học vụ số',
+    buttonHref: '#binh-dan-hoc-vu-so',
   },
 ];
 
-export const benefits = [
-  {
-    title: 'Trải nghiệm thực chiến',
-    description: 'Trực tiếp hỗ trợ lớp học, tổ chức hoạt động và đồng hành cùng học sinh.',
-  },
-  {
-    title: 'Phát triển kỹ năng',
-    description: 'Rèn luyện kỹ năng giao tiếp, sư phạm, làm việc nhóm và quản lý lớp học.',
-  },
-  {
-    title: 'Mở rộng kết nối',
-    description: 'Gặp gỡ những người bạn trẻ nhiệt huyết trong môi trường tình nguyện tích cực.',
-  },
-  {
-    title: 'Ghi nhận đóng góp',
-    description:
-      'Được tập huấn trước khi tham gia và nhận chứng nhận đóng góp tích cực cho cộng đồng.',
-  },
-];
-
-export const recruitmentGroups = [
+export const recruitmentGroups: LegacyRecruitmentGroup[] = [
   {
     teamKey: 'digital',
     id: 'doi-binh-dan-hoc-vu-so',
-    title: 'Đội Bình Dân Học Vụ Số',
-    subtitle: 'Lớp AI & An toàn thông tin trong AI',
+    title: 'Lớp Bình dân học vụ số',
+    subtitle: 'Tập trung vào năng lực số, Internet an toàn và ứng dụng công nghệ/AI',
     theme: 'digital',
     positions: [
       {
-        title: 'TNV Đứng lớp & Hỗ trợ chuyên môn',
-        quantity: '02 người',
+        title: 'Core nội dung/chuyên môn',
+        quantity: '04',
         tasks: [
-          'Chủ trì điều phối các buổi học',
-          'Hướng dẫn học sinh tiếp cận kiến thức và kỹ năng số cơ bản',
-          'Thiết kế, chuẩn bị tài liệu và bài giảng theo định hướng của BTC',
+          'Chuẩn bị nội dung, giáo án hoặc hoạt động thực hành theo chuyên đề.',
+          'Hướng dẫn học sinh tiếp cận kiến thức số, Internet an toàn và công cụ học tập.',
+          'Phối hợp với TNV hỗ trợ để triển khai lớp học hiệu quả.',
         ],
-        requirements: [
-          'Đúng giờ, có trách nhiệm, kiên nhẫn, thân thiện với học sinh',
-          'Giao tiếp tốt, truyền đạt rõ ràng',
-          'Ưu tiên ngành Sư phạm, CNTT hoặc có kinh nghiệm đứng lớp',
-        ],
+        requirements: departments[0].requirements,
       },
       {
-        title: 'TNV Trợ giảng & Điều phối lớp học',
-        quantity: '06 người',
+        title: 'TNV hỗ trợ lớp học/thực hành',
+        quantity: '06',
         tasks: [
-          'Hỗ trợ giáo viên chính quản lý lớp',
-          'Hướng dẫn học sinh thực hành kỹ năng số',
-          'Hỗ trợ chuẩn bị thiết bị, lớp học và media',
+          'Hỗ trợ điều phối lớp và học sinh trong quá trình thực hành.',
+          'Chuẩn bị thiết bị, tài liệu và không gian học tập.',
+          'Phối hợp với Core để theo sát tiến độ lớp học.',
         ],
-        requirements: [
-          'Chủ động, cởi mở, tôn trọng quy trình',
-          'Sử dụng tốt công cụ số cơ bản như Canva, MS Office, Adobe Illustrator',
-          'Có kỹ năng tổ chức và bao quát lớp học',
-        ],
+        requirements: departments[0].requirements.slice(0, 3),
       },
     ],
   },
@@ -137,230 +582,115 @@ export const recruitmentGroups = [
     teamKey: 'green',
     id: 'trai-he-xanh',
     title: 'Trại hè xanh',
-    subtitle: 'Hoạt động trải nghiệm hè, kỹ năng sống và sinh hoạt tập thể',
+    subtitle: 'Hoạt động trải nghiệm hè, sinh hoạt tập thể và đồng hành cùng học sinh',
     theme: 'green',
     positions: [
       {
-        title: 'TNV Điều phối hoạt động & Hỗ trợ chuyên môn',
-        quantity: '08 người',
-        tasks: [
-          'Chủ trì điều phối các buổi sinh hoạt hè và hoạt động trải nghiệm',
-          'Thiết kế nội dung kỹ năng sống, trò chơi nhóm và hoạt động tương tác phù hợp theo độ tuổi',
-          'Chuẩn bị học liệu, dụng cụ và kịch bản hoạt động theo định hướng của BTC',
-        ],
-        requirements: [
-          'Đúng giờ, trách nhiệm, năng động, thân thiện với học sinh tiểu học',
-          'Có khả năng tổ chức trò chơi, dẫn dắt tập thể và truyền năng lượng tích cực',
-          'Ưu tiên ứng viên có kinh nghiệm sinh hoạt hè, công tác thiếu nhi hoặc tổ chức hoạt động cộng đồng',
-        ],
+        title: 'TNV Hỗ trợ điều phối và vận hành',
+        quantity: '08',
+        tasks: departments[2].tasks ?? [],
+        requirements: departments[2].requirements,
       },
       {
-        title: 'TNV Quản trò & Đồng hành học sinh',
-        quantity: '10 người',
+        title: 'TNV Truyền thông hiện trường',
+        quantity: '04',
         tasks: [
-          'Hỗ trợ điều phối học sinh trong các trò chơi, hoạt động nhóm và workshop',
-          'Theo sát các em trong quá trình tham gia để đảm bảo an toàn và gắn kết',
-          'Hỗ trợ chuẩn bị đạo cụ, khu vực sinh hoạt và tư liệu hình ảnh cơ bản',
+          'Ghi lại hình ảnh, video và câu chuyện trong các hoạt động của Trại hè xanh.',
+          'Phối hợp với bộ phận Hỗ trợ và BTC để bám sát lịch hoạt động.',
+          'Bàn giao tư liệu đúng hạn cho đầu mối truyền thông.',
         ],
-        requirements: [
-          'Chủ động, cởi mở, phối hợp tốt với nhóm tổ chức',
-          'Yêu thích làm việc với trẻ em, có khả năng hoạt náo là lợi thế',
-          'Có kỹ năng tổ chức, bao quát lớp học và xử lý tình huống cơ bản',
-        ],
+        requirements: departments[1].requirements,
       },
     ],
   },
   {
     teamKey: 'tech',
-    id: 'trai-he-cong-nghe-ky-thuat',
-    title: 'Trại hè công nghệ - kỹ thuật',
-    subtitle: 'Lớp công nghệ ứng dụng và thực hành kỹ thuật dành cho học sinh',
+    id: 'trai-he-cong-nghe',
+    title: 'Trại hè công nghệ',
+    subtitle: 'Hoạt động công nghệ, AI, sáng chế và kỹ thuật thực hành cho học sinh',
     theme: 'digital',
     positions: [
       {
-        title: 'TNV Đứng lớp & Hỗ trợ chuyên môn',
-        quantity: '04 người',
+        title: 'Core nội dung/chuyên môn',
+        quantity: '06',
         tasks: [
-          'Chủ trì điều phối các buổi học công nghệ và thực hành kỹ thuật',
-          'Hướng dẫn học sinh tiếp cận kiến thức công nghệ, kỹ thuật cơ bản và tư duy thiết kế',
-          'Thiết kế, chuẩn bị học liệu, mô hình minh họa và bài giảng theo định hướng của BTC',
+          'Chuẩn bị nội dung theo các mảng An toàn thông tin, Ứng dụng công nghệ & AI, Sáng chế, Kỹ thuật thủ công.',
+          'Thiết kế hoạt động thực hành phù hợp với học sinh.',
+          'Phối hợp với TNV hỗ trợ để triển khai lớp/chuyên đề.',
         ],
-        requirements: [
-          'Đúng giờ, có trách nhiệm, kiên nhẫn, thân thiện với học sinh',
-          'Giao tiếp tốt, truyền đạt rõ ràng và có tư duy thực hành',
-          'Ưu tiên ngành Sư phạm, CNTT, kỹ thuật hoặc có kinh nghiệm giảng dạy thực hành',
-        ],
+        requirements: departments[0].requirements,
       },
       {
-        title: 'TNV Trợ giảng & Điều phối lớp học',
-        quantity: '08 người',
+        title: 'TNV hỗ trợ lớp học/thực hành',
+        quantity: '08',
         tasks: [
-          'Hỗ trợ giáo viên chính quản lý lớp và tổ chức hoạt động nhóm',
-          'Hướng dẫn học sinh thực hành với dụng cụ, mô hình và bài tập công nghệ',
-          'Hỗ trợ chuẩn bị thiết bị, lớp học và media cho từng buổi học',
+          'Hỗ trợ lớp học, dụng cụ thực hành và hướng dẫn nhóm nhỏ.',
+          'Theo sát tiến độ và hỗ trợ học sinh trong hoạt động thực hành.',
+          'Phối hợp với bộ phận Truyền thông để cung cấp tư liệu khi cần.',
         ],
-        requirements: [
-          'Chủ động, cởi mở, tôn trọng quy trình an toàn trong hoạt động thực hành',
-          'Biết sử dụng tốt các công cụ số cơ bản; có kinh nghiệm CLB công nghệ là lợi thế',
-          'Có kỹ năng tổ chức, bao quát lớp học và hỗ trợ học sinh theo nhóm nhỏ',
-        ],
+        requirements: departments[0].requirements.slice(0, 3),
       },
     ],
   },
   {
-    id: 'ban-truyen-thong',
-    title: 'Bộ phận Hỗ trợ truyền thông',
-    subtitle: 'Phụ trách nội dung, thiết kế và ghi hình truyền thông cho chiến dịch',
+    id: 'bo-phan-truyen-thong',
+    title: 'Bộ phận Truyền thông',
+    subtitle: departments[1].scope,
     theme: 'support',
     positions: [
       {
-        title: 'TNV viết bài',
-        quantity: '03 người',
-        tasks: [
-          'Phối hợp với phụ trách truyền thông để xây dựng kế hoạch truyền thông cho trại hè.',
-          'Phụ trách viết nội dung truyền thông như caption, bài recap, bài giới thiệu chương trình, kịch bản video trước, trong và sau các hoạt động của đội.',
-          'Phối hợp cùng đội thiết kế và chụp ảnh để đảm bảo nội dung đồng bộ.',
-        ],
-        requirements: [
-          'Có khả năng viết lách, nắm bắt được giọng điệu phù hợp với đối tượng học sinh và phụ huynh.',
-          'Biết cách xây dựng nội dung truyền thông hấp dẫn, dễ hiểu.',
-          'Đạo đức tốt, có tinh thần trách nhiệm, hòa đồng và hợp tác, yêu thích việc làm việc với trẻ nhỏ.',
-          'Ưu tiên ứng viên có kinh nghiệm viết bài fanpage, làm truyền thông cho các CLB hoặc dự án.',
-        ],
-      },
-      {
-        title: 'TNV quay chụp',
-        quantity: '02 người',
-        tasks: [
-          'Ghi lại hình ảnh hoạt động của học sinh và BTC trong quá trình tổ chức hoạt động.',
-          'Phối hợp với đội nội dung và thiết kế để cung cấp tư liệu truyền thông.',
-          'Chọn lọc, sắp xếp ảnh sau khi chụp để bàn giao đúng thời hạn.',
-        ],
-        requirements: [
-          'Biết sử dụng máy ảnh hoặc điện thoại tốt và có kỹ năng chụp sự kiện.',
-          'Biết chỉnh sửa ảnh, biết làm video là một lợi thế.',
-          'Đạo đức tốt, có tinh thần trách nhiệm, hòa đồng và hợp tác, yêu thích việc làm việc với trẻ nhỏ.',
-          'Ưu tiên ứng viên có thiết bị cá nhân và từng tham gia chụp ảnh cho CLB, sự kiện, dự án.',
-        ],
-      },
-      {
-        title: 'TNV thiết kế ấn phẩm',
-        quantity: '02 người',
-        tasks: [
-          'Thiết kế ấn phẩm truyền thông cho các hoạt động của đội như poster, banner, ảnh sự kiện.',
-          'Dựng video phục vụ truyền thông như video giới thiệu chương trình, recap hoạt động.',
-          'Phối hợp với đội chụp ảnh và viết nội dung để hoàn thiện sản phẩm.',
-        ],
-        requirements: [
-          'Sử dụng thành thạo ít nhất một phần mềm thiết kế như Canva, Photoshop, Illustrator hoặc tương đương.',
-          'Có thể sử dụng ít nhất một phần mềm dựng video cơ bản như CapCut, Premiere là một lợi thế.',
-          'Có gu thẩm mỹ tốt, nắm bắt nhanh yêu cầu thiết kế.',
-          'Đạo đức tốt, có tinh thần trách nhiệm, hòa đồng và hợp tác, yêu thích việc làm việc với trẻ nhỏ.',
-          'Ưu tiên ứng viên đã từng làm thiết kế hoặc dựng video cho CLB, sự kiện, dự án.',
-        ],
+        title: 'TNV Truyền thông',
+        quantity: '08',
+        tasks: departments[1].tasks ?? [],
+        requirements: departments[1].requirements,
       },
     ],
   },
   {
-    id: 'ban-tai-chinh-hau-can',
+    id: 'bo-phan-ho-tro',
     title: 'Bộ phận Hỗ trợ',
-    subtitle: 'Phụ trách vận hành, cơ sở vật chất và quản lý thu chi cho chiến dịch',
+    subtitle: departments[2].scope,
     theme: 'support',
     positions: [
       {
-        title: 'TNV Tài chính - Hậu cần',
-        quantity: '04 người',
-        tasks: [
-          'Phối hợp với Ban tổ chức để chuẩn bị, kiểm tra cơ sở vật chất trước mỗi buổi học như mở cửa lớp, chuẩn bị máy chiếu, loa đài, nước uống.',
-          'Quản lý, chuẩn bị và cấp phát các học cụ phục vụ bài giảng như flashcard, phấn, giấy vẽ, phần thưởng cho học sinh.',
-          'Theo dõi thu, chi, lưu giữ hóa đơn và lập báo cáo tài chính minh bạch cho toàn bộ chiến dịch hè của đội.',
-        ],
-        requirements: [
-          'Cẩn thận, tỉ mỉ, trung thực và có trách nhiệm cao với tài sản chung; chu đáo và có đầu óc sắp xếp công việc khoa học.',
-          'Tính toán tốt, biết sử dụng Excel hoặc Google Sheets ở mức cơ bản để quản lý sổ sách thu chi.',
-          'Nhanh nhẹn, có khả năng xử lý nhanh các sự cố phát sinh về cơ sở vật chất như mất điện, thiếu nước, thiếu đồ dùng học tập.',
-        ],
+        title: 'TNV Hỗ trợ',
+        quantity: '08',
+        tasks: departments[2].tasks ?? [],
+        requirements: departments[2].requirements,
       },
     ],
   },
 ];
 
-export const learningTracks = [
+export const learningTracks: LegacyLearningTrack[] = [
   {
-    title: 'Đội Bình Dân Học Vụ Số',
+    title: 'Lớp Bình dân học vụ số',
     theme: 'digital',
     topics: [
-      'Sử dụng Internet an toàn',
-      'Bảo mật thông tin cá nhân',
-      'Ứng dụng công nghệ/AI vào học tập',
-      'Công cụ thuyết trình, tư duy số cơ bản',
+      'Sử dụng Internet an toàn.',
+      'Bảo mật thông tin cá nhân.',
+      'Ứng dụng công nghệ/AI vào học tập.',
+      'Kỹ năng số cơ bản phục vụ học tập và giao tiếp.',
     ],
   },
   {
     title: 'Trại hè xanh',
     theme: 'green',
     topics: [
-      'Kỹ năng làm việc nhóm, giao tiếp và sinh hoạt tập thể',
-      'Trò chơi vận động, thử thách ngoài trời và hoạt động gắn kết',
-      'Kỹ năng tự phục vụ, bảo vệ môi trường và thói quen tích cực',
-      'Workshop sáng tạo, thủ công và trải nghiệm hè vui khỏe',
+      'Sinh hoạt tập thể và kỹ năng sống.',
+      'Trò chơi nhóm, hoạt động gắn kết.',
+      'Kỹ năng tự phục vụ và phối hợp.',
+      'Workshop sáng tạo và trải nghiệm hè.',
     ],
   },
   {
-    title: 'Trại hè công nghệ - kỹ thuật',
+    title: 'Trại hè công nghệ',
     theme: 'digital',
     topics: [
-      'Khám phá tư duy công nghệ qua bài học thực hành',
-      'Lắp ráp mô hình, giải quyết vấn đề và thiết kế đơn giản',
-      'Làm quen công nghệ ứng dụng, công cụ số và nguyên lý kỹ thuật cơ bản',
-      'Phát triển tư duy sáng tạo, logic và làm việc nhóm qua dự án nhỏ',
+      'Làm quen công nghệ, AI và tư duy số.',
+      'An toàn thông tin ở mức cơ bản.',
+      'Hoạt động sáng chế và kỹ thuật thủ công.',
+      'Thực hành theo nhóm với các chủ đề STEM.',
     ],
-  },
-];
-
-export const processSteps = [
-  {
-    title: 'Đăng ký',
-    description: 'Gửi thông tin ứng tuyển qua form đăng ký của chương trình.',
-  },
-  {
-    title: 'Xác nhận thông tin',
-    description: 'BTC liên hệ, trao đổi vị trí mong muốn và khảo sát lịch rảnh.',
-  },
-  {
-    title: 'Tập huấn',
-    description:
-      'TNV được hướng dẫn chuyên môn, kỹ năng sư phạm, quản lý lớp và quy trình tổ chức.',
-  },
-  {
-    title: 'Tham gia hỗ trợ',
-    description: 'Đồng hành cùng học sinh trong các buổi học và hoạt động tình nguyện hè.',
-  },
-];
-
-export const faqs = [
-  {
-    q: 'Mình không học ngành Sư phạm hoặc chưa có kinh nghiệm dạy học thì có đăng ký được không?',
-    a: 'Hoàn toàn được. Dự án chào đón các bạn trẻ có nhiệt huyết và tinh thần trách nhiệm. Trước khi tham gia, TNV sẽ được tập huấn chuyên môn, kỹ năng sư phạm, quản lý lớp học và thống nhất nội dung.',
-  },
-  {
-    q: 'Lịch học cụ thể vào thứ mấy và ca nào?',
-    a: 'BTC đang làm việc với Nhà trường và các thành viên để chốt lịch phù hợp. Sau khi ứng tuyển, TNV sẽ nhận form khảo sát lịch rảnh để BTC sắp xếp tối ưu.',
-  },
-  {
-    q: 'Tham gia có được hỗ trợ chi phí hay phụ cấp không?',
-    a: '',
-  },
-  {
-    q: 'Quyền lợi lớn nhất khi tham gia là gì?',
-    a: 'TNV được cấp chứng nhận đóng góp tích cực cho cộng đồng từ Đoàn thanh niên phường Vĩnh Phúc, được rèn luyện kỹ năng thuyết trình, quản lý lớp, teamwork, xử lý tình huống và mở rộng kết nối.',
-  },
-  {
-    q: 'Nếu bị trùng lịch bận 1–2 buổi thì có thể xin nghỉ không?',
-    a: 'Được, nhưng cần hạn chế.',
-  },
-  {
-    q: 'Mình nên chọn đội nào?',
-    a: 'Nếu bạn yêu thích công nghệ, kỹ năng số, AI hoặc các công cụ học tập số, hãy chọn Đội Bình Dân Học Vụ Số. Nếu bạn hợp với hoạt động sinh hoạt hè, kỹ năng sống và trò chơi tập thể, hãy chọn Trại hè xanh. Nếu bạn muốn đồng hành trong các buổi học công nghệ, thực hành và kỹ thuật, hãy chọn Trại hè công nghệ - kỹ thuật.',
   },
 ];

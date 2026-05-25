@@ -13,6 +13,9 @@ const FAQ = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
             FAQ
           </p>
+          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl md:text-4xl">
+            Những câu hỏi thường gặp trước khi đăng ký TNV
+          </h2>
         </div>
 
         <div className="space-y-4">

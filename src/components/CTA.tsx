@@ -1,6 +1,12 @@
 import { Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
 
-import { fanpageLink, registrationLink, site, zaloLink } from '../data/programData';
+import {
+  fanpageLink,
+  formHighlights,
+  registrationLink,
+  site,
+  zaloLink,
+} from '../data/programData';
 
 const CTA = () => {
   return (
@@ -13,13 +19,26 @@ const CTA = () => {
         <div className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[36px] sm:p-8 md:p-12">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
-              <h2 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl md:text-4xl">
-                Bạn muốn dành một mùa hè rực rỡ và ý nghĩa?
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
+                Form đăng ký
+              </p>
+              <h2 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-3xl md:text-4xl">
+                Đăng ký TNV cho một hoặc nhiều hoạt động phù hợp với bạn
               </h2>
               <p className="mt-5 text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
-                Hãy đồng hành cùng Đội dạy học tình nguyện phường Vĩnh Phúc trong chiến dịch hè năm
-                nay!
+                {site.registrationNotice}
               </p>
+
+              <div className="mt-8 grid gap-3">
+                {formHighlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[18px] border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-slate-200"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
 
               <div className="mt-8 grid gap-4">
                 <a
@@ -33,9 +52,7 @@ const CTA = () => {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold text-slate-400">Fanpage</p>
-                    <p className="text-base font-bold text-white">
-                      Lượm - Giáo dục vì Cộng đồng
-                    </p>
+                    <p className="text-base font-bold text-white">Lượm - Giáo dục vì Cộng đồng</p>
                   </div>
                 </a>
 
@@ -63,22 +80,48 @@ const CTA = () => {
               </div>
 
               <h3 className="mt-6 text-2xl font-extrabold leading-tight sm:mt-8 sm:text-3xl md:text-4xl">
-                Cùng nhau tạo nên một mùa hè giáo dục thật ý nghĩa
+                Chọn hoạt động, chọn bộ phận, rồi để BTC đồng hành cùng bạn
               </h3>
               <p className="mt-4 text-base leading-7 text-slate-200 sm:mt-5 sm:text-lg sm:leading-8">
-                Dù bạn yêu thích công nghệ hay tiếng Anh, luôn có một vị trí phù hợp để bạn đóng
-                góp và trưởng thành.
+                Nếu bạn chưa chắc mình phù hợp với Tin học + Kỹ thuật, Truyền thông hay Hỗ trợ,
+                hãy ghi rõ mong muốn trong form để BTC tư vấn và phân công phù hợp.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <div className="mt-8 flex flex-col gap-3">
                 <a
                   href={registrationLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3.5 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover sm:w-auto sm:px-8 sm:py-4"
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3.5 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover sm:px-8 sm:py-4"
                 >
                   Đăng ký TNV
                 </a>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  <a
+                    href={registrationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  >
+                    Đăng ký Tin học + Kỹ thuật
+                  </a>
+                  <a
+                    href={registrationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  >
+                    Đăng ký Truyền thông
+                  </a>
+                  <a
+                    href={registrationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  >
+                    Đăng ký Hỗ trợ
+                  </a>
+                </div>
               </div>
             </div>
           </div>

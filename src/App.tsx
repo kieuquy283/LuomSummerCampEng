@@ -1,11 +1,16 @@
+import Activities from './components/Activities';
 import Benefits from './components/Benefits';
 import CTA from './components/CTA';
 import FAQ from './components/FAQ';
+import FitGuide from './components/FitGuide';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import InstructorRecruitment from './components/InstructorRecruitment';
-import PastSeasonsGallery from './components/PastSeasonsGallery';
+import Process from './components/Process';
+import RegistrationOptions from './components/RegistrationOptions';
+import RecruitmentDepartments from './components/RecruitmentDepartments';
+import Timeline from './components/Timeline';
+import VolunteerRegistrationForm from './components/VolunteerRegistrationForm';
 
 function App() {
   return (
@@ -13,11 +18,16 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <PastSeasonsGallery />
+        <Activities />
+        <RecruitmentDepartments />
+        <FitGuide />
+        <Timeline />
         <Benefits />
-        <InstructorRecruitment />
-        <CTA />
+        <Process />
+        <RegistrationOptions />
+        <VolunteerRegistrationForm />
         <FAQ />
+        <CTA />
       </main>
       <Footer />
     </div>

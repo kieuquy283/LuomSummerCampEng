@@ -1,4 +1,6 @@
-import { BadgeDollarSign, BookOpen, Cpu, Megaphone, MessageSquare } from 'lucide-react';
+import { BookOpen, Cpu, Megaphone, MessageSquare, Wrench } from 'lucide-react';
+
+import { heroVisualCards } from '../data/programData';
 
 type StaticCardProps = {
   icon: React.ReactNode;
@@ -23,39 +25,36 @@ const StaticCard = ({ icon, title, accentClass, iconClass, className = '' }: Sta
   );
 };
 
-const volunteerCards = [
-  {
-    title: 'Bình dân học vụ số',
-    icon: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
-    accentClass: 'bg-brand-electric/14',
-    iconClass: 'text-cyan-200',
-  },
-  {
-    title: 'Trại hè xanh',
-    icon: <BookOpen className="h-7 w-7 sm:h-8 sm:w-8" />,
+const iconMap = {
+  emerald: <BookOpen className="h-7 w-7 sm:h-8 sm:w-8" />,
+  cyan: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
+  blue: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
+  pink: <Megaphone className="h-7 w-7 sm:h-8 sm:w-8" />,
+  amber: <Wrench className="h-7 w-7 sm:h-8 sm:w-8" />,
+} as const;
+
+const toneClassMap = {
+  emerald: {
     accentClass: 'bg-emerald-400/10',
     iconClass: 'text-emerald-200',
   },
-  {
-    title: 'Truyền thông',
-    icon: <Megaphone className="h-7 w-7 sm:h-8 sm:w-8" />,
+  cyan: {
+    accentClass: 'bg-brand-electric/14',
+    iconClass: 'text-cyan-200',
+  },
+  blue: {
+    accentClass: 'bg-sky-400/12',
+    iconClass: 'text-sky-200',
+  },
+  pink: {
     accentClass: 'bg-fuchsia-400/10',
     iconClass: 'text-fuchsia-200',
   },
-  {
-    title: 'Tài chính - Hậu cần',
-    icon: <BadgeDollarSign className="h-7 w-7 sm:h-8 sm:w-8" />,
+  amber: {
     accentClass: 'bg-amber-400/14',
     iconClass: 'text-amber-200',
   },
-  {
-    title: 'Trại hè công nghệ - kỹ thuật',
-    icon: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
-    accentClass: 'bg-brand-yellow/14',
-    iconClass: 'text-brand-yellow',
-    className: 'sm:col-span-2',
-  },
-];
+} as const;
 
 const FloatingVolunteerCards = () => {
   return (
@@ -94,14 +93,14 @@ const FloatingVolunteerCards = () => {
         </div>
 
         <div className="relative z-10 mx-auto grid w-full max-w-[17rem] grid-cols-1 gap-3.5 sm:max-w-[22rem] sm:grid-cols-2 sm:gap-4 lg:max-w-[23rem]">
-          {volunteerCards.map((card) => (
+          {heroVisualCards.map((card, index) => (
             <StaticCard
               key={card.title}
-              icon={card.icon}
+              icon={iconMap[card.tone]}
               title={card.title}
-              accentClass={card.accentClass}
-              iconClass={card.iconClass}
-              className={card.className}
+              accentClass={toneClassMap[card.tone].accentClass}
+              iconClass={toneClassMap[card.tone].iconClass}
+              className={index === heroVisualCards.length - 1 ? 'sm:col-span-2' : undefined}
             />
           ))}
         </div>

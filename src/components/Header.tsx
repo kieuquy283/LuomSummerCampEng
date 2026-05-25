@@ -27,18 +27,22 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
             <div className="flex flex-shrink-0 items-center gap-2">
               <img
                 src="/images/logo_doan.jpg"
-                alt="Logo Đoàn"
+                alt="Logo Đoàn phường Vĩnh Phúc"
                 className="h-12 w-12 rounded-full bg-white p-0.5 object-contain ring-2 ring-brand-cyan/20"
               />
               <img
                 src="/images/logo_round.png"
-                alt="Logo Lượm - Giáo dục vì cộng đồng"
+                alt="Logo Lượm"
                 className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-cyan/20"
               />
             </div>
             <div className="min-w-0 pt-0.5 sm:pt-0">
-              <p className="text-base font-extrabold leading-tight text-white sm:truncate sm:text-lg">ĐỘI DẠY HỌC TÌNH NGUYỆN</p>
-              <p className="mt-1 text-xs font-semibold leading-tight text-brand-cyan sm:truncate sm:text-sm">CLB Trí tuệ trẻ Nhân tạo</p>
+              <p className="text-base font-extrabold leading-tight text-white sm:truncate sm:text-lg">
+                CHIẾN DỊCH HÈ 2026
+              </p>
+              <p className="mt-1 text-xs font-semibold leading-tight text-brand-cyan sm:truncate sm:text-sm">
+                Đoàn phường Vĩnh Phúc / Lượm
+              </p>
             </div>
           </a>
 

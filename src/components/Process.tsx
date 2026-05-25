@@ -6,10 +6,10 @@ const Process = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-            Quy trình tham gia
+            Quy trình đăng ký
           </p>
           <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl md:text-4xl">
-            Bốn bước để bắt đầu một mùa hè tình nguyện cùng nhau
+            Bốn bước để bắt đầu đồng hành cùng Chiến dịch hè 2026
           </h2>
         </div>
 

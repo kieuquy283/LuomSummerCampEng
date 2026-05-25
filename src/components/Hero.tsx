@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 import FloatingVolunteerCards from './FloatingVolunteerCards';
-import { registrationLink } from '../data/programData';
+import { activities, registrationLink, site } from '../data/programData';
 
 const Hero = () => {
   return (
@@ -20,18 +20,27 @@ const Hero = () => {
           <div className="max-w-4xl">
             <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-2 text-xs font-semibold text-brand-cyan backdrop-blur sm:px-4 sm:text-sm">
               <Sparkles className="mr-2 h-4 w-4" />
-              Tuyển tình nguyện viên
+              Tuyển tình nguyện viên mùa hè 2026
             </div>
 
             <h1 className="max-w-4xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026
+              {site.headline}
             </h1>
 
             <p className="mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8 md:text-xl">
-              Đội Dạy học tình nguyện phường Vĩnh Phúc tìm kiếm tình nguyện viên đồng hành chiến
-              dịch mùa hè. Cùng tổ chức các lớp công nghệ, hoạt động kỹ thuật và trại hè trải nghiệm
-              dành cho học sinh Tiểu học &amp; THCS!
+              {site.heroSubtitle}
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              {activities.map((activity) => (
+                <span
+                  key={activity.id}
+                  className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 backdrop-blur"
+                >
+                  {activity.heroTag}
+                </span>
+              ))}
+            </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <a
@@ -43,7 +52,7 @@ const Hero = () => {
                 Đăng ký TNV
               </a>
               <a
-                href="#vi-tri-phu-hop"
+                href="#bo-phan-tuyen"
                 className="group inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-500 bg-transparent px-6 py-3.5 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:border-white hover:bg-white/5 sm:w-auto sm:px-8 sm:py-4"
               >
                 Xem vị trí phù hợp

@@ -10,20 +10,27 @@ const Footer = () => {
               <div className="flex flex-shrink-0 items-center gap-2">
                 <img
                   src="/images/logo_doan.jpg"
-                  alt="Logo Đoàn"
+                  alt="Logo Đoàn phường Vĩnh Phúc"
                   className="h-12 w-12 rounded-full bg-white p-0.5 object-contain ring-2 ring-brand-cyan/20 sm:h-14 sm:w-14"
                 />
                 <img
                   src="/images/logo_round.png"
-                  alt="Logo Lượm - Giáo dục vì cộng đồng"
+                  alt="Logo Lượm"
                   className="h-10 w-10 rounded-full object-cover ring-2 ring-brand-cyan/20 sm:h-12 sm:w-12"
                 />
               </div>
               <div className="min-w-0">
-                <p className="text-lg font-extrabold uppercase leading-tight text-white sm:text-xl">ĐỘI DẠY HỌC TÌNH NGUYỆN</p>
-                <p className="mt-1 text-sm font-semibold text-brand-cyan">CLB Trí tuệ trẻ Nhân tạo</p>
+                <p className="text-lg font-extrabold uppercase leading-tight text-white sm:text-xl">
+                  CHIẾN DỊCH HÈ 2026
+                </p>
+                <p className="mt-1 text-sm font-semibold text-brand-cyan">Đoàn phường Vĩnh Phúc / Lượm</p>
               </div>
             </div>
+
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+              Landing page tuyển tình nguyện viên cho Trại hè xanh, Trại hè công nghệ và Lớp
+              Bình dân học vụ số trong mùa hè 2026.
+            </p>
           </div>
         </div>
 
