@@ -159,8 +159,8 @@ const initialState: VolunteerRegistrationState = {
 const sectionClasses =
   'rounded-[28px] border border-white/10 bg-brand-deep/40 p-5 shadow-[0_22px_60px_rgba(2,6,23,0.45)] backdrop-blur-md sm:p-8';
 const inputClasses =
-  'mt-2 min-h-12 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-base text-white placeholder:text-slate-500 focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/20';
-const labelClasses = 'text-sm font-semibold uppercase tracking-[0.12em] text-slate-300';
+  'mt-2 min-h-12 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-base text-white placeholder:text-slate-400 focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/20';
+const labelClasses = 'text-sm font-semibold text-slate-100';
 const draftStorageKey = 'luom-volunteer-registration-draft-v1';
 
 const toggleValue = (items: string[], value: string) =>
@@ -295,7 +295,7 @@ const ErrorText = ({ message }: { message?: string }) =>
   message ? <p className="mt-2 text-sm text-rose-300">{message}</p> : null;
 
 const DescriptionBlock = ({ text }: { text: string }) => (
-  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-300">{text}</p>
+  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-200">{text}</p>
 );
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (

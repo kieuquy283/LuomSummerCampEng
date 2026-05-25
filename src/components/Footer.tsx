@@ -1,4 +1,4 @@
-import { site } from '../data/programData';
+import { fanpageLink, site, zaloLink } from '../data/programData';
 
 const Footer = () => {
   return (
@@ -23,9 +23,30 @@ const Footer = () => {
                 <p className="text-lg font-extrabold uppercase leading-tight text-white sm:text-xl">
                   CHIẾN DỊCH TÌNH NGUYỆN HÈ 2026
                 </p>
-                <p className="mt-1 text-sm font-semibold text-brand-cyan">Đoàn phường Vĩnh Phúc</p>
+                <p className="mt-1 text-sm font-semibold text-brand-cyan">Lượm - Giáo dục vì Cộng đồng</p>
               </div>
             </div>
+          </div>
+
+          <div className="grid gap-4">
+            <a
+              href={fanpageLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-[20px] border border-white/10 bg-white/5 px-5 py-4 transition-colors hover:bg-white/10"
+            >
+              <p className="text-sm font-semibold text-slate-400">Fanpage</p>
+              <p className="mt-1 text-base font-bold text-white">Lượm - Giáo dục vì Cộng đồng</p>
+            </a>
+            <a
+              href={zaloLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-[20px] border border-white/10 bg-white/5 px-5 py-4 transition-colors hover:bg-white/10"
+            >
+              <p className="text-sm font-semibold text-slate-400">Hotline/Zalo</p>
+              <p className="mt-1 text-base font-bold text-white">{site.hotline}</p>
+            </a>
           </div>
         </div>
 

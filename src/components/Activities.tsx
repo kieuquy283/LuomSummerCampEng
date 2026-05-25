@@ -6,6 +6,15 @@ const departmentNameMap = Object.fromEntries(
   departments.map((department) => [department.id, department.title]),
 );
 
+const overviewDescriptions: Record<string, string> = {
+  'trai-he-xanh':
+    'Trại hè xanh là chương trình trải nghiệm kỹ năng sống và phát triển cá nhân dành cho học sinh thông qua các hoạt động tập thể, thể thao, sáng tạo và giáo dục giá trị sống. Chương trình giúp các em rèn luyện kỹ năng mềm, tinh thần trách nhiệm, khả năng làm việc nhóm và ý thức cộng đồng.',
+  'trai-he-cong-nghe':
+    'Trại hè Công nghệ - Kỹ thuật là không gian học tập và trải nghiệm dành cho học sinh yêu thích công nghệ, sáng tạo và kỹ thuật. Chương trình giúp các em tiếp cận tin học, kỹ năng số, AI, ứng dụng công nghệ hiện đại, đồng thời tham gia các hoạt động thiết kế, lắp ráp và sáng chế thực tiễn.',
+  'binh-dan-hoc-vu-so':
+    'Lớp “Bình dân học vụ số” là hoạt động giáo dục cộng đồng miễn phí nhằm phổ cập kiến thức công nghệ và kỹ năng số cho học sinh. Chương trình giúp các em tiếp cận công nghệ dễ dàng hơn, nâng cao năng lực số cơ bản và làm quen với môi trường học tập hiện đại, thực tiễn.',
+};
+
 const Activities = () => {
   return (
     <section id="hoat-dong" className="bg-white py-16 sm:py-20">
@@ -36,7 +45,7 @@ const Activities = () => {
                 </span>
               </div>
 
-              <p className="mt-4 leading-7 text-slate-600">{activity.description}</p>
+              <p className="mt-4 leading-7 text-slate-600">{overviewDescriptions[activity.id] ?? activity.description}</p>
 
               <div className="mt-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">

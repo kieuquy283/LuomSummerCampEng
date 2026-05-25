@@ -20,14 +20,14 @@ const Hero = () => {
           <div className="max-w-4xl">
             <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-2 text-xs font-semibold text-brand-cyan backdrop-blur sm:px-4 sm:text-sm">
               <Sparkles className="mr-2 h-4 w-4" />
-              Tuyển tình nguyện viên mùa hè 2026
+              Tuyển tình nguyện viên
             </div>
 
-            <h1 className="max-w-4xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="max-w-4xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-[3.35rem] lg:text-[4.1rem]">
               {site.headline}
             </h1>
 
-            <p className="mt-6 max-w-3xl text-justify text-base leading-[1.5] text-slate-200 sm:text-lg sm:leading-[1.5] md:text-xl">
+            <p className="mt-6 max-w-3xl text-justify text-sm leading-[1.5] text-slate-200 sm:text-base sm:leading-[1.55] md:text-lg">
               {site.heroSubtitle}
             </p>
 

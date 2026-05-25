@@ -76,8 +76,8 @@ export type BenefitItem = {
 };
 
 export const site: SiteConfig = {
-  organization: 'Đoàn phường Vĩnh Phúc',
-  pageTitle: 'Tuyển TNV Chiến dịch tình nguyện hè 2026',
+  organization: 'Lượm - Giáo dục vì Cộng đồng',
+  pageTitle: 'Tuyển tình nguyện viên',
   campaignName: 'Chiến dịch tình nguyện hè 2026',
   headline: 'Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026',
   heroSubtitle:
@@ -91,8 +91,7 @@ export const navLinks: NavLink[] = [
   { label: 'Giới thiệu', href: '#gioi-thieu' },
   { label: 'Hoạt động', href: '#hoat-dong' },
   { label: 'Vị trí tìm kiếm', href: '#bo-phan-tuyen' },
-  { label: 'Quyền lợi', href: '#vi-sao-tham-gia' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Đăng ký', href: '#dang-ky-truc-tiep' },
 ];
 
 export const activities: Activity[] = [
@@ -103,7 +102,7 @@ export const activities: Activity[] = [
     description:
       'Hoạt động trải nghiệm hè, sinh hoạt tập thể, kỹ năng sống và đồng hành cùng học sinh.',
     relatedDepartments: ['ho-tro', 'truyen-thong'],
-    heroTag: 'Trại hè xanh • Tháng 6',
+    heroTag: 'Trại hè xanh',
     audience: 'Học sinh tham gia trải nghiệm hè và hoạt động tập thể.',
   },
   {
@@ -114,7 +113,7 @@ export const activities: Activity[] = [
     description:
       'Hoạt động công nghệ, AI, an toàn thông tin, sáng chế và kỹ thuật thủ công dành cho học sinh.',
     relatedDepartments: ['tin-hoc-ky-thuat', 'truyen-thong'],
-    heroTag: 'Trại hè công nghệ • Tháng 7',
+    heroTag: 'Trại hè công nghệ',
     audience: 'Học sinh yêu thích công nghệ, thực hành và khám phá STEM.',
   },
   {
@@ -125,7 +124,7 @@ export const activities: Activity[] = [
     description:
       'Lớp học nâng cao năng lực số, sử dụng Internet an toàn và ứng dụng công nghệ/AI vào học tập.',
     relatedDepartments: ['tin-hoc-ky-thuat', 'truyen-thong'],
-    heroTag: 'Bình dân học vụ số • Tháng 7',
+    heroTag: 'Bình dân học vụ số',
     audience: 'Học sinh cần củng cố kỹ năng số và ứng dụng công nghệ vào học tập.',
   },
 ];
@@ -319,10 +318,9 @@ export const faqs: FAQItem[] = [
 ];
 
 export const heroVisualCards = [
-  { title: 'Trại hè xanh', tone: 'emerald' },
-  { title: 'Trại hè công nghệ', tone: 'cyan' },
-  { title: 'Bình dân học vụ số', tone: 'blue' },
-  { title: 'Truyền thông', tone: 'pink' },
+  { title: 'TNV Tin học', tone: 'cyan' },
+  { title: 'TNV Kỹ thuật', tone: 'blue' },
+  { title: 'TNV Truyền thông', tone: 'pink' },
   { title: 'Hỗ trợ', tone: 'amber' },
 ] as const;
 

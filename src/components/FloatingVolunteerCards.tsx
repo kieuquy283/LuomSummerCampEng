@@ -1,4 +1,4 @@
-import { BookOpen, Cpu, HandHeart, Megaphone, MessageSquare } from 'lucide-react';
+import { Cpu, HandHeart, Megaphone, MessageSquare, Wrench } from 'lucide-react';
 
 import { heroVisualCards } from '../data/programData';
 
@@ -26,9 +26,9 @@ const StaticCard = ({ icon, title, accentClass, iconClass, className = '' }: Sta
 };
 
 const iconMap = {
-  emerald: <BookOpen className="h-7 w-7 sm:h-8 sm:w-8" />,
+  emerald: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
   cyan: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
-  blue: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
+  blue: <Wrench className="h-7 w-7 sm:h-8 sm:w-8" />,
   pink: <Megaphone className="h-7 w-7 sm:h-8 sm:w-8" />,
   amber: <HandHeart className="h-7 w-7 sm:h-8 sm:w-8" />,
 } as const;
@@ -93,14 +93,14 @@ const FloatingVolunteerCards = () => {
         </div>
 
         <div className="relative z-10 mx-auto grid w-full max-w-[17rem] grid-cols-1 gap-3.5 sm:max-w-[22rem] sm:grid-cols-2 sm:gap-4 lg:max-w-[23rem]">
-          {heroVisualCards.map((card, index) => (
+          {heroVisualCards.map((card) => (
             <StaticCard
               key={card.title}
               icon={iconMap[card.tone]}
               title={card.title}
               accentClass={toneClassMap[card.tone].accentClass}
               iconClass={toneClassMap[card.tone].iconClass}
-              className={index === heroVisualCards.length - 1 ? 'sm:col-span-2' : undefined}
+              className={undefined}
             />
           ))}
         </div>

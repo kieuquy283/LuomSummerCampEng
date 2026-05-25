@@ -41,7 +41,7 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
                 CHIẾN DỊCH TÌNH NGUYỆN HÈ 2026
               </p>
               <p className="mt-1 text-xs font-semibold leading-tight text-brand-cyan sm:truncate sm:text-sm">
-                Đoàn phường Vĩnh Phúc
+                Lượm - Giáo dục vì Cộng đồng
               </p>
             </div>
           </a>
