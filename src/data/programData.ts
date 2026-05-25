@@ -209,7 +209,7 @@ export const recruitmentGroups = [
   },
   {
     id: 'ban-truyen-thong',
-    title: 'Ban Truyền thông',
+    title: 'Bộ phận Hỗ trợ truyền thông',
     subtitle: 'Phụ trách nội dung, thiết kế và ghi hình truyền thông cho chiến dịch',
     theme: 'support',
     positions: [
@@ -263,7 +263,7 @@ export const recruitmentGroups = [
   },
   {
     id: 'ban-tai-chinh-hau-can',
-    title: 'Ban Tài chính - Hậu cần',
+    title: 'Bộ phận Hỗ trợ',
     subtitle: 'Phụ trách vận hành, cơ sở vật chất và quản lý thu chi cho chiến dịch',
     theme: 'support',
     positions: [
