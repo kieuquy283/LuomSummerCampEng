@@ -341,9 +341,7 @@ const VolunteerRegistrationForm = () => {
   const hasMediaOther = form.mediaPositions.includes('khac');
   const hasTechCamp = form.activities.includes('trai-he-cong-nghe');
   const hasDigitalClass = form.activities.includes('binh-dan-hoc-vu-so');
-  const hasGreenCamp = form.activities.includes('trai-he-xanh');
   const activityPairWarning = hasTechCamp !== hasDigitalClass;
-  const supportWarning = hasSupportSection && !hasGreenCamp;
   const facebookUrlWarning =
     form.facebookUrl.trim().length > 0 &&
     !/^https?:\/\//i.test(form.facebookUrl.trim());
@@ -374,7 +372,7 @@ const VolunteerRegistrationForm = () => {
         if (parsedDraft?.form) {
           setForm(parsedDraft.form);
           setDraftUpdatedAt(parsedDraft.updatedAt ?? null);
-          setDraftWasRestored(true);
+          setDraftWasRestored(false);
         }
       }
     } catch {
@@ -684,11 +682,6 @@ const VolunteerRegistrationForm = () => {
           </p>
         </div>
 
-        {draftWasRestored ? (
-          <div className="mb-4 rounded-[22px] border border-cyan-400/30 bg-cyan-400/10 p-4 text-sm leading-7 text-cyan-100">
-            Bản nháp trước đó đã được khôi phục{draftUpdatedAt ? ` (${new Date(draftUpdatedAt).toLocaleString('vi-VN')})` : ''}.
-          </div>
-        ) : null}
 
         {draftUpdatedAt && !draftWasRestored ? (
           <div className="mb-4 rounded-[22px] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-300">
@@ -703,7 +696,7 @@ const VolunteerRegistrationForm = () => {
           </div>
         ) : null}
 
-        {supportWarning ? (
+        {false ? (
           <div className="mb-4 rounded-[22px] border border-brand-yellow/30 bg-brand-yellow/10 p-4 text-sm leading-7 text-brand-yellow">
             Bộ phận Hỗ trợ chủ yếu phục vụ Trại hè Xanh. BTC sẽ liên hệ để xác nhận lại lịch tham
             gia phù hợp.
@@ -1323,7 +1316,7 @@ Nếu chưa, bạn vui lòng bỏ trống câu hỏi này.`}
                   <SectionTitle>6C. {volunteerFormSchema.support.title}</SectionTitle>
                   <div className="rounded-[22px] border border-white/10 bg-slate-950/55 p-4 sm:p-5">
                     <p className="text-base font-semibold leading-7 text-slate-100">
-                      B?n ch? c?n tr? l?i nh?ng c?u h?i chung ? tr?n.
+                      {'B\u1ea1n ch\u1ec9 c\u1ea7n tr\u1ea3 l\u1eddi nh\u1eefng c\u00e2u h\u1ecfi chung \u1edf tr\u00ean.'}
                     </p>
                   </div>
                 </fieldset>
@@ -1386,7 +1379,7 @@ Nếu chưa, bạn vui lòng bỏ trống câu hỏi này.`}
                   )}
                 </button>
 
-                {(activityPairWarning || supportWarning || facebookUrlWarning) ? (
+                {(activityPairWarning || facebookUrlWarning) ? (
                   <div className="inline-flex items-start gap-2 text-sm leading-6 text-brand-yellow">
                     <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0" />
                     BTC sẽ rà soát lại các lưu ý này khi liên hệ xác nhận đăng ký.
