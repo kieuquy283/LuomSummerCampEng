@@ -14,7 +14,7 @@ function App() {
       <main>
         <Hero />
         <Activities />
-        <PastSeasonsGallery />
+        {/* <PastSeasonsGallery /> */}
         <RecruitmentDepartments />
         <RegistrationOptions />
         <VolunteerRegistrationForm />

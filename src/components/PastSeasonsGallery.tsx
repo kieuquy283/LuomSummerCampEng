@@ -62,11 +62,11 @@ const galleryImages: GalleryImage[] = imageFiles.map((fileName, index) => ({
 const getGridClasses = (layout: LayoutType) => {
   switch (layout) {
     case 'feature':
-      return 'col-span-2 row-span-2';
+      return 'col-span-1 row-span-1 md:col-span-2 md:row-span-2';
     case 'tall':
-      return 'col-span-1 row-span-2';
+      return 'col-span-1 row-span-1 md:col-span-1 md:row-span-2';
     case 'wide':
-      return 'col-span-2 row-span-1';
+      return 'col-span-1 row-span-1 md:col-span-2 md:row-span-1';
     case 'small':
     default:
       return 'col-span-1 row-span-1';
@@ -191,25 +191,33 @@ const PastSeasonsGallery = () => {
           </h2>
         </div>
 
-        <div className="relative rounded-[2.5rem] bg-slate-900/40 p-3 sm:p-5 lg:p-6 backdrop-blur-xl border border-white/10 shadow-[0_32px_96px_rgba(0,0,0,0.6)]">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-flow-row-dense auto-rows-[6rem] sm:auto-rows-[8.5rem] lg:auto-rows-[9.5rem] gap-2 sm:gap-3 lg:gap-4">
-            {galleryImages.map((image, index) => (
-              <button
-                key={image.id}
-                type="button"
-                onClick={() => openLightbox(index)}
-                className={`group relative overflow-hidden rounded-[1.25rem] bg-slate-900 shadow-[0_18px_55px_rgba(2,6,23,0.42)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_72px_rgba(8,47,73,0.4)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/80 ${getGridClasses(image.layout)}`}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-slate-950/8 transition-colors duration-500 group-hover:bg-slate-950/18" />
-                <div className="absolute inset-0 border border-white/10 rounded-[1.25rem]" />
-              </button>
-            ))}
+        <div 
+          className="relative mx-auto max-w-[85rem] rounded-[2rem] p-3 sm:p-4 lg:p-5 shadow-[0_32px_96px_rgba(0,0,0,0.8)]"
+          style={{
+            backgroundColor: '#0f172a',
+            backgroundImage: `url('https://www.transparenttextures.com/patterns/retina-wood.png')`,
+            boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8), 0 20px 60px rgba(0,0,0,0.6)'
+          }}
+        >
+          <div className="relative rounded-[1.25rem] overflow-hidden bg-slate-950 shadow-[inset_0_0_15px_rgba(0,0,0,0.8)] border border-slate-800">
+            <div className="grid grid-cols-3 md:grid-cols-6 grid-flow-row-dense auto-rows-[10vh] sm:auto-rows-[11vh] md:auto-rows-[12vh] lg:auto-rows-[13vh] gap-1 md:gap-1.5 lg:gap-2">
+              {galleryImages.map((image, index) => (
+                <button
+                  key={image.id}
+                  type="button"
+                  onClick={() => openLightbox(index)}
+                  className={`group relative overflow-hidden bg-slate-800 transition duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/80 ${getGridClasses(image.layout)}`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/0 transition-colors duration-500 group-hover:bg-slate-950/20" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
