@@ -1,4 +1,4 @@
-import { type FormEvent, useEffect, useMemo, useState } from 'react';
+import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertTriangle, CheckCircle2, LoaderCircle, Send } from 'lucide-react';
 
 import {
@@ -314,6 +314,8 @@ const VolunteerRegistrationForm = () => {
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const successBannerRef = useRef<HTMLDivElement>(null);
   const [isDraftHydrated, setIsDraftHydrated] = useState(false);
   const [draftUpdatedAt, setDraftUpdatedAt] = useState<string | null>(null);
   const [, setDraftWasRestored] = useState(false);
@@ -666,6 +668,10 @@ const VolunteerRegistrationForm = () => {
           ? 'BTC đã nhận được đăng ký của bạn. Chúng mình sẽ liên hệ lại trong thời gian sớm nhất. Bạn vui lòng chú ý email và tin nhắn Facebook/Zalo nhé.\n\nChưa cấu hình endpoint lưu dữ liệu. Dữ liệu đang được hiển thị trong console ở môi trường phát triển.'
           : 'BTC đã nhận được đăng ký của bạn. Chúng mình sẽ liên hệ lại trong thời gian sớm nhất. Bạn vui lòng chú ý email và tin nhắn Facebook/Zalo nhé.',
       );
+      setShowSuccessToast(true);
+      setTimeout(() => {
+        successBannerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
     } catch (error) {
       setSubmitStatus('error');
       setSubmitMessage(
@@ -708,7 +714,10 @@ const VolunteerRegistrationForm = () => {
         ) : null}
 
         {submitStatus === 'success' ? (
-          <div className="mb-6 rounded-[24px] border border-emerald-400/30 bg-emerald-400/10 p-5">
+          <div
+            ref={successBannerRef}
+            className="mb-6 animate-[fadeSlideIn_0.5s_ease-out] rounded-[24px] border border-emerald-400/30 bg-emerald-400/10 p-5"
+          >
             <div className="flex items-start gap-3">
               <CheckCircle2 className="mt-0.5 h-6 w-6 text-emerald-300" />
               <p className="whitespace-pre-line leading-7 text-emerald-100">{submitMessage}</p>
@@ -1394,6 +1403,42 @@ Nếu chưa, bạn vui lòng bỏ trống câu hỏi này.`}
           </fieldset>
         </form>
       </div>
+
+      {/* Success Toast Overlay */}
+      {showSuccessToast ? (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all"
+          onClick={() => setShowSuccessToast(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Đăng ký thành công"
+        >
+          <div
+            className="relative mx-4 max-w-md animate-[toastPop_0.4s_cubic-bezier(0.34,1.56,0.64,1)] rounded-[28px] border border-emerald-400/30 bg-gradient-to-br from-slate-900 via-emerald-950/80 to-slate-900 p-8 shadow-[0_32px_80px_rgba(16,185,129,0.25)] sm:mx-0"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-5 flex justify-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 ring-4 ring-emerald-400/10">
+                <CheckCircle2 className="h-9 w-9 text-emerald-400" />
+              </div>
+            </div>
+            <h3 className="mb-3 text-center text-xl font-extrabold text-white">
+              Gửi đăng ký thành công! 🎉
+            </h3>
+            <p className="mb-6 text-center text-sm leading-7 text-slate-300">
+              BTC đã nhận được đăng ký của bạn. Chúng mình sẽ liên hệ lại trong thời gian sớm nhất.
+              Bạn vui lòng chú ý email và tin nhắn Facebook/Zalo nhé.
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowSuccessToast(false)}
+              className="w-full rounded-full bg-emerald-500 px-6 py-3 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-emerald-400 hover:shadow-[0_8px_24px_rgba(16,185,129,0.3)]"
+            >
+              Đã hiểu
+            </button>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 };
