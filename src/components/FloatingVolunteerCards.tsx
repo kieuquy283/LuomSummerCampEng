@@ -1,4 +1,4 @@
-import { BookOpen, Cpu, Megaphone, MessageSquare, Wrench } from 'lucide-react';
+import { BookOpen, Cpu, HandHeart, Megaphone, MessageSquare } from 'lucide-react';
 
 import { heroVisualCards } from '../data/programData';
 
@@ -30,7 +30,7 @@ const iconMap = {
   cyan: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
   blue: <Cpu className="h-7 w-7 sm:h-8 sm:w-8" />,
   pink: <Megaphone className="h-7 w-7 sm:h-8 sm:w-8" />,
-  amber: <Wrench className="h-7 w-7 sm:h-8 sm:w-8" />,
+  amber: <HandHeart className="h-7 w-7 sm:h-8 sm:w-8" />,
 } as const;
 
 const toneClassMap = {

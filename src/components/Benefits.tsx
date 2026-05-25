@@ -37,9 +37,6 @@ const Benefits = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
             Vì sao nên tham gia?
           </p>
-          <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl md:text-4xl">
-            Một chiến dịch chung, nhiều cách để bạn đóng góp và trưởng thành
-          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">

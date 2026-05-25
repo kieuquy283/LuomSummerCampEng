@@ -323,7 +323,7 @@ export const heroVisualCards = [
   { title: 'Trại hè công nghệ', tone: 'cyan' },
   { title: 'Bình dân học vụ số', tone: 'blue' },
   { title: 'Truyền thông', tone: 'pink' },
-  { title: 'Hỗ trợ / Tin học + Kỹ thuật', tone: 'amber' },
+  { title: 'Hỗ trợ', tone: 'amber' },
 ] as const;
 
 export const formHighlights = [
@@ -342,7 +342,7 @@ export type FormOption = {
 
 export const registrationMethods = [
   {
-    title: 'Đăng ký nhanh qua Google Form',
+    title: 'Đăng ký qua Google Form',
     description: 'Phù hợp nếu bạn muốn điền form quen thuộc, đơn giản và nhanh chóng.',
     buttonLabel: 'Điền Google Form',
     href: registrationLink,
@@ -350,7 +350,8 @@ export const registrationMethods = [
   },
   {
     title: 'Đăng ký trực tiếp tại website',
-    description: 'Chọn hoạt động, bộ phận, lịch rảnh và nguyện vọng ưu tiên ngay trên landing page.',
+    description:
+      'Điền thông tin, chọn hoạt động, bộ phận và trả lời câu hỏi ứng tuyển ngay trên landing page.',
     buttonLabel: 'Điền tại website',
     href: '#dang-ky-truc-tiep',
     external: false,

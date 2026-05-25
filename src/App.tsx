@@ -19,8 +19,8 @@ function App() {
         <Hero />
         <ProgramOverview />
         <Activities />
-        <RecruitmentDepartments />
         <PastSeasonsGallery />
+        <RecruitmentDepartments />
         <Benefits />
         <RegistrationOptions />
         <VolunteerRegistrationForm />

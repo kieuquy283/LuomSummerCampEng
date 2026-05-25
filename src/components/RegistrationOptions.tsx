@@ -9,15 +9,12 @@ const RegistrationOptions = () => {
     <section className="bg-slate-950 py-16 text-white sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-            Đăng ký
-          </p>
           <h2 className="text-2xl font-extrabold sm:text-3xl md:text-4xl">
             Chọn cách đăng ký phù hợp với bạn
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-            Bạn chỉ cần đăng ký một lần. BTC sẽ liên hệ lại để xác nhận hoạt động, vị trí và
-            lịch tham gia phù hợp.
+            Bạn chỉ cần đăng ký một lần. BTC sẽ liên hệ lại để xác nhận hoạt động, vị trí và lịch
+            tham gia phù hợp.
           </p>
         </div>
 

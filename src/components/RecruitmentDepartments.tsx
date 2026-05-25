@@ -1,6 +1,6 @@
 import { BadgeCheck, Megaphone, MonitorCog, Wrench } from 'lucide-react';
 
-import { type DepartmentId, departments, registrationLink } from '../data/programData';
+import { type DepartmentId, departments } from '../data/programData';
 
 const iconMap: Record<DepartmentId, typeof MonitorCog> = {
   'tin-hoc-ky-thuat': MonitorCog,
@@ -15,11 +15,8 @@ const RecruitmentDepartments = () => {
       <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-brand-electric blur-[150px] opacity-20" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-12">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-            Các bộ phận đang tuyển
-          </p>
-          <h2 className="text-2xl font-extrabold sm:text-3xl md:text-4xl">
-            Chọn bộ phận theo thế mạnh và mức độ bạn muốn đồng hành
+          <h2 className="text-2xl font-extrabold uppercase tracking-[0.18em] text-brand-cyan sm:text-3xl md:text-4xl">
+            Các vị trí tìm kiếm
           </h2>
         </div>
 
@@ -36,9 +33,6 @@ const RecruitmentDepartments = () => {
                   <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-brand-electric/20 text-brand-electric">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <span className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200">
-                    {department.scope}
-                  </span>
                 </div>
 
                 <h3 className="mt-6 text-2xl font-extrabold">{department.title}</h3>
@@ -108,15 +102,6 @@ const RecruitmentDepartments = () => {
                     ))}
                   </ul>
                 </div>
-
-                <a
-                  href={registrationLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-5 py-3 text-sm font-bold text-brand-navy transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
-                >
-                  {department.ctaLabel}
-                </a>
               </article>
             );
           })}
