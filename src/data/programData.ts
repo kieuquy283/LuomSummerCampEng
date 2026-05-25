@@ -81,7 +81,7 @@ export const site: SiteConfig = {
   campaignName: 'Chiến dịch tình nguyện hè 2026',
   headline: 'Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026',
   heroSubtitle:
-    'Cùng Đoàn phường Vĩnh Phúc tổ chức các hoạt động trại hè, công nghệ, năng lực số và truyền thông dành cho học sinh trong mùa hè này.',
+    'Chiến dịch tình nguyện hè 2026 do dự án “Lượm - Giáo dục vì cộng đồng” tổ chức là chương trình giáo dục cộng đồng hướng tới việc lan tỏa tri thức, kỹ năng và giá trị phát triển bền vững đến thanh thiếu niên và học sinh.',
   registrationNotice:
     "Trong form, bạn có thể chọn 1 hoặc nhiều hoạt động, 1 hoặc nhiều bộ phận. Nếu chưa chắc vị trí phù hợp, bạn có thể chọn mục 'Cần BTC tư vấn'.",
   hotline: '0968.397.725 (Ms. Trà My - 2005)',

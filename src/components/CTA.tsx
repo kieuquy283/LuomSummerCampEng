@@ -1,12 +1,6 @@
 import { Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
 
-import {
-  fanpageLink,
-  formHighlights,
-  registrationLink,
-  site,
-  zaloLink,
-} from '../data/programData';
+import { fanpageLink, formHighlights, site, zaloLink } from '../data/programData';
 
 const CTA = () => {
   return (
@@ -89,34 +83,26 @@ const CTA = () => {
 
               <div className="mt-8 flex flex-col gap-3">
                 <a
-                  href={registrationLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#dang-ky-truc-tiep"
                   className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3.5 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover sm:px-8 sm:py-4"
                 >
                   Đăng ký TNV
                 </a>
                 <div className="grid gap-3 sm:grid-cols-3">
                   <a
-                    href={registrationLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#dang-ky-truc-tiep"
                     className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >
                     Đăng ký Tin học + Kỹ thuật
                   </a>
                   <a
-                    href={registrationLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#dang-ky-truc-tiep"
                     className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >
                     Đăng ký Truyền thông
                   </a>
                   <a
-                    href={registrationLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#dang-ky-truc-tiep"
                     className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >
                     Đăng ký Hỗ trợ

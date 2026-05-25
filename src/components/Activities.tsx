@@ -1,8 +1,10 @@
 import { ArrowRight, CalendarDays } from 'lucide-react';
 
-import { activities, departments, registrationLink } from '../data/programData';
+import { activities, departments } from '../data/programData';
 
-const departmentNameMap = Object.fromEntries(departments.map((department) => [department.id, department.title]));
+const departmentNameMap = Object.fromEntries(
+  departments.map((department) => [department.id, department.title]),
+);
 
 const Activities = () => {
   return (
@@ -37,7 +39,9 @@ const Activities = () => {
               </div>
 
               <h3 className="mt-6 text-2xl font-extrabold text-slate-900">{activity.title}</h3>
-              <p className="mt-2 text-sm font-semibold text-brand-cyan">{activity.orderNote ?? 'Hoạt động chính của chiến dịch'}</p>
+              <p className="mt-2 text-sm font-semibold text-brand-cyan">
+                {activity.orderNote ?? 'Hoạt động chính của chiến dịch'}
+              </p>
               <p className="mt-4 leading-7 text-slate-600">{activity.description}</p>
 
               <div className="mt-6">
@@ -57,9 +61,7 @@ const Activities = () => {
               </div>
 
               <a
-                href={registrationLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#dang-ky-truc-tiep"
                 className="mt-8 inline-flex min-h-11 items-center rounded-full bg-brand-yellow px-5 py-3 text-sm font-bold text-brand-navy transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover"
               >
                 Đăng ký TNV

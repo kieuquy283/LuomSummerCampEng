@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-import { navLinks as defaultNavLinks, registrationLink } from '../data/programData';
+import { navLinks as defaultNavLinks } from '../data/programData';
 
 type HeaderLink = {
   label: string;
@@ -62,9 +62,7 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
           </nav>
 
           <a
-            href={registrationLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#dang-ky-truc-tiep"
             className="ml-auto hidden min-h-11 items-center justify-center rounded-full bg-brand-yellow px-6 py-3 text-sm font-bold text-brand-navy shadow-cta transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover md:inline-flex"
           >
             Đăng ký TNV
@@ -97,9 +95,7 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
               </a>
             ))}
             <a
-              href={registrationLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#dang-ky-truc-tiep"
               className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3 text-base font-bold text-brand-navy transition-all hover:bg-brand-yellow-hover"
             >
               Đăng ký TNV

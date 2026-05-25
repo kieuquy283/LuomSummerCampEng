@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 import FloatingVolunteerCards from './FloatingVolunteerCards';
-import { activities, registrationLink, site } from '../data/programData';
+import { activities, site } from '../data/programData';
 
 const Hero = () => {
   return (
@@ -27,7 +27,7 @@ const Hero = () => {
               {site.headline}
             </h1>
 
-            <p className="mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8 md:text-xl">
+            <p className="mt-6 max-w-3xl text-justify text-base leading-[1.5] text-slate-200 sm:text-lg sm:leading-[1.5] md:text-xl">
               {site.heroSubtitle}
             </p>
 
@@ -44,9 +44,7 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <a
-                href={registrationLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#dang-ky-truc-tiep"
                 className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3.5 text-base font-bold text-brand-navy shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-0.5 hover:bg-brand-yellow-hover sm:w-auto sm:px-8 sm:py-4"
               >
                 Đăng ký TNV
