@@ -1,5 +1,4 @@
 import Activities from './components/Activities';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -19,7 +18,6 @@ function App() {
         <RecruitmentDepartments />
         <RegistrationOptions />
         <VolunteerRegistrationForm />
-        <CTA />
       </main>
       <Footer />
     </div>

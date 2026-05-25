@@ -297,9 +297,13 @@ const RadioCardGroup = ({
 const ErrorText = ({ message }: { message?: string }) =>
   message ? <p className="mt-2 text-sm text-rose-300">{message}</p> : null;
 
-const DescriptionBlock = ({ text }: { text: string }) => (
-  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-200">{text}</p>
-);
+const DescriptionBlock = ({ text }: { text: string }) => {
+  const normalizedText = text.replace(/\\n/g, '\n');
+
+  return (
+    <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-200">{normalizedText}</p>
+  );
+};
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
   <h3 className="mb-5 text-xl font-extrabold text-white">{children}</h3>
