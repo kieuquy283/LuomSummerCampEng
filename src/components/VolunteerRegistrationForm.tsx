@@ -1,4 +1,4 @@
-import { type FormEvent, useMemo, useState } from 'react';
+import { type FormEvent, useEffect, useMemo, useState } from 'react';
 import { AlertTriangle, CheckCircle2, LoaderCircle, Send } from 'lucide-react';
 
 import {
@@ -110,6 +110,11 @@ type SubmissionPayload = {
   dataConsent: boolean;
 };
 
+type DraftPayload = {
+  form: VolunteerRegistrationState;
+  updatedAt: string;
+};
+
 const initialState: VolunteerRegistrationState = {
   readiness: '',
   commitment80Percent: '',
@@ -156,6 +161,7 @@ const sectionClasses =
 const inputClasses =
   'mt-2 min-h-12 w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-base text-white placeholder:text-slate-500 focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/20';
 const labelClasses = 'text-sm font-semibold uppercase tracking-[0.12em] text-slate-300';
+const draftStorageKey = 'luom-volunteer-registration-draft-v1';
 
 const toggleValue = (items: string[], value: string) =>
   items.includes(value) ? items.filter((item) => item !== value) : [...items, value];
@@ -301,11 +307,15 @@ const VolunteerRegistrationForm = () => {
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
+  const [isDraftHydrated, setIsDraftHydrated] = useState(false);
+  const [draftUpdatedAt, setDraftUpdatedAt] = useState<string | null>(null);
+  const [draftWasRestored, setDraftWasRestored] = useState(false);
 
   const supabase = getSupabaseClient();
   const supabaseTable = getVolunteerRegistrationsTable();
   const endpoint = import.meta.env.VITE_REGISTRATION_ENDPOINT?.trim();
   const configuredTransport = import.meta.env.VITE_REGISTRATION_TRANSPORT?.trim();
+  const googleSheetsEndpoint = import.meta.env.VITE_GOOGLE_SHEETS_ENDPOINT?.trim();
   const hasSupabase = Boolean(supabase);
   const hasEndpoint = Boolean(endpoint);
   const isDevFallback = import.meta.env.DEV && !hasEndpoint && !hasSupabase;
@@ -313,6 +323,7 @@ const VolunteerRegistrationForm = () => {
     configuredTransport === 'google-apps-script' || endpoint?.includes('script.google.com')
       ? 'google-apps-script'
       : 'json';
+  const hasGoogleSheetsSync = Boolean(googleSheetsEndpoint);
 
   const selectedDepartments = useMemo(
     () => getDepartmentList(form.primaryDepartment, form.additionalDepartments),
@@ -345,6 +356,61 @@ const VolunteerRegistrationForm = () => {
       setSubmitMessage('');
     }
   };
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      setIsDraftHydrated(true);
+      return;
+    }
+
+    try {
+      const rawDraft = window.localStorage.getItem(draftStorageKey);
+
+      if (rawDraft) {
+        const parsedDraft = JSON.parse(rawDraft) as DraftPayload;
+        if (parsedDraft?.form) {
+          setForm(parsedDraft.form);
+          setDraftUpdatedAt(parsedDraft.updatedAt ?? null);
+          setDraftWasRestored(true);
+        }
+      }
+    } catch {
+      window.localStorage.removeItem(draftStorageKey);
+    } finally {
+      setIsDraftHydrated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isDraftHydrated || typeof window === 'undefined') {
+      return;
+    }
+
+    const hasDraftContent = Object.entries(form).some(([key, value]) => {
+      if (key === 'dataConsent') {
+        return value === true;
+      }
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      }
+      return value !== '';
+    });
+
+    if (!hasDraftContent) {
+      window.localStorage.removeItem(draftStorageKey);
+      setDraftUpdatedAt(null);
+      return;
+    }
+
+    const updatedAt = new Date().toISOString();
+    const draftPayload: DraftPayload = {
+      form,
+      updatedAt,
+    };
+
+    window.localStorage.setItem(draftStorageKey, JSON.stringify(draftPayload));
+    setDraftUpdatedAt(updatedAt);
+  }, [form, isDraftHydrated]);
 
   const validateForm = () => {
     const nextErrors: ValidationErrors = {};
@@ -467,6 +533,21 @@ const VolunteerRegistrationForm = () => {
     dataConsent: form.dataConsent,
   });
 
+  const syncToGoogleSheets = async (payload: SubmissionPayload) => {
+    if (!googleSheetsEndpoint) {
+      return;
+    }
+
+    await fetch(googleSheetsEndpoint, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      },
+      body: JSON.stringify(payload),
+    });
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -525,6 +606,10 @@ const VolunteerRegistrationForm = () => {
         if (error) {
           throw new Error(error.message || 'Không thể lưu đăng ký lúc này.');
         }
+
+        if (hasGoogleSheetsSync) {
+          await syncToGoogleSheets(payload);
+        }
       } else if (import.meta.env.DEV) {
         console.log('Volunteer registration payload', payload);
       } else {
@@ -532,6 +617,11 @@ const VolunteerRegistrationForm = () => {
       }
 
       setForm(initialState);
+      if (typeof window !== 'undefined') {
+        window.localStorage.removeItem(draftStorageKey);
+      }
+      setDraftUpdatedAt(null);
+      setDraftWasRestored(false);
       setSubmitStatus('success');
       setSubmitMessage(
         isDevFallback
@@ -557,6 +647,18 @@ const VolunteerRegistrationForm = () => {
             {volunteerFormSchema.formNote}
           </p>
         </div>
+
+        {draftWasRestored ? (
+          <div className="mb-4 rounded-[22px] border border-cyan-400/30 bg-cyan-400/10 p-4 text-sm leading-7 text-cyan-100">
+            Bản nháp trước đó đã được khôi phục{draftUpdatedAt ? ` (${new Date(draftUpdatedAt).toLocaleString('vi-VN')})` : ''}.
+          </div>
+        ) : null}
+
+        {draftUpdatedAt && !draftWasRestored ? (
+          <div className="mb-4 rounded-[22px] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-300">
+            Bản nháp đang được tự động lưu trên trình duyệt này. Cập nhật gần nhất: {new Date(draftUpdatedAt).toLocaleString('vi-VN')}
+          </div>
+        ) : null}
 
         {activityPairWarning ? (
           <div className="mb-4 rounded-[22px] border border-brand-yellow/30 bg-brand-yellow/10 p-4 text-sm leading-7 text-brand-yellow">

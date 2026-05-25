@@ -76,8 +76,8 @@ export type BenefitItem = {
 };
 
 export const site: SiteConfig = {
-  organization: 'Đoàn phường Vĩnh Phúc / Lượm',
-  pageTitle: 'Tuyển TNV Chiến dịch hè 2026',
+  organization: 'Đoàn phường Vĩnh Phúc',
+  pageTitle: 'Tuyển TNV Chiến dịch tình nguyện hè 2026',
   campaignName: 'Chiến dịch tình nguyện hè 2026',
   headline: 'Trở thành tình nguyện viên Chiến dịch tình nguyện hè 2026',
   heroSubtitle:
@@ -90,7 +90,7 @@ export const site: SiteConfig = {
 export const navLinks: NavLink[] = [
   { label: 'Giới thiệu', href: '#gioi-thieu' },
   { label: 'Hoạt động', href: '#hoat-dong' },
-  { label: 'Bộ phận tuyển', href: '#bo-phan-tuyen' },
+  { label: 'Vị trí tìm kiếm', href: '#bo-phan-tuyen' },
   { label: 'Quyền lợi', href: '#vi-sao-tham-gia' },
   { label: 'FAQ', href: '#faq' },
 ];

@@ -21,16 +21,11 @@ const Footer = () => {
               </div>
               <div className="min-w-0">
                 <p className="text-lg font-extrabold uppercase leading-tight text-white sm:text-xl">
-                  CHIẾN DỊCH HÈ 2026
+                  CHIẾN DỊCH TÌNH NGUYỆN HÈ 2026
                 </p>
-                <p className="mt-1 text-sm font-semibold text-brand-cyan">Đoàn phường Vĩnh Phúc / Lượm</p>
+                <p className="mt-1 text-sm font-semibold text-brand-cyan">Đoàn phường Vĩnh Phúc</p>
               </div>
             </div>
-
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
-              Landing page tuyển tình nguyện viên cho Trại hè xanh, Trại hè công nghệ và Lớp
-              Bình dân học vụ số trong mùa hè 2026.
-            </p>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import { Globe2, HeartHandshake, PhoneCall } from 'lucide-react';
 
-import { fanpageLink, formHighlights, site, zaloLink } from '../data/programData';
+import { fanpageLink, site, zaloLink } from '../data/programData';
 
 const CTA = () => {
   return (
@@ -13,26 +13,14 @@ const CTA = () => {
         <div className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[36px] sm:p-8 md:p-12">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
-                Form đăng ký
-              </p>
-              <h2 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-3xl md:text-4xl">
-                Đăng ký TNV cho một hoặc nhiều hoạt động phù hợp với bạn
+              <h2 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl md:text-4xl">
+                Dự án “Lượm - Giáo dục vì cộng đồng” hướng tới xây dựng một môi trường nơi mỗi người
+                trẻ đều có cơ hội học tập, phát triển và đóng góp giá trị tích cực cho xã hội.
               </h2>
-              <p className="mt-5 text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
-                {site.registrationNotice}
+              <p className="mt-5 text-justify text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
+                Chiến dịch tình nguyện hè 2026 kỳ vọng sẽ trở thành cầu nối giữa tri thức, công
+                nghệ và tinh thần trách nhiệm cộng đồng của thế hệ trẻ hôm nay.
               </p>
-
-              <div className="mt-8 grid gap-3">
-                {formHighlights.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[18px] border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-slate-200"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
 
               <div className="mt-8 grid gap-4">
                 <a
@@ -88,26 +76,6 @@ const CTA = () => {
                 >
                   Đăng ký TNV
                 </a>
-                <div className="grid gap-3 sm:grid-cols-3">
-                  <a
-                    href="#dang-ky-truc-tiep"
-                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                  >
-                    Đăng ký Tin học + Kỹ thuật
-                  </a>
-                  <a
-                    href="#dang-ky-truc-tiep"
-                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                  >
-                    Đăng ký Truyền thông
-                  </a>
-                  <a
-                    href="#dang-ky-truc-tiep"
-                    className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                  >
-                    Đăng ký Hỗ trợ
-                  </a>
-                </div>
               </div>
             </div>
           </div>

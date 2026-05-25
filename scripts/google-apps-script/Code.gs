@@ -17,7 +17,7 @@ function doPost(e) {
   } catch (error) {
     return jsonResponse_({
       ok: false,
-      message: error instanceof Error ? error.message : String(error),
+      message: error && error.message ? error.message : String(error),
     });
   }
 }
@@ -39,36 +39,56 @@ function getOrCreateSheet_() {
 }
 
 function flattenPayload_(payload) {
+  const personalInfo = payload.personalInfo || {};
+  const commitments = payload.commitments || {};
+  const generalAnswers = payload.generalAnswers || {};
+  const techAnswers = payload.techAnswers || {};
+  const mediaAnswers = payload.mediaAnswers || {};
+  const supportAnswers = payload.supportAnswers || {};
+
   return {
     createdAt: payload.createdAt || '',
     source: payload.source || '',
-    readinessConfirmed: payload.readinessConfirmed ? 'true' : 'false',
-    participationCommitmentConfirmed: payload.participationCommitmentConfirmed ? 'true' : 'false',
-    email: payload.email || '',
-    fullName: payload.fullName || '',
-    dateOfBirth: payload.dateOfBirth || '',
-    schoolInfo: payload.schoolInfo || '',
-    phone: payload.phone || '',
-    facebookOrZalo: payload.facebookOrZalo || '',
-    aboutLuom: payload.aboutLuom || '',
-    motivation: payload.motivation || '',
-    generalStrengths: joinArray_(payload.generalStrengths),
-    generalStrengthsOther: payload.generalStrengthsOther || '',
-    previousVolunteerExperience: payload.previousVolunteerExperience || '',
-    selectedActivities: joinArray_(payload.selectedActivities),
-    selectedDepartments: joinArray_(payload.selectedDepartments),
-    techRole: payload.techRole || '',
-    techFields: joinArray_(payload.techFields),
-    techAiSkills: payload.techAiSkills || '',
-    techTeachingTools: payload.techTeachingTools || '',
-    mediaPositions: joinArray_(payload.mediaPositions),
-    portfolioUrl: payload.portfolioUrl || '',
-    mediaWritingChallenge: payload.mediaWritingChallenge || '',
-    mediaDesignPortfolioNote: payload.mediaDesignPortfolioNote || '',
-    mediaVideoPortfolioNote: payload.mediaVideoPortfolioNote || '',
-    mediaHasCamera: payload.mediaHasCamera || '',
-    supportTasks: joinArray_(payload.supportTasks),
-    availableForGreenCamp: payload.availableForGreenCamp || '',
+    formName: payload.formName || '',
+    fullName: personalInfo.fullName || '',
+    dateOfBirth: personalInfo.dateOfBirth || '',
+    schoolClassMajor: personalInfo.schoolClassMajor || '',
+    email: personalInfo.email || '',
+    phone: personalInfo.phone || '',
+    emergencyContact: personalInfo.emergencyContact || '',
+    facebookUrl: personalInfo.facebookUrl || '',
+    currentAddress: personalInfo.currentAddress || '',
+    certificates: personalInfo.certificates || '',
+    readiness: commitments.readiness || '',
+    commitment80Percent: commitments.commitment80Percent || '',
+    knowledgeAboutLuom: generalAnswers.knowledgeAboutLuom || '',
+    motivation: generalAnswers.motivation || '',
+    talents: generalAnswers.talents || '',
+    strengths: joinArray_(generalAnswers.strengths),
+    strengthsOther: generalAnswers.strengthsOther || '',
+    pastVolunteerExperience: generalAnswers.pastVolunteerExperience || '',
+    activities: joinArray_(payload.activities),
+    primaryDepartment: payload.primaryDepartment || '',
+    additionalDepartments: joinArray_(payload.additionalDepartments),
+    techFocusAreas: joinArray_(techAnswers.techFocusAreas),
+    techFocusOther: techAnswers.techFocusOther || '',
+    cyberInfoSourcesAndRisks: techAnswers.cyberInfoSourcesAndRisks || '',
+    aiToolsAndComputerSkills: techAnswers.aiToolsAndComputerSkills || '',
+    digitalToolsForLessonDesign: techAnswers.digitalToolsForLessonDesign || '',
+    cyberSafetyGameIdea: techAnswers.cyberSafetyGameIdea || '',
+    offlineClassHandling: techAnswers.offlineClassHandling || '',
+    motorCircuitExperience: techAnswers.motorCircuitExperience || '',
+    electricityKnowledgeRating: techAnswers.electricityKnowledgeRating || '',
+    handmadeTechnicalSituation: techAnswers.handmadeTechnicalSituation || '',
+    mediaPositions: joinArray_(mediaAnswers.mediaPositions),
+    mediaPositionOther: mediaAnswers.mediaPositionOther || '',
+    mediaPortfolioLink: mediaAnswers.mediaPortfolioLink || '',
+    hasCamera: mediaAnswers.hasCamera || '',
+    supportTasks: joinArray_(supportAnswers.supportTasks),
+    supportExperience: supportAnswers.supportExperience || '',
+    finalNote: payload.finalNote || '',
+    dataConsent: payload.dataConsent ? 'true' : 'false',
+    rawPayload: JSON.stringify(payload),
   };
 }
 
@@ -83,12 +103,10 @@ function ensureHeader_(sheet, headers) {
 }
 
 function appendRow_(sheet, rowObject) {
-  const headers = sheet
-    .getRange(1, 1, 1, sheet.getLastColumn())
-    .getValues()[0]
-    .filter(Boolean);
-
-  const row = headers.map((header) => rowObject[header] || '');
+  const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].filter(Boolean);
+  const row = headers.map(function (header) {
+    return rowObject[header] || '';
+  });
   sheet.appendRow(row);
 }
 

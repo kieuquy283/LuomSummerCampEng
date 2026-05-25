@@ -77,9 +77,6 @@ const PastSeasonsGallery = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
             Hình ảnh hoạt động
           </p>
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl md:text-5xl">
-            Hình ảnh từ các mùa hoạt động trước
-          </h2>
           <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
             Một vài khoảnh khắc tiêu biểu từ các chương trình cộng đồng, trại hè và lớp học đã
             triển khai.

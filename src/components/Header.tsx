@@ -38,10 +38,10 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
             </div>
             <div className="min-w-0 pt-0.5 sm:pt-0">
               <p className="text-base font-extrabold leading-tight text-white sm:truncate sm:text-lg">
-                CHIẾN DỊCH HÈ 2026
+                CHIẾN DỊCH TÌNH NGUYỆN HÈ 2026
               </p>
               <p className="mt-1 text-xs font-semibold leading-tight text-brand-cyan sm:truncate sm:text-sm">
-                Đoàn phường Vĩnh Phúc / Lượm
+                Đoàn phường Vĩnh Phúc
               </p>
             </div>
           </a>

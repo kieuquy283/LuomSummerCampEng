@@ -1,0 +1,204 @@
+[
+  {
+    "id": 4,
+    "created_at": "2026-05-25T11:10:47.424289+00:00",
+    "source": "landing_page_direct_form",
+    "submitted_at": "2026-05-25T11:10:46.435+00:00",
+    "full_name": "TEST WEB FORM 20260525111046",
+    "email": "test.webform.20260525111046@example.com",
+    "phone": "0987654321",
+    "facebook_or_zalo": "https://facebook.com/test.webform",
+    "selected_activities": [
+      "Tr?i h? Xanh",
+      "Tr?i h? C?ng ngh?",
+      "L?p B?nh d?n h?c v? s?"
+    ],
+    "selected_departments": [
+      "Chuy?n m?n Tin h?c v? K? thu?t",
+      "Truy?n th?ng"
+    ],
+    "payload": {
+      "source": "landing_page_direct_form",
+      "formName": "??ng k? T?nh nguy?n vi?n L??m - Chi?n d?ch m?a h? 2026",
+      "createdAt": "2026-05-25T11:10:46.435Z",
+      "finalNote": "Test submit tu Codex",
+      "activities": [
+        "Tr?i h? Xanh",
+        "Tr?i h? C?ng ngh?",
+        "L?p B?nh d?n h?c v? s?"
+      ],
+      "commitments": {
+        "readiness": "minh-san-sang",
+        "commitment80Percent": "minh-cam-ket"
+      },
+      "dataConsent": true,
+      "techAnswers": {
+        "techFocusAreas": [
+          "ung-dung-cong-nghe-ai"
+        ],
+        "techFocusOther": "",
+        "cyberSafetyGameIdea": "",
+        "offlineClassHandling": "",
+        "motorCircuitExperience": "",
+        "aiToolsAndComputerSkills": "ChatGPT, Canva",
+        "cyberInfoSourcesAndRisks": "",
+        "electricityKnowledgeRating": "",
+        "handmadeTechnicalSituation": "",
+        "digitalToolsForLessonDesign": "Canva, PowerPoint"
+      },
+      "mediaAnswers": {
+        "hasCamera": "minh-co",
+        "mediaPositions": [
+          "viet-bai"
+        ],
+        "mediaPortfolioLink": "https://drive.google.com/test-folder",
+        "mediaPositionOther": ""
+      },
+      "personalInfo": {
+        "email": "test.webform.20260525111046@example.com",
+        "phone": "0987654321",
+        "fullName": "TEST WEB FORM 20260525111046",
+        "dateOfBirth": "21/05/2005",
+        "facebookUrl": "https://facebook.com/test.webform",
+        "certificates": "",
+        "currentAddress": "Phuong Khai Quang - Vinh Yen",
+        "emergencyContact": "0987000000 - Nguyen Thi Test - Me",
+        "schoolClassMajor": "THPT Test - 12A1"
+      },
+      "generalAnswers": {
+        "talents": "",
+        "strengths": [
+          "san-sang-hoc-hoi"
+        ],
+        "motivation": "Kiem tra luong gui du lieu.",
+        "strengthsOther": "",
+        "knowledgeAboutLuom": "Ban ghi test de kiem tra luong submit tu landing page.",
+        "pastVolunteerExperience": ""
+      },
+      "supportAnswers": {
+        "supportTasks": [],
+        "supportExperience": ""
+      },
+      "primaryDepartment": "tech",
+      "additionalDepartments": [
+        "media"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "created_at": "2026-05-25T09:29:23.704924+00:00",
+    "source": "landing_page_direct_form",
+    "submitted_at": "2026-05-25T09:29:21.87+00:00",
+    "full_name": "KIEU THIEN QUY",
+    "email": "kieuquyvp@gmail.com",
+    "phone": "0344758265",
+    "facebook_or_zalo": "https://www.facebook.com/quy.kieu.1029770",
+    "selected_activities": [
+      "cong-nghe-va-bdhvs"
+    ],
+    "selected_departments": [
+      "tin-hoc-ky-thuat"
+    ],
+    "payload": {
+      "email": "kieuquyvp@gmail.com",
+      "phone": "0344758265",
+      "source": "landing_page_direct_form",
+      "fullName": "KIEU THIEN QUY",
+      "techRole": "dung-lop-ho-tro-chuyen-mon",
+      "aboutLuom": "abc",
+      "createdAt": "2026-05-25T09:29:21.870Z",
+      "priority1": "tin-hoc-ky-thuat-cong-nghe-bdhvs",
+      "priority2": "truyen-thong-trai-he-xanh",
+      "priority3": "truyen-thong-cong-nghe-bdhvs",
+      "motivation": "wrg",
+      "schoolInfo": "UET",
+      "techFields": [
+        "ung-dung-cong-nghe-ai"
+      ],
+      "dateOfBirth": "2005-02-08",
+      "portfolioUrl": "",
+      "supportTasks": [],
+      "techAiSkills": "ẻbewrbe",
+      "facebookOrZalo": "https://www.facebook.com/quy.kieu.1029770",
+      "mediaHasCamera": "",
+      "mediaPositions": [],
+      "generalStrengths": [
+        "ho-tro-ky-thuat"
+      ],
+      "techTeachingTools": "ẻbwerb",
+      "readinessConfirmed": true,
+      "selectedActivities": [
+        "cong-nghe-va-bdhvs"
+      ],
+      "selectedDepartments": [
+        "tin-hoc-ky-thuat"
+      ],
+      "availableForGreenCamp": "",
+      "generalStrengthsOther": "",
+      "mediaWritingChallenge": "",
+      "mediaVideoPortfolioNote": "",
+      "mediaDesignPortfolioNote": "",
+      "previousVolunteerExperience": "rbgwrbg",
+      "participationCommitmentConfirmed": true
+    }
+  },
+  {
+    "id": 2,
+    "created_at": "2026-05-25T09:21:18.782823+00:00",
+    "source": "landing_page_direct_form",
+    "submitted_at": "2026-05-25T09:21:17.405+00:00",
+    "full_name": "Test Supabase Codex Minimal",
+    "email": "test.supabase.minimal@example.com",
+    "phone": "0900000001",
+    "facebook_or_zalo": "https://zalo.me/test-codex-minimal",
+    "selected_activities": [
+      "trai-he-xanh"
+    ],
+    "selected_departments": [
+      "ho-tro"
+    ],
+    "payload": {
+      "email": "test.supabase.minimal@example.com",
+      "phone": "0900000001",
+      "source": "landing_page_direct_form",
+      "fullName": "Test Supabase Codex Minimal",
+      "techRole": "",
+      "aboutLuom": "Test insert from Codex",
+      "createdAt": "2026-05-25T09:21:17.405Z",
+      "priority1": "ho-tro-trai-he-xanh",
+      "priority2": "",
+      "priority3": "",
+      "motivation": "Testing Supabase connection with minimal return",
+      "schoolInfo": "Test School - 12A1",
+      "techFields": [],
+      "dateOfBirth": "2006-01-01",
+      "portfolioUrl": "",
+      "supportTasks": [
+        "diem-danh"
+      ],
+      "techAiSkills": "",
+      "facebookOrZalo": "https://zalo.me/test-codex-minimal",
+      "mediaHasCamera": "",
+      "mediaPositions": [],
+      "generalStrengths": [
+        "san-sang-hoc-hoi"
+      ],
+      "techTeachingTools": "",
+      "readinessConfirmed": true,
+      "selectedActivities": [
+        "trai-he-xanh"
+      ],
+      "selectedDepartments": [
+        "ho-tro"
+      ],
+      "availableForGreenCamp": "co",
+      "generalStrengthsOther": "",
+      "mediaWritingChallenge": "",
+      "mediaVideoPortfolioNote": "",
+      "mediaDesignPortfolioNote": "",
+      "previousVolunteerExperience": "Test only",
+      "participationCommitmentConfirmed": true
+    }
+  }
+]

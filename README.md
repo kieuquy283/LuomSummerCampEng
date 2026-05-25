@@ -53,7 +53,7 @@ fields out of the JSON payload into plain columns for filtering and CSV export i
 
 ## Google Apps Script setup
 
-To store direct registrations in Google Sheets:
+To mirror direct registrations into Google Sheets while still keeping Supabase as the main store:
 
 1. Create a Google Sheet.
 2. Open `Extensions -> Apps Script`.
@@ -65,16 +65,18 @@ To store direct registrations in Google Sheets:
 6. Create `.env.local` in the project root:
 
 ```env
-VITE_REGISTRATION_ENDPOINT=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
-VITE_REGISTRATION_TRANSPORT=google-apps-script
+VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
+VITE_SUPABASE_TABLE=volunteer_registrations
+VITE_GOOGLE_SHEETS_ENDPOINT=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
 ```
 
 7. Restart the dev server with `npm run dev`.
 
-The frontend automatically switches to a Google Apps Script compatible transport when:
+The frontend will then:
 
-- `VITE_REGISTRATION_TRANSPORT=google-apps-script`, or
-- the endpoint contains `script.google.com`
+- save the registration to Supabase first
+- send the same payload to Google Sheets through Apps Script for BTC tracking
 
 ## Apps Script checklist
 
@@ -83,6 +85,6 @@ The frontend automatically switches to a Google Apps Script compatible transport
 - Web App is deployed, not just saved.
 - Access is set to `Anyone`.
 - You copied the `/exec` URL, not an editor URL.
-- `.env.local` matches `.env.local.example`.
+- `.env.local` includes `VITE_GOOGLE_SHEETS_ENDPOINT`.
 - After changing `.env.local`, restart `npm run dev`.
 - Submit one test record and confirm a new row appears in sheet `VolunteerRegistrations`.

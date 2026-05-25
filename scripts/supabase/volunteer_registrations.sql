@@ -15,6 +15,7 @@ create table if not exists public.volunteer_registrations (
 alter table public.volunteer_registrations enable row level security;
 
 grant usage on schema public to anon, authenticated;
+grant select on public.volunteer_registrations to anon, authenticated;
 grant insert on public.volunteer_registrations to anon, authenticated;
 grant usage, select on sequence public.volunteer_registrations_id_seq to anon, authenticated;
 
@@ -23,3 +24,9 @@ on public.volunteer_registrations
 for insert
 to anon, authenticated
 with check (true);
+
+create policy "public can select volunteer registrations"
+on public.volunteer_registrations
+for select
+to anon, authenticated
+using (true);
