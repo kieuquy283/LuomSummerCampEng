@@ -114,5 +114,10 @@ export const volunteerFormSchema = {
       { value: 'ho-tro-hau-can-chung', label: 'Hỗ trợ hậu cần chung' },
       { value: 'ho-tro-btc-theo-phan-cong', label: 'Hỗ trợ BTC theo phân công' },
     ] satisfies FormOption[],
+    availabilityOptions: [
+      { value: 'co', label: 'CÃ³' },
+      { value: 'chua-chac', label: 'ChÆ°a cháº¯c' },
+      { value: 'khong', label: 'KhÃ´ng' },
+    ] satisfies FormOption[],
   },
 } as const;

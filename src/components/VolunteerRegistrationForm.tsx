@@ -47,6 +47,7 @@ type VolunteerRegistrationState = {
   mediaPortfolioLink: string;
   hasCamera: string;
   supportTasks: string[];
+  supportAvailability: string;
   supportExperience: string;
   finalNote: string;
   dataConsent: boolean;
@@ -104,6 +105,7 @@ type SubmissionPayload = {
   };
   supportAnswers: {
     supportTasks: string[];
+    supportAvailability: string;
     supportExperience: string;
   };
   finalNote: string;
@@ -151,6 +153,7 @@ const initialState: VolunteerRegistrationState = {
   mediaPortfolioLink: '',
   hasCamera: '',
   supportTasks: [],
+  supportAvailability: '',
   supportExperience: '',
   finalNote: '',
   dataConsent: false,
@@ -412,6 +415,34 @@ const VolunteerRegistrationForm = () => {
     setDraftUpdatedAt(updatedAt);
   }, [form, isDraftHydrated]);
 
+  useEffect(() => {
+    if (!hasSupportSection) {
+      if (form.supportTasks.length > 0 || form.supportAvailability || form.supportExperience) {
+        setForm((current) => ({
+          ...current,
+          supportTasks: [],
+          supportAvailability: '',
+          supportExperience: '',
+        }));
+      }
+      return;
+    }
+
+    if (form.supportTasks.length === 0 || !form.supportAvailability) {
+      setForm((current) => ({
+        ...current,
+        supportTasks:
+          current.supportTasks.length > 0 ? current.supportTasks : ['ho-tro-btc-theo-phan-cong'],
+        supportAvailability: current.supportAvailability || 'chua-chac',
+      }));
+    }
+  }, [
+    form.supportAvailability,
+    form.supportExperience,
+    form.supportTasks.length,
+    hasSupportSection,
+  ]);
+
   const validateForm = () => {
     const nextErrors: ValidationErrors = {};
     const digitCount = form.phone.replace(/\D/g, '').length;
@@ -474,6 +505,10 @@ const VolunteerRegistrationForm = () => {
       nextErrors.dataConsent = 'Bạn cần xác nhận trước khi gửi đăng ký.';
     }
 
+    if (hasSupportSection && !form.supportAvailability) {
+      nextErrors.supportAvailability = 'Vui lòng cho biết khả năng tham gia Trại hè Xanh.';
+    }
+
     return nextErrors;
   };
 
@@ -527,6 +562,7 @@ const VolunteerRegistrationForm = () => {
     },
     supportAnswers: {
       supportTasks: form.supportTasks,
+      supportAvailability: form.supportAvailability,
       supportExperience: form.supportExperience.trim(),
     },
     finalNote: form.finalNote.trim(),
@@ -1285,35 +1321,10 @@ Nếu chưa, bạn vui lòng bỏ trống câu hỏi này.`}
               {hasSupportSection ? (
                 <fieldset className={sectionClasses}>
                   <SectionTitle>6C. {volunteerFormSchema.support.title}</SectionTitle>
-                  <DescriptionBlock text={volunteerFormSchema.support.description} />
-                  <div className="mt-5 space-y-5">
-                    <div>
-                      <p className={labelClasses}>Bạn có thể hỗ trợ những công việc nào? *</p>
-                      <div className="mt-2">
-                        <CheckboxCardGroup
-                          options={volunteerFormSchema.support.taskOptions}
-                          selectedValues={form.supportTasks}
-                          onToggle={(value) =>
-                            setField('supportTasks', toggleValue(form.supportTasks, value))
-                          }
-                          columns="sm:grid-cols-2 xl:grid-cols-2"
-                        />
-                      </div>
-                      <ErrorText message={errors.supportTasks} />
-                    </div>
-
-                    <div>
-                      <label htmlFor="supportExperience" className={labelClasses}>
-                        Nếu có kinh nghiệm điều phối, quản trò, hoạt náo hoặc hậu cần, hãy mô tả
-                        ngắn gọn.
-                      </label>
-                      <textarea
-                        id="supportExperience"
-                        value={form.supportExperience}
-                        onChange={(event) => setField('supportExperience', event.target.value)}
-                        className={`${inputClasses} min-h-28`}
-                      />
-                    </div>
+                  <div className="rounded-[22px] border border-white/10 bg-slate-950/55 p-4 sm:p-5">
+                    <p className="text-base font-semibold leading-7 text-slate-100">
+                      B?n ch? c?n tr? l?i nh?ng c?u h?i chung ? tr?n.
+                    </p>
                   </div>
                 </fieldset>
               ) : null}
