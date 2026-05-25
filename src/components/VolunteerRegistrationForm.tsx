@@ -1,5 +1,5 @@
 import { type FormEvent, useMemo, useState } from 'react';
-import { AlertTriangle, CheckCircle2, Download, LoaderCircle, Send } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, LoaderCircle, Send } from 'lucide-react';
 
 import { registrationLink } from '../data/programData';
 import { type FormOption, volunteerFormSchema } from '../data/volunteerFormSchema';
@@ -312,6 +312,9 @@ const VolunteerRegistrationForm = () => {
       }
 
       setLastSubmittedPayload(payload);
+      if (isDevWithoutEndpoint) {
+        exportToCsv([payload], `volunteer-registration-${Date.now()}.csv`);
+      }
       setForm(initialState);
       setSubmitStatus('success');
       setSubmitMessage(
@@ -396,19 +399,9 @@ const VolunteerRegistrationForm = () => {
                 <p className="font-bold text-white">Đăng ký đã được gửi</p>
                 <p className="mt-1 leading-7 text-emerald-100">{submitMessage}</p>
                 {isDevWithoutEndpoint && lastSubmittedPayload ? (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      exportToCsv(
-                        [lastSubmittedPayload],
-                        `volunteer-registration-${Date.now()}.csv`,
-                      )
-                    }
-                    className="mt-4 inline-flex min-h-11 items-center rounded-full border border-emerald-300/40 px-4 py-2 text-sm font-semibold text-emerald-100 transition hover:bg-white/10"
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Tải CSV demo
-                  </button>
+                  <p className="mt-3 text-sm text-emerald-100/90">
+                    Bản CSV demo đã được tự động tải xuống sau khi gửi đăng ký.
+                  </p>
                 ) : null}
               </div>
             </div>
