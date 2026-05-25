@@ -16,15 +16,17 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-start gap-8 md:-translate-y-4 lg:grid-cols-[minmax(0,1fr)_30rem] lg:gap-12 lg:-translate-y-6">
-          <div className="max-w-4xl">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_30rem] lg:gap-12">
+          <div className="max-w-4xl md:-translate-y-6 lg:-translate-y-10">
             <div className="mb-6 inline-flex items-center rounded-full border border-brand-electric/30 bg-brand-electric/10 px-3 py-2 text-xs font-semibold text-brand-cyan backdrop-blur sm:px-4 sm:text-sm">
               <Sparkles className="mr-2 h-4 w-4" />
               Tuyển tình nguyện viên
             </div>
 
-            <h1 className="max-w-4xl text-3xl font-extrabold leading-tight sm:text-4xl md:text-[3.35rem] lg:text-[4.1rem]">
-              {site.headline}
+            <h1 className="max-w-[19ch] text-[1.58rem] font-extrabold leading-[1.18] sm:text-[1.92rem] sm:leading-[1.18] md:text-[2.3rem] md:leading-[1.16] lg:text-[2.72rem] lg:leading-[1.14]">
+              <span className="block">Trở thành tình nguyện viên</span>
+              <span className="block">Chiến dịch tình nguyện</span>
+              <span className="block">Mùa hè 2026</span>
             </h1>
 
             <p className="mt-6 max-w-3xl text-justify text-sm leading-[1.5] text-slate-200 sm:text-base sm:leading-[1.55] md:text-lg">
