@@ -36,7 +36,7 @@ const ProgramOverview = () => {
               className={`rounded-[28px] border bg-white p-6 shadow-lg sm:p-8 ${item.accentClass}`}
             >
               <h3 className="text-2xl font-extrabold text-slate-900">{item.title}</h3>
-              <p className="mt-4 leading-7 text-slate-600">{item.description}</p>
+              <p className="mt-4 text-justify leading-7 text-slate-600">{item.description}</p>
             </article>
           ))}
         </div>
