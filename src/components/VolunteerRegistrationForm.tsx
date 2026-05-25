@@ -605,7 +605,28 @@ const VolunteerRegistrationForm = () => {
     setSubmitMessage('');
 
     try {
-      if (hasEndpoint && endpoint) {
+      if (hasSupabase && supabase) {
+        const selectedDepartmentLabels = getDepartmentLabels(selectedDepartments);
+        const { error } = await supabase.from(supabaseTable).insert({
+          source: payload.source,
+          submitted_at: payload.createdAt,
+          full_name: payload.personalInfo.fullName,
+          email: payload.personalInfo.email,
+          phone: payload.personalInfo.phone,
+          facebook_or_zalo: payload.personalInfo.facebookUrl,
+          selected_activities: payload.activities,
+          selected_departments: selectedDepartmentLabels,
+          payload,
+        });
+
+        if (error) {
+          throw new Error(error.message || 'Không thể lưu đăng ký lúc này.');
+        }
+
+        if (hasGoogleSheetsSync) {
+          await syncToGoogleSheets(payload);
+        }
+      } else if (hasEndpoint && endpoint) {
         if (transportMode === 'google-apps-script') {
           await fetch(endpoint, {
             method: 'POST',
@@ -628,27 +649,6 @@ const VolunteerRegistrationForm = () => {
             const errorText = await response.text();
             throw new Error(errorText || 'Không thể gửi đăng ký lúc này.');
           }
-        }
-      } else if (hasSupabase && supabase) {
-        const selectedDepartmentLabels = getDepartmentLabels(selectedDepartments);
-        const { error } = await supabase.from(supabaseTable).insert({
-          source: payload.source,
-          submitted_at: payload.createdAt,
-          full_name: payload.personalInfo.fullName,
-          email: payload.personalInfo.email,
-          phone: payload.personalInfo.phone,
-          facebook_or_zalo: payload.personalInfo.facebookUrl,
-          selected_activities: payload.activities,
-          selected_departments: selectedDepartmentLabels,
-          payload,
-        });
-
-        if (error) {
-          throw new Error(error.message || 'Không thể lưu đăng ký lúc này.');
-        }
-
-        if (hasGoogleSheetsSync) {
-          await syncToGoogleSheets(payload);
         }
       } else if (import.meta.env.DEV) {
         console.log('Volunteer registration payload', payload);
