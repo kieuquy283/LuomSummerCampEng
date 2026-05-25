@@ -14,7 +14,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          '"Be Vietnam Pro"',
+          '"Plus Jakarta Sans"',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',

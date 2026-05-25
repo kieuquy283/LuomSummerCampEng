@@ -8,7 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "export:registrations": "node scripts/export-registrations.mjs"
+    "export:registrations": "node scripts/export-registrations.mjs",
+    "audit:encoding": "node scripts/audit-registration-encoding.mjs",
+    "repair:encoding": "node scripts/repair-registration-encoding.mjs",
+    "repair:encoding:apply": "node scripts/repair-registration-encoding.mjs --apply"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",

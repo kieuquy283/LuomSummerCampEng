@@ -1,116 +1,158 @@
 /**
  * Google Apps Script - Lượm Volunteer Registration Sync
- * 
- * Đặt mục đích: Nhận dữ liệu POST từ landing page và ghi vào Google Sheet
- * 
- * Hướng dẫn triển khai:
- * 1. Truy cập https://script.google.com → Tạo project mới
- * 2. Paste toàn bộ code này vào file Code.gs
- * 3. Chọn hàm doPost (hoặc không cần chọn nếu deploy web app)
- * 4. Deploy → New deployment → Type: Web app
- *    - Execute as: Me
- *    - Who has access: Anyone
- * 5. Copy URL deployment, paste vào VITE_GOOGLE_SHEETS_ENDPOINT trên Vercel
- * 6. Tạo Google Sheet với tên "Lượm - Đăng ký TNV 2026" (hoặc tên tùy chọn)
- *    - Copy Spreadsheet ID từ URL: https://docs.google.com/spreadsheets/d/[SPREADSHEET_ID]/edit
- *    - Paste vào biến SPREADSHEET_ID bên dưới
- * 7. Save & Redeploy
- * 
- * Lưu ý quan trọng:
- * - Frontend gửi với mode: 'no-cors', content-type: 'text/plain'
- * - Do đó Apps Script chỉ nhận raw text, cần JSON.parse thủ công
- * - Apps Script Web App tự động trả về text/plain khi ContentService.createTextOutput
  */
 
 // ============================================
 // CONFIG
 // ============================================
-const SPREADSHEET_ID = ''; // <-- PASTE Spreadsheet ID vào đây (không để trống)
+const SPREADSHEET_ID = ''; // Paste Spreadsheet ID here
 const SHEET_NAME = 'Form Responses';
 
+const LABEL_MAP = {
+  readiness: { 'minh-san-sang': 'Mình sẵn sàng' },
+  commitment80Percent: { 'minh-cam-ket': 'Mình cam kết' },
+  primaryDepartment: {
+    tech: 'Chuyên môn Tin học và Kỹ thuật',
+    media: 'Truyền thông',
+    support: 'Hỗ trợ',
+  },
+  department: {
+    tech: 'Chuyên môn Tin học và Kỹ thuật',
+    media: 'Truyền thông',
+    support: 'Hỗ trợ',
+  },
+  activity: {
+    'trai-he-xanh': 'Trại hè Xanh',
+    'trai-he-cong-nghe': 'Trại hè Công nghệ',
+    'binh-dan-hoc-vu-so': 'Lớp Bình dân học vụ số',
+  },
+  hasCamera: {
+    'minh-co': 'Mình có',
+    'dien-thoai-chat-luong': 'Không có máy ảnh cơ, nhưng có thể dùng điện thoại chất lượng tốt',
+  },
+  supportAvailability: {
+    co: 'Có',
+    'chua-chac': 'Chưa chắc',
+    khong: 'Không',
+  },
+  strengths: {
+    'ho-tro-ky-thuat': 'Hỗ trợ kỹ thuật, máy móc, máy chiếu, kết nối mạng',
+    'thiet-ke-hinh-anh-slide': 'Thiết kế hình ảnh, slide',
+    'chup-anh-quay-video-media': 'Chụp ảnh, quay video ngắn làm truyền thông (Media)',
+    'quan-tro-hoat-nao': 'Quản trò, hoạt náo, tổ chức trò chơi giao lưu',
+    'san-sang-hoc-hoi': 'Chưa có kinh nghiệm nhưng sẵn sàng học hỏi',
+    khac: 'Khác',
+  },
+};
+
 // ============================================
-// CORS HANDLER
+// HTTP HANDLER
 // ============================================
-function doGet(e) {
-  return ContentService.createTextOutput(JSON.stringify({ status: 'ok', message: 'Lượm Volunteer Sync API is running.' }))
-    .setMimeType(ContentService.MimeType.JSON);
+function doGet() {
+  return ContentService.createTextOutput(
+    JSON.stringify({ status: 'ok', message: 'Lượm Volunteer Sync API is running.' }),
+  ).setMimeType(ContentService.MimeType.JSON);
 }
 
 function doPost(e) {
-  // Log raw request for debugging
-  console.log('Raw postData:', e.postData ? e.postData.contents : 'NO POSTDATA');
-  console.log('Raw parameters:', JSON.stringify(e.parameter));
-
   try {
-    // Parse JSON payload
-    // Frontend gửi với mode=no-cors, content-type=text/plain
-    // Nên e.postData.contents là JSON string thuần
     let payload;
-    
     if (e.postData && e.postData.contents) {
       payload = JSON.parse(e.postData.contents);
     } else if (e.parameter && Object.keys(e.parameter).length > 0) {
-      // Fallback cho trường hợp form-data
       payload = e.parameter;
     } else {
       throw new Error('No payload received');
     }
 
-    console.log('Parsed payload:', JSON.stringify(payload).substring(0, 500));
+    const cleanPayload = sanitizePayload(payload);
+    const result = writeToSpreadsheet(cleanPayload);
 
-    // Write to spreadsheet
-    const result = writeToSpreadsheet(payload);
-
-    return ContentService.createTextOutput(JSON.stringify({ status: 'success', result }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ status: 'success', result })).setMimeType(
+      ContentService.MimeType.JSON,
+    );
   } catch (error) {
-    console.error('Error:', error.message);
-    return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: error.message }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({ status: 'error', message: error.message || 'Unknown error' }),
+    ).setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+// ============================================
+// CLEANING HELPERS
+// ============================================
+function tryFixMojibake(text) {
+  if (typeof text !== 'string') return text;
+  if (text.indexOf('?') === -1 && text.indexOf('Ã') === -1 && text.indexOf('â€') === -1) return text;
+
+  const exactFix = {
+    'Tr?i h? Xanh': 'Trại hè Xanh',
+    'Tr?i h? C?ng ngh?': 'Trại hè Công nghệ',
+    'L?p B?nh d?n h?c v? s?': 'Lớp Bình dân học vụ số',
+    'Chuy?n m?n Tin h?c v? K? thu?t': 'Chuyên môn Tin học và Kỹ thuật',
+    'Truy?n th?ng': 'Truyền thông',
+    '??ng k? T?nh nguy?n vi?n L??m - Chi?n d?ch m?a h? 2026':
+      'Đăng ký Tình nguyện viên Lượm - Chiến dịch mùa hè 2026',
+  };
+  return exactFix[text] || text;
+}
+
+function sanitizeText(value) {
+  if (value == null) return '';
+  return tryFixMojibake(String(value)).trim();
+}
+
+function mapLabel(group, value) {
+  if (value == null) return '';
+  const raw = sanitizeText(value);
+  if (LABEL_MAP[group] && LABEL_MAP[group][raw]) return LABEL_MAP[group][raw];
+  return raw;
+}
+
+function sanitizePayload(value) {
+  if (value == null) return value;
+  if (typeof value === 'string') return sanitizeText(value);
+  if (Array.isArray(value)) return value.map(sanitizePayload);
+  if (typeof value === 'object') {
+    const out = {};
+    Object.keys(value).forEach((key) => {
+      out[key] = sanitizePayload(value[key]);
+    });
+    return out;
+  }
+  return value;
+}
+
+function joinMapped(values, group) {
+  if (!Array.isArray(values)) return '';
+  return values.map((item) => mapLabel(group, item)).filter(Boolean).join(' | ');
 }
 
 // ============================================
 // SPREADSHEET WRITER
 // ============================================
 function writeToSpreadsheet(payload) {
-  if (!SPREADSHEET_ID) {
-    throw new Error('SPREADSHEET_ID chưa được cấu hình trong Code.gs');
-  }
+  if (!SPREADSHEET_ID) throw new Error('SPREADSHEET_ID chưa được cấu hình trong Code.gs');
 
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   let sheet = ss.getSheetByName(SHEET_NAME);
 
-  // Tạo sheet nếu chưa tồn tại
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-    // Tạo header
     const headers = buildHeaders();
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
-    // Format header: bold, frozen row
-    sheet.getRange(1, 1, 1, headers.length)
-      .setFontWeight('bold')
-      .setBackground('#0f172a')
-      .setFontColor('#ffffff');
+    sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#0f172a').setFontColor('#ffffff');
     sheet.setFrozenRows(1);
   }
 
-  // Flatten payload thành 1 dòng
   const row = flattenPayload(payload);
-  
-  // Append row
   const nextRow = sheet.getLastRow() + 1;
   sheet.getRange(nextRow, 1, 1, row.length).setValues([row]);
-
-  // Auto-resize columns cho dễ đọc
   sheet.autoResizeColumns(1, row.length);
 
   return { rowInserted: nextRow, timestamp: new Date().toISOString() };
 }
 
-// ============================================
-// HEADERS (phải khớp với flattenPayload)
-// ============================================
 function buildHeaders() {
   return [
     'Submitted At',
@@ -160,9 +202,6 @@ function buildHeaders() {
   ];
 }
 
-// ============================================
-// FLATTEN PAYLOAD
-// ============================================
 function flattenPayload(payload) {
   const pi = payload.personalInfo || {};
   const cm = payload.commitments || {};
@@ -171,118 +210,138 @@ function flattenPayload(payload) {
   const ma = payload.mediaAnswers || {};
   const sa = payload.supportAnswers || {};
 
-  const safeJoin = (arr) => Array.isArray(arr) ? arr.join(' | ') : '';
-  const safeStr = (val) => (val == null ? '' : String(val));
+  const safeStr = (val) => sanitizeText(val);
+  const boolText = (val) => (val === true ? 'Có' : val === false ? 'Không' : safeStr(val));
 
   return [
-    new Date().toISOString(),                        // Submitted At
-    safeStr(pi.fullName),                            // Full Name
-    safeStr(pi.dateOfBirth),                         // Date of Birth
-    safeStr(pi.schoolClassMajor),                      // School / Class / Major
-    safeStr(pi.email),                               // Email
-    safeStr(pi.phone),                               // Phone
-    safeStr(pi.emergencyContact),                      // Emergency Contact
-    safeStr(pi.facebookUrl),                         // Facebook/Zalo
-    safeStr(pi.currentAddress),                      // Current Address
-    safeStr(pi.certificates),                        // Certificates
-    safeStr(cm.readiness),                           // Readiness
-    safeStr(cm.commitment80Percent),                 // Commitment 80%
-    safeStr(ga.knowledgeAboutLuom),                  // Knowledge About Luom
-    safeStr(ga.motivation),                          // Motivation
-    safeStr(ga.talents),                             // Talents
-    safeJoin(ga.strengths),                          // Strengths
-    safeStr(ga.strengthsOther),                      // Strengths Other
-    safeStr(ga.pastVolunteerExperience),             // Past Volunteer Experience
-    safeJoin(payload.activities),                    // Activities
-    safeStr(payload.primaryDepartment),              // Primary Department
-    safeJoin(payload.additionalDepartments),         // Additional Departments
-    safeJoin(ta.techFocusAreas),                     // Tech Focus Areas
-    safeStr(ta.techFocusOther),                      // Tech Focus Other
-    safeStr(ta.cyberInfoSourcesAndRisks),            // Cyber Info Sources & Risks
-    safeStr(ta.aiToolsAndComputerSkills),            // AI Tools & Computer Skills
-    safeStr(ta.digitalToolsForLessonDesign),         // Digital Tools for Lesson Design
-    safeStr(ta.cyberSafetyGameIdea),                 // Cyber Safety Game Idea
-    safeStr(ta.offlineClassHandling),                // Offline Class Handling
-    safeStr(ta.motorCircuitExperience),              // Motor Circuit Experience
-    safeStr(ta.electricityKnowledgeRating),          // Electricity Knowledge Rating
-    safeStr(ta.handmadeTechnicalSituation),          // Handmade Technical Situation
-    safeJoin(ma.mediaPositions),                     // Media Positions
-    safeStr(ma.mediaPositionOther),                  // Media Position Other
-    safeStr(ma.mediaPortfolioLink),                  // Media Portfolio Link
-    safeStr(ma.hasCamera),                           // Has Camera
-    safeJoin(sa.supportTasks),                       // Support Tasks
-    safeStr(sa.supportAvailability),                 // Support Availability
-    safeStr(sa.supportExperience),                   // Support Experience
-    safeStr(payload.finalNote),                    // Final Note
-    safeStr(payload.dataConsent),                    // Data Consent
-    safeStr(payload.formName),                     // Form Name
-    safeStr(payload.source),                       // Source
-    safeStr(payload.createdAt),                    // Created At
-    JSON.stringify(payload),                         // Raw JSON (full backup)
+    new Date().toISOString(),
+    safeStr(pi.fullName),
+    safeStr(pi.dateOfBirth),
+    safeStr(pi.schoolClassMajor),
+    safeStr(pi.email),
+    safeStr(pi.phone),
+    safeStr(pi.emergencyContact),
+    safeStr(pi.facebookUrl),
+    safeStr(pi.currentAddress),
+    safeStr(pi.certificates),
+    mapLabel('readiness', cm.readiness),
+    mapLabel('commitment80Percent', cm.commitment80Percent),
+    safeStr(ga.knowledgeAboutLuom),
+    safeStr(ga.motivation),
+    safeStr(ga.talents),
+    joinMapped(ga.strengths, 'strengths'),
+    safeStr(ga.strengthsOther),
+    safeStr(ga.pastVolunteerExperience),
+    joinMapped(payload.activities, 'activity'),
+    mapLabel('primaryDepartment', payload.primaryDepartment),
+    joinMapped(payload.additionalDepartments, 'department'),
+    joinMapped(ta.techFocusAreas, 'none'),
+    safeStr(ta.techFocusOther),
+    safeStr(ta.cyberInfoSourcesAndRisks),
+    safeStr(ta.aiToolsAndComputerSkills),
+    safeStr(ta.digitalToolsForLessonDesign),
+    safeStr(ta.cyberSafetyGameIdea),
+    safeStr(ta.offlineClassHandling),
+    safeStr(ta.motorCircuitExperience),
+    safeStr(ta.electricityKnowledgeRating),
+    safeStr(ta.handmadeTechnicalSituation),
+    joinMapped(ma.mediaPositions, 'none'),
+    safeStr(ma.mediaPositionOther),
+    safeStr(ma.mediaPortfolioLink),
+    mapLabel('hasCamera', ma.hasCamera),
+    joinMapped(sa.supportTasks, 'none'),
+    mapLabel('supportAvailability', sa.supportAvailability),
+    safeStr(sa.supportExperience),
+    safeStr(payload.finalNote),
+    boolText(payload.dataConsent),
+    safeStr(payload.formName),
+    safeStr(payload.source),
+    safeStr(payload.createdAt),
+    JSON.stringify(payload),
   ];
 }
 
 // ============================================
-// TEST FUNCTION (chạy trong Apps Script editor)
+// CLEAN OLD ROWS (manual run in Apps Script)
 // ============================================
-function testWrite() {
-  const testPayload = {
-    formName: 'Đăng ký TNV Test',
-    source: 'landing_page_direct_form',
-    createdAt: '2026-05-25T14:00:00.000Z',
-    personalInfo: {
-      fullName: 'Nguyen Van Test',
-      dateOfBirth: '01/01/2005',
-      schoolClassMajor: 'THPT Test - 12A1',
-      email: 'test@example.com',
-      phone: '0900000000',
-      emergencyContact: '0911111111 - Ba',
-      facebookUrl: 'https://fb.com/test',
-      currentAddress: 'Hanoi',
-      certificates: 'IELTS 7.0',
-    },
-    commitments: {
-      readiness: 'minh-san-sang',
-      commitment80Percent: 'minh-cam-ket',
-    },
-    generalAnswers: {
-      knowledgeAboutLuom: 'Biết về dự án Lượm',
-      motivation: 'Muốn giúp đỡ',
-      talents: 'Hát, nhảy',
-      strengths: ['san-sang-hoc-hoi', 'chup-anh'],
-      strengthsOther: '',
-      pastVolunteerExperience: 'Từng TN cho ABC',
-    },
-    activities: ['Trại hè Xanh', 'Trại hè Công nghệ'],
-    primaryDepartment: 'tech',
-    additionalDepartments: ['media'],
-    techAnswers: {
-      techFocusAreas: ['an-toan-mang', 'ung-dung-ai'],
-      techFocusOther: '',
-      cyberInfoSourcesAndRisks: 'Từ internet',
-      aiToolsAndComputerSkills: 'ChatGPT',
-      digitalToolsForLessonDesign: 'Canva',
-      cyberSafetyGameIdea: 'Trò chơi đoán đâu',
-      offlineClassHandling: 'Dùng sách',
-      motorCircuitExperience: 'Từng làm',
-      electricityKnowledgeRating: '8',
-      handmadeTechnicalSituation: 'Nhiệt tình',
-    },
-    mediaAnswers: {
-      mediaPositions: ['viet-bai'],
-      mediaPositionOther: '',
-      mediaPortfolioLink: 'https://drive.google.com/test',
-      hasCamera: 'minh-co',
-    },
-    supportAnswers: {
-      supportTasks: [],
-      supportAvailability: '',
-      supportExperience: '',
-    },
-    finalNote: 'Rất vui được tham gia',
-    dataConsent: true,
-  };
+function cleanExistingRows() {
+  if (!SPREADSHEET_ID) throw new Error('SPREADSHEET_ID chưa được cấu hình trong Code.gs');
 
-  const result = writeToSpreadsheet(testPayload);
-  console.log('Test result:', result);
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) throw new Error(`Không tìm thấy sheet: ${SHEET_NAME}`);
+
+  const headers = buildHeaders();
+  const totalRows = sheet.getLastRow();
+  const totalCols = headers.length;
+  if (totalRows <= 1) return { scanned: 0, updated: 0 };
+
+  const range = sheet.getRange(2, 1, totalRows - 1, totalCols);
+  const values = range.getValues();
+
+  let updated = 0;
+
+  const idx = (name) => headers.indexOf(name);
+  const iActivities = idx('Activities');
+  const iPrimaryDepartment = idx('Primary Department');
+  const iAdditionalDepartments = idx('Additional Departments');
+  const iReadiness = idx('Readiness');
+  const iCommitment = idx('Commitment 80%');
+  const iHasCamera = idx('Has Camera');
+  const iSupportAvailability = idx('Support Availability');
+  const iDataConsent = idx('Data Consent');
+  const iRawJson = idx('Raw JSON');
+
+  const normalizePipeList = (text, group) =>
+    sanitizeText(text)
+      .split('|')
+      .map((s) => mapLabel(group, s.trim()))
+      .filter(Boolean)
+      .join(' | ');
+
+  for (let r = 0; r < values.length; r += 1) {
+    const row = values[r].slice();
+    const original = JSON.stringify(row);
+
+    for (let c = 0; c < row.length; c += 1) {
+      if (typeof row[c] === 'string') row[c] = sanitizeText(row[c]);
+    }
+
+    row[iActivities] = normalizePipeList(row[iActivities], 'activity');
+    row[iPrimaryDepartment] = mapLabel('primaryDepartment', row[iPrimaryDepartment]);
+    row[iAdditionalDepartments] = normalizePipeList(row[iAdditionalDepartments], 'department');
+    row[iReadiness] = mapLabel('readiness', row[iReadiness]);
+    row[iCommitment] = mapLabel('commitment80Percent', row[iCommitment]);
+    row[iHasCamera] = mapLabel('hasCamera', row[iHasCamera]);
+    row[iSupportAvailability] = mapLabel('supportAvailability', row[iSupportAvailability]);
+
+    if (typeof row[iDataConsent] === 'boolean') {
+      row[iDataConsent] = row[iDataConsent] ? 'Có' : 'Không';
+    } else {
+      const dc = sanitizeText(row[iDataConsent]).toLowerCase();
+      if (dc === 'true') row[iDataConsent] = 'Có';
+      if (dc === 'false') row[iDataConsent] = 'Không';
+    }
+
+    if (row[iRawJson]) {
+      try {
+        const parsed = JSON.parse(String(row[iRawJson]));
+        const cleaned = sanitizePayload(parsed);
+        row[iRawJson] = JSON.stringify(cleaned);
+      } catch (_e) {
+        row[iRawJson] = sanitizeText(row[iRawJson]);
+      }
+    }
+
+    if (JSON.stringify(row) !== original) {
+      values[r] = row;
+      updated += 1;
+    }
+  }
+
+  if (updated > 0) {
+    range.setValues(values);
+  }
+
+  return { scanned: values.length, updated };
 }

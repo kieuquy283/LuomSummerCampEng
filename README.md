@@ -11,6 +11,12 @@ npm run dev
 npm run build
 ```
 
+## Registration dashboard
+
+- Visual dashboard page: `/dashboard.html`
+- Source: `src/pages/RegistrationDashboardPage.tsx`
+- Data source: Supabase table configured by `VITE_SUPABASE_TABLE` (default `volunteer_registrations`)
+
 ## Registration note
 
 The direct volunteer registration form on the landing page now prioritizes Supabase for data

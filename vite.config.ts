@@ -12,6 +12,7 @@ export default defineConfig({
         digital: resolve(__dirname, 'binh-dan-hoc-vu-so.html'),
         green: resolve(__dirname, 'trai-he-xanh.html'),
         tech: resolve(__dirname, 'trai-he-cong-nghe-ky-thuat.html'),
+        dashboard: resolve(__dirname, 'dashboard.html'),
       },
     },
   },
