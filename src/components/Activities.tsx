@@ -20,9 +20,9 @@ const Activities = () => {
     <section id="hoat-dong" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
+          <h2 className="mb-3 text-2xl font-extrabold uppercase tracking-[0.18em] text-brand-cyan sm:text-3xl md:text-4xl">
             Hoạt động chính
-          </p>
+          </h2>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">

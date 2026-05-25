@@ -678,9 +678,9 @@ const VolunteerRegistrationForm = () => {
     <section id="dang-ky-truc-tiep" className="bg-brand-navy py-16 text-white sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
+          <h2 className="mb-3 text-2xl font-extrabold uppercase tracking-[0.18em] text-brand-cyan sm:text-3xl md:text-4xl">
             {volunteerFormSchema.formTitle}
-          </p>
+          </h2>
           <p className="text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
             {volunteerFormSchema.formNote}
           </p>

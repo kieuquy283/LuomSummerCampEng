@@ -186,9 +186,9 @@ const PastSeasonsGallery = () => {
 
       <div className="relative z-10 mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-cyan">
+          <h2 className="text-2xl font-extrabold uppercase tracking-[0.18em] text-brand-cyan sm:text-3xl md:text-4xl">
             Hình ảnh hoạt động
-          </p>
+          </h2>
         </div>
 
         <div className="relative rounded-[2.5rem] bg-slate-900/40 p-3 sm:p-5 lg:p-6 backdrop-blur-xl border border-white/10 shadow-[0_32px_96px_rgba(0,0,0,0.6)]">
