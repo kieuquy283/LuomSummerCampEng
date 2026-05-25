@@ -7,7 +7,6 @@ import {
   volunteerFormSchema,
 } from '../data/volunteerFormSchema';
 import { getSupabaseClient, getVolunteerRegistrationsTable } from '../lib/supabase';
-import { exportToCsv } from '../utils/exportToCsv';
 
 type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 type TransportMode = 'json' | 'google-apps-script';
@@ -589,71 +588,6 @@ const VolunteerRegistrationForm = () => {
     });
   };
 
-  const downloadJson = (payload: SubmissionPayload) => {
-    if (typeof document === 'undefined') {
-      return;
-    }
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    const timestamp = new Date().toISOString().slice(0, 10);
-    link.href = url;
-    link.download = `dang-ky-tnv-${payload.personalInfo.fullName.replace(/\s+/g, '-')}-${timestamp}.json`;
-    document.body.append(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
-  };
-
-  const downloadCsv = (payload: SubmissionPayload) => {
-    const flatRecord: Record<string, string | number | boolean | null | undefined> = {
-      full_name: payload.personalInfo.fullName,
-      date_of_birth: payload.personalInfo.dateOfBirth,
-      school_class_major: payload.personalInfo.schoolClassMajor,
-      email: payload.personalInfo.email,
-      phone: payload.personalInfo.phone,
-      emergency_contact: payload.personalInfo.emergencyContact,
-      facebook_url: payload.personalInfo.facebookUrl,
-      current_address: payload.personalInfo.currentAddress,
-      certificates: payload.personalInfo.certificates,
-      readiness: payload.commitments.readiness,
-      commitment_80_percent: payload.commitments.commitment80Percent,
-      knowledge_about_luom: payload.generalAnswers.knowledgeAboutLuom,
-      motivation: payload.generalAnswers.motivation,
-      talents: payload.generalAnswers.talents,
-      strengths: payload.generalAnswers.strengths.join(' | '),
-      strengths_other: payload.generalAnswers.strengthsOther,
-      past_volunteer_experience: payload.generalAnswers.pastVolunteerExperience,
-      activities: payload.activities.join(' | '),
-      primary_department: payload.primaryDepartment,
-      additional_departments: payload.additionalDepartments.join(' | '),
-      tech_focus_areas: payload.techAnswers.techFocusAreas.join(' | '),
-      tech_focus_other: payload.techAnswers.techFocusOther,
-      cyber_info_sources_and_risks: payload.techAnswers.cyberInfoSourcesAndRisks,
-      ai_tools_and_computer_skills: payload.techAnswers.aiToolsAndComputerSkills,
-      digital_tools_for_lesson_design: payload.techAnswers.digitalToolsForLessonDesign,
-      cyber_safety_game_idea: payload.techAnswers.cyberSafetyGameIdea,
-      offline_class_handling: payload.techAnswers.offlineClassHandling,
-      motor_circuit_experience: payload.techAnswers.motorCircuitExperience,
-      electricity_knowledge_rating: payload.techAnswers.electricityKnowledgeRating,
-      handmade_technical_situation: payload.techAnswers.handmadeTechnicalSituation,
-      media_positions: payload.mediaAnswers.mediaPositions.join(' | '),
-      media_position_other: payload.mediaAnswers.mediaPositionOther,
-      media_portfolio_link: payload.mediaAnswers.mediaPortfolioLink,
-      has_camera: payload.mediaAnswers.hasCamera,
-      support_tasks: payload.supportAnswers.supportTasks.join(' | '),
-      support_availability: payload.supportAnswers.supportAvailability,
-      support_experience: payload.supportAnswers.supportExperience,
-      final_note: payload.finalNote,
-      data_consent: payload.dataConsent,
-      form_name: payload.formName,
-      source: payload.source,
-      created_at: payload.createdAt,
-    };
-    const timestamp = new Date().toISOString().slice(0, 10);
-    exportToCsv([flatRecord], `dang-ky-tnv-${payload.personalInfo.fullName.replace(/\s+/g, '-')}-${timestamp}.csv`);
-  };
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -716,9 +650,6 @@ const VolunteerRegistrationForm = () => {
         if (hasGoogleSheetsSync) {
           await syncToGoogleSheets(payload);
         }
-
-        downloadJson(payload);
-        downloadCsv(payload);
       } else if (import.meta.env.DEV) {
         console.log('Volunteer registration payload', payload);
       } else {
