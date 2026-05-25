@@ -42,6 +42,15 @@ VITE_SUPABASE_TABLE=volunteer_registrations
 The frontend writes one row per registration into the configured Supabase table and keeps the full
 form payload in the `payload` JSONB column for convenient retrieval later.
 
+### Optional export view for BTC
+
+To make data easier to read and export for BTC, you can also run:
+
+`scripts/supabase/volunteer_registrations_export.sql`
+
+This creates a view named `public.volunteer_registrations_export` that flattens the most useful
+fields out of the JSON payload into plain columns for filtering and CSV export in Supabase.
+
 ## Google Apps Script setup
 
 To store direct registrations in Google Sheets:
