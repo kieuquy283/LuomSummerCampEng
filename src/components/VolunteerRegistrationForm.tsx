@@ -3,6 +3,7 @@ import { AlertTriangle, CheckCircle2, LoaderCircle, Send } from 'lucide-react';
 
 import { registrationLink } from '../data/programData';
 import { type FormOption, volunteerFormSchema } from '../data/volunteerFormSchema';
+import { getSupabaseClient, getVolunteerRegistrationsTable } from '../lib/supabase';
 import { exportToCsv } from '../utils/exportToCsv';
 
 type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -172,9 +173,13 @@ const VolunteerRegistrationForm = () => {
   const [submitMessage, setSubmitMessage] = useState('');
   const [lastSubmittedPayload, setLastSubmittedPayload] = useState<SubmissionPayload | null>(null);
 
+  const supabase = getSupabaseClient();
+  const supabaseTable = getVolunteerRegistrationsTable();
   const endpoint = import.meta.env.VITE_REGISTRATION_ENDPOINT?.trim();
   const configuredTransport = import.meta.env.VITE_REGISTRATION_TRANSPORT?.trim();
-  const isDevWithoutEndpoint = import.meta.env.DEV && !endpoint;
+  const hasSupabase = Boolean(supabase);
+  const hasFallbackEndpoint = Boolean(endpoint);
+  const isDemoMode = import.meta.env.DEV && !hasSupabase && !hasFallbackEndpoint;
   const transportMode: TransportMode =
     configuredTransport === 'google-apps-script' || endpoint?.includes('script.google.com')
       ? 'google-apps-script'
@@ -281,7 +286,23 @@ const VolunteerRegistrationForm = () => {
     setSubmitMessage('');
 
     try {
-      if (endpoint) {
+      if (supabase) {
+        const { error } = await supabase.from(supabaseTable).insert({
+          source: payload.source,
+          submitted_at: payload.createdAt,
+          full_name: payload.fullName,
+          email: payload.email,
+          phone: payload.phone,
+          facebook_or_zalo: payload.facebookOrZalo,
+          selected_activities: payload.selectedActivities,
+          selected_departments: payload.selectedDepartments,
+          payload,
+        });
+
+        if (error) {
+          throw new Error(error.message || 'Không thể lưu đăng ký vào Supabase lúc này.');
+        }
+      } else if (endpoint) {
         if (transportMode === 'google-apps-script') {
           await fetch(endpoint, {
             method: 'POST',
@@ -308,11 +329,13 @@ const VolunteerRegistrationForm = () => {
       } else if (import.meta.env.DEV) {
         console.log('Volunteer registration payload', payload);
       } else {
-        throw new Error('Chưa cấu hình VITE_REGISTRATION_ENDPOINT.');
+        throw new Error(
+          'Chưa cấu hình Supabase hoặc VITE_REGISTRATION_ENDPOINT cho form đăng ký trực tiếp.',
+        );
       }
 
       setLastSubmittedPayload(payload);
-      if (isDevWithoutEndpoint) {
+      if (isDemoMode) {
         exportToCsv([payload], `volunteer-registration-${Date.now()}.csv`);
       }
       setForm(initialState);
@@ -362,14 +385,21 @@ const VolunteerRegistrationForm = () => {
           ))}
         </div>
 
-        {isDevWithoutEndpoint ? (
+        {isDemoMode ? (
           <div className="mb-6 rounded-[22px] border border-amber-400/30 bg-amber-400/10 p-4 text-sm leading-7 text-amber-100">
-            Chế độ dev chưa cấu hình `VITE_REGISTRATION_ENDPOINT`. Form vẫn submit được để demo,
-            dữ liệu sẽ được `console.log` tại trình duyệt.
+            Chế độ dev chưa cấu hình Supabase hoặc `VITE_REGISTRATION_ENDPOINT`. Form vẫn submit
+            được để demo, dữ liệu sẽ được `console.log` tại trình duyệt và tự động tải xuống CSV.
           </div>
         ) : null}
 
-        {!isDevWithoutEndpoint && endpoint && transportMode === 'google-apps-script' ? (
+        {hasSupabase ? (
+          <div className="mb-6 rounded-[22px] border border-cyan-400/30 bg-cyan-400/10 p-4 text-sm leading-7 text-cyan-100">
+            Form đang lưu trực tiếp vào bảng <span className="font-semibold">{supabaseTable}</span>{' '}
+            trên Supabase để thuận tiện truy xuất dữ liệu.
+          </div>
+        ) : null}
+
+        {!hasSupabase && !isDemoMode && endpoint && transportMode === 'google-apps-script' ? (
           <div className="mb-6 rounded-[22px] border border-cyan-400/30 bg-cyan-400/10 p-4 text-sm leading-7 text-cyan-100">
             Form đang gửi trực tiếp tới Google Apps Script Web App. Ở chế độ này, trình duyệt sẽ
             không đọc chi tiết response do cơ chế `no-cors`, nên sau khi request gửi đi thành công
@@ -398,7 +428,7 @@ const VolunteerRegistrationForm = () => {
               <div>
                 <p className="font-bold text-white">Đăng ký đã được gửi</p>
                 <p className="mt-1 leading-7 text-emerald-100">{submitMessage}</p>
-                {isDevWithoutEndpoint && lastSubmittedPayload ? (
+                {isDemoMode && lastSubmittedPayload ? (
                   <p className="mt-3 text-sm text-emerald-100/90">
                     Bản CSV demo đã được tự động tải xuống sau khi gửi đăng ký.
                   </p>

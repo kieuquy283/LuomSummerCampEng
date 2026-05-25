@@ -13,16 +13,34 @@ npm run build
 
 ## Registration note
 
-The direct volunteer registration form on the landing page posts JSON to
-`VITE_REGISTRATION_ENDPOINT`.
+The direct volunteer registration form on the landing page now prioritizes Supabase for data
+storage. If Supabase is not configured, it can still fall back to `VITE_REGISTRATION_ENDPOINT`.
 
 For real deployments, registration data should be stored in a persistent backend such as:
 
 - Google Sheets via Apps Script webhook
 - Supabase
 
-In local development, if `VITE_REGISTRATION_ENDPOINT` is not configured, the form still works in
-demo mode and logs payloads in the browser console.
+In local development, if neither Supabase nor `VITE_REGISTRATION_ENDPOINT` is configured, the form
+still works in demo mode, logs payloads in the browser console, and auto-downloads a CSV copy.
+
+## Supabase setup
+
+1. Create a Supabase project.
+2. Open the SQL editor and run the script in `scripts/supabase/volunteer_registrations.sql`.
+3. Copy your project URL and publishable key from the Supabase dashboard.
+4. Create `.env.local` in the project root:
+
+```env
+VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
+VITE_SUPABASE_TABLE=volunteer_registrations
+```
+
+5. Restart the dev server with `npm run dev`.
+
+The frontend writes one row per registration into the configured Supabase table and keeps the full
+form payload in the `payload` JSONB column for convenient retrieval later.
 
 ## Google Apps Script setup
 
