@@ -1,4 +1,4 @@
-export type FormOption = {
+﻿export type FormOption = {
   value: string;
   label: string;
   description?: string;
@@ -115,9 +115,10 @@ export const volunteerFormSchema = {
       { value: 'ho-tro-btc-theo-phan-cong', label: 'Hỗ trợ BTC theo phân công' },
     ] satisfies FormOption[],
     availabilityOptions: [
-      { value: 'co', label: 'CÃ³' },
-      { value: 'chua-chac', label: 'ChÆ°a cháº¯c' },
-      { value: 'khong', label: 'KhÃ´ng' },
+      { value: 'co', label: 'Có' },
+      { value: 'chua-chac', label: 'Chưa chắc' },
+      { value: 'khong', label: 'Không' },
     ] satisfies FormOption[],
   },
 } as const;
+

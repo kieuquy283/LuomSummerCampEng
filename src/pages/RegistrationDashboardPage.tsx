@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+﻿import { Fragment, useEffect, useMemo, useState } from 'react';
 
 import { getSupabaseClient, getVolunteerRegistrationsTable } from '../lib/supabase';
 
@@ -93,7 +93,7 @@ const safeObj = (value: unknown): Record<string, unknown> =>
   value && typeof value === 'object' && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
 
 const fixMojibake = (text: string) => {
-  const hasMojibake = /Ã.|áº|â€|Æ|Ä|Å|Ê|Ë|Ì|Ð|Ñ|Ò|Ó|Ô|Õ|Ö|×|Ø|Ù|Ú|Û|Ü|Ý/.test(text);
+  const hasMojibake = /(?:\u00C3.|\u00C2.|\u00E2.)/.test(text);
   if (!hasMojibake) return text;
   try {
     const bytes = Uint8Array.from([...text].map((char) => char.charCodeAt(0) & 0xff));
@@ -215,19 +215,40 @@ const RegistrationDashboardPage = () => {
   const [rows, setRows] = useState<RegistrationRow[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [dataSourceNote, setDataSourceNote] = useState('');
   const [query, setQuery] = useState('');
   const [departmentFilter, setDepartmentFilter] = useState('all');
   const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
 
-  const loadData = async () => {
-    if (!supabase) {
-      setError('Chua cau hinh Supabase. Can them VITE_SUPABASE_URL va VITE_SUPABASE_PUBLISHABLE_KEY.');
-      setError('Chưa cấu hình Supabase. Cần thêm VITE_SUPABASE_URL và VITE_SUPABASE_PUBLISHABLE_KEY.');
-      return;
+  const loadFallbackData = async () => {
+    const response = await fetch('/data/volunteer_registrations_fallback.json', { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Không thể tải dữ liệu fallback (HTTP ${response.status}).`);
     }
+    const fallbackData = (await response.json()) as RegistrationRow[];
+    setRows(fallbackData);
+    setDataSourceNote('Đang hiển thị dữ liệu từ file fallback trong public/data.');
+  };
 
+  const loadData = async () => {
     setLoading(true);
     setError('');
+
+    if (!supabase) {
+      try {
+        await loadFallbackData();
+      } catch (fallbackError) {
+        setRows([]);
+        setError(
+          fallbackError instanceof Error
+            ? fallbackError.message
+            : 'Chưa cấu hình Supabase và không tải được dữ liệu fallback.',
+        );
+      } finally {
+        setLoading(false);
+      }
+      return;
+    }
 
     const { data, error: queryError } = await supabase
       .from(table)
@@ -236,12 +257,23 @@ const RegistrationDashboardPage = () => {
       .limit(2000);
 
     if (queryError) {
-      setError(queryError.message);
+      try {
+        await loadFallbackData();
+        setError(`Không tải được Supabase: ${queryError.message}`);
+      } catch (fallbackError) {
+        setRows([]);
+        setError(
+          fallbackError instanceof Error
+            ? `Không tải được Supabase (${queryError.message}) và fallback (${fallbackError.message}).`
+            : `Không tải được Supabase: ${queryError.message}`,
+        );
+      }
       setLoading(false);
       return;
     }
 
     setRows((data || []) as RegistrationRow[]);
+    setDataSourceNote(`Nguồn dữ liệu: Supabase (${table}).`);
     setLoading(false);
   };
 
@@ -320,7 +352,8 @@ const RegistrationDashboardPage = () => {
               {loading ? 'Đang tải...' : 'Làm mới dữ liệu'}
             </button>
           </div>
-          {error ? <p className="mt-3 text-sm font-semibold text-rose-600">{error}</p> : null}
+          {dataSourceNote ? <p className="mt-3 text-sm font-semibold text-sky-700">{dataSourceNote}</p> : null}
+          {error ? <p className="mt-2 text-sm font-semibold text-rose-600">{error}</p> : null}
         </header>
 
         <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -532,3 +565,4 @@ const RegistrationDashboardPage = () => {
 };
 
 export default RegistrationDashboardPage;
+

@@ -1,0 +1,257 @@
+﻿[
+    {
+        "id":  10,
+        "created_at":  "2026-05-25T15:42:37.265499+00:00",
+        "source":  "landing_page_direct_form",
+        "submitted_at":  "2026-05-25T15:42:34.919+00:00",
+        "full_name":  "BQT",
+        "email":  "kieuquyvp@gmail.com",
+        "phone":  "0344758265",
+        "facebook_or_zalo":  "https://www.facebook.com/quy.kieu.1029770",
+        "selected_activities":  [
+                                    "Trại hè Công nghệ"
+                                ],
+        "selected_departments":  [
+                                     "Chuyên môn Tin học và Kỹ thuật",
+                                     "Truyền thông"
+                                 ],
+        "payload":  {
+                        "source":  "landing_page_direct_form",
+                        "formName":  "Đăng ký Tình nguyện viên Lượm - Chiến dịch mùa hè 2026",
+                        "createdAt":  "2026-05-25T15:42:34.919Z",
+                        "finalNote":  "",
+                        "activities":  [
+                                           "Trại hè Công nghệ"
+                                       ],
+                        "commitments":  {
+                                            "readiness":  "minh-san-sang",
+                                            "commitment80Percent":  "minh-cam-ket"
+                                        },
+                        "dataConsent":  true,
+                        "techAnswers":  {
+                                            "techFocusAreas":  [
+                                                                   "ung-dung-cong-nghe-ai"
+                                                               ],
+                                            "techFocusOther":  "",
+                                            "cyberSafetyGameIdea":  "chạy",
+                                            "offlineClassHandling":  "ưgwgr",
+                                            "motorCircuitExperience":  "33b3r",
+                                            "aiToolsAndComputerSkills":  "ChatGPT",
+                                            "cyberInfoSourcesAndRisks":  "hack",
+                                            "electricityKnowledgeRating":  "10",
+                                            "handmadeTechnicalSituation":  "rgr",
+                                            "digitalToolsForLessonDesign":  "newbie"
+                                        },
+                        "mediaAnswers":  {
+                                             "hasCamera":  "dien-thoai-chat-luong",
+                                             "mediaPositions":  [
+                                                                    "viet-bai"
+                                                                ],
+                                             "mediaPortfolioLink":  "iwbviuweviwe",
+                                             "mediaPositionOther":  ""
+                                         },
+                        "personalInfo":  {
+                                             "email":  "kieuquyvp@gmail.com",
+                                             "phone":  "0344758265",
+                                             "fullName":  "BQT",
+                                             "dateOfBirth":  "28/03/2005",
+                                             "facebookUrl":  "https://www.facebook.com/quy.kieu.1029770",
+                                             "certificates":  "",
+                                             "currentAddress":  "ửbwer",
+                                             "emergencyContact":  "ưegwev",
+                                             "schoolClassMajor":  "ửvwvve"
+                                         },
+                        "generalAnswers":  {
+                                               "talents":  "",
+                                               "strengths":  [
+                                                                 "ho-tro-ky-thuat"
+                                                             ],
+                                               "motivation":  "thích",
+                                               "strengthsOther":  "",
+                                               "knowledgeAboutLuom":  "không biết gì",
+                                               "pastVolunteerExperience":  ""
+                                           },
+                        "supportAnswers":  {
+                                               "supportTasks":  [
+
+                                                                ],
+                                               "supportExperience":  "",
+                                               "supportAvailability":  ""
+                                           },
+                        "primaryDepartment":  "tech",
+                        "additionalDepartments":  [
+                                                      "media"
+                                                  ]
+                    }
+    },
+    {
+        "id":  9,
+        "created_at":  "2026-05-25T14:56:51.109916+00:00",
+        "source":  "landing_page_direct_form",
+        "submitted_at":  "2026-05-25T14:56:49.886+00:00",
+        "full_name":  "BQT",
+        "email":  "kieuquyvp@gmail.com",
+        "phone":  "0344758265",
+        "facebook_or_zalo":  "https://www.facebook.com/quy.kieu.1029770",
+        "selected_activities":  [
+                                    "Trại hè Công nghệ"
+                                ],
+        "selected_departments":  [
+                                     "Truyền thông"
+                                 ],
+        "payload":  {
+                        "source":  "landing_page_direct_form",
+                        "formName":  "Đăng ký Tình nguyện viên Lượm - Chiến dịch mùa hè 2026",
+                        "createdAt":  "2026-05-25T14:56:49.886Z",
+                        "finalNote":  "",
+                        "activities":  [
+                                           "Trại hè Công nghệ"
+                                       ],
+                        "commitments":  {
+                                            "readiness":  "minh-san-sang",
+                                            "commitment80Percent":  "minh-cam-ket"
+                                        },
+                        "dataConsent":  true,
+                        "techAnswers":  {
+                                            "techFocusAreas":  [
+
+                                                               ],
+                                            "techFocusOther":  "",
+                                            "cyberSafetyGameIdea":  "",
+                                            "offlineClassHandling":  "",
+                                            "motorCircuitExperience":  "",
+                                            "aiToolsAndComputerSkills":  "",
+                                            "cyberInfoSourcesAndRisks":  "",
+                                            "electricityKnowledgeRating":  "",
+                                            "handmadeTechnicalSituation":  "",
+                                            "digitalToolsForLessonDesign":  ""
+                                        },
+                        "mediaAnswers":  {
+                                             "hasCamera":  "minh-co",
+                                             "mediaPositions":  [
+                                                                    "viet-bai"
+                                                                ],
+                                             "mediaPortfolioLink":  "iwuebiuwe",
+                                             "mediaPositionOther":  ""
+                                         },
+                        "personalInfo":  {
+                                             "email":  "kieuquyvp@gmail.com",
+                                             "phone":  "0344758265",
+                                             "fullName":  "BQT",
+                                             "dateOfBirth":  "28/03/2005",
+                                             "facebookUrl":  "https://www.facebook.com/quy.kieu.1029770",
+                                             "certificates":  "",
+                                             "currentAddress":  "ửbwer",
+                                             "emergencyContact":  "ưegwev",
+                                             "schoolClassMajor":  "ửvwvve"
+                                         },
+                        "generalAnswers":  {
+                                               "talents":  "",
+                                               "strengths":  [
+                                                                 "ho-tro-ky-thuat"
+                                                             ],
+                                               "motivation":  "abc",
+                                               "strengthsOther":  "",
+                                               "knowledgeAboutLuom":  "abc",
+                                               "pastVolunteerExperience":  ""
+                                           },
+                        "supportAnswers":  {
+                                               "supportTasks":  [
+
+                                                                ],
+                                               "supportExperience":  "",
+                                               "supportAvailability":  ""
+                                           },
+                        "primaryDepartment":  "media",
+                        "additionalDepartments":  [
+
+                                                  ]
+                    }
+    },
+    {
+        "id":  8,
+        "created_at":  "2026-05-25T14:49:23.983413+00:00",
+        "source":  "landing_page_direct_form",
+        "submitted_at":  "2026-05-25T14:49:22.662+00:00",
+        "full_name":  "KIEU THIEN QUY",
+        "email":  "kieuquyvp@gmail.com",
+        "phone":  "0344758265",
+        "facebook_or_zalo":  "https://www.facebook.com/quy.kieu.1029770",
+        "selected_activities":  [
+                                    "Trại hè Công nghệ"
+                                ],
+        "selected_departments":  [
+                                     "Hỗ trợ"
+                                 ],
+        "payload":  {
+                        "source":  "landing_page_direct_form",
+                        "formName":  "Đăng ký Tình nguyện viên Lượm - Chiến dịch mùa hè 2026",
+                        "createdAt":  "2026-05-25T14:49:22.662Z",
+                        "finalNote":  "",
+                        "activities":  [
+                                           "Trại hè Công nghệ"
+                                       ],
+                        "commitments":  {
+                                            "readiness":  "minh-san-sang",
+                                            "commitment80Percent":  "minh-cam-ket"
+                                        },
+                        "dataConsent":  true,
+                        "techAnswers":  {
+                                            "techFocusAreas":  [
+
+                                                               ],
+                                            "techFocusOther":  "",
+                                            "cyberSafetyGameIdea":  "",
+                                            "offlineClassHandling":  "",
+                                            "motorCircuitExperience":  "",
+                                            "aiToolsAndComputerSkills":  "",
+                                            "cyberInfoSourcesAndRisks":  "",
+                                            "electricityKnowledgeRating":  "",
+                                            "handmadeTechnicalSituation":  "",
+                                            "digitalToolsForLessonDesign":  ""
+                                        },
+                        "mediaAnswers":  {
+                                             "hasCamera":  "",
+                                             "mediaPositions":  [
+
+                                                                ],
+                                             "mediaPortfolioLink":  "",
+                                             "mediaPositionOther":  ""
+                                         },
+                        "personalInfo":  {
+                                             "email":  "kieuquyvp@gmail.com",
+                                             "phone":  "0344758265",
+                                             "fullName":  "KIEU THIEN QUY",
+                                             "dateOfBirth":  "28/03/2005",
+                                             "facebookUrl":  "https://www.facebook.com/quy.kieu.1029770",
+                                             "certificates":  "",
+                                             "currentAddress":  "ửbwer",
+                                             "emergencyContact":  "ưegwev",
+                                             "schoolClassMajor":  "ửvwvve"
+                                         },
+                        "generalAnswers":  {
+                                               "talents":  "",
+                                               "strengths":  [
+                                                                 "ho-tro-ky-thuat"
+                                                             ],
+                                               "motivation":  "ưeweve",
+                                               "strengthsOther":  "",
+                                               "knowledgeAboutLuom":  "êrev",
+                                               "pastVolunteerExperience":  ""
+                                           },
+                        "supportAnswers":  {
+                                               "supportTasks":  [
+                                                                    "ho-tro-btc-theo-phan-cong"
+                                                                ],
+                                               "supportExperience":  "",
+                                               "supportAvailability":  "chua-chac"
+                                           },
+                        "primaryDepartment":  "support",
+                        "additionalDepartments":  [
+
+                                                  ]
+                    }
+    }
+]
+
+

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 import { navLinks as defaultNavLinks } from '../data/programData';
@@ -67,6 +67,14 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
           >
             Đăng ký TNV
           </a>
+          <a
+            href="./dashboard.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden min-h-11 items-center justify-center rounded-full border border-brand-cyan/50 px-5 py-3 text-sm font-bold text-brand-cyan transition-all hover:-translate-y-0.5 hover:bg-brand-cyan/10 md:inline-flex"
+          >
+            Dashboard
+          </a>
 
           <button
             type="button"
@@ -99,6 +107,14 @@ const Header = ({ homeHref = '#gioi-thieu', navLinks = defaultNavLinks }: Header
               className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-6 py-3 text-base font-bold text-brand-navy transition-all hover:bg-brand-yellow-hover"
             >
               Đăng ký TNV
+            </a>
+            <a
+              href="./dashboard.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-full border border-brand-cyan/50 px-6 py-3 text-base font-bold text-brand-cyan transition-all hover:bg-brand-cyan/10"
+            >
+              Dashboard
             </a>
           </div>
         </div>
